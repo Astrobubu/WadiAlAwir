@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products | Wadi Al Awir Car Accessories | منتجاتنا | وادي العوير</title>
+  <meta name="description" content="Browse all car accessories for Jetour T2, Jetour Traveler T2, ROX 01 and more. Filter by vehicle model and category. Wadi Al Awir, Dubai.">
+  <meta name="theme-color" content="#070B14">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bebas+Neue&family=Cairo:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ---- Products page: car filter pills ---- */
+    .car-filter-pills {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0 1rem;
+      margin-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .car-filter-pills::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .car-filter-pills::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .car-filter-pills::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .car-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .car-pill:hover {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+
+    .car-pill--active {
+      background: var(--accent);
+      color: #070B14;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .car-pill__count {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .car-pill--active .car-pill__count {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* Page header */
+    .products-page-header {
+      padding-top: 7rem;
+      padding-bottom: 2rem;
+      text-align: center;
+    }
+
+    .products-page-header .section-title {
+      margin-bottom: 0.5rem;
+    }
+
+    /* RTL adjustments */
+    [dir="rtl"] .car-pill {
+      font-family: var(--font-ar-body);
+    }
+
+    @media (max-width: 768px) {
+      .car-filter-pills {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      [dir="rtl"] .car-filter-pills {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body data-lang="en">
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-ar">وادي العوير</span>
+        <span class="navbar__brand-en">WADI AL AWIR</span>
+      </a>
+      <ul class="navbar__links">
+        <li><a href="index.html#products" class="navbar__link" data-i18n="nav.products">Products</a></li>
+        <li><a href="index.html#services" class="navbar__link" data-i18n="nav.services">Services</a></li>
+        <li><a href="index.html#reviews" class="navbar__link" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="index.html#location" class="navbar__link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="cart-btn" id="cart-btn" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+        </button>
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+          <span class="lang-toggle__label" data-i18n="nav.lang">عربي</span>
+        </button>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html#products" data-i18n="nav.products">Products</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="index.html#reviews" data-i18n="nav.reviews">Reviews</a></li>
+      <li><a href="index.html#location" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ======================== PAGE HEADER ======================== -->
+  <section class="products-page-header" id="page-header">
+    <div class="container">
+      <div class="section-header animate-in">
+        <span class="section-header__label" data-i18n="products.label">OUR PRODUCTS</span>
+        <h1 class="section-title" id="page-title">Our Products</h1>
+        <p class="section-subtitle" data-i18n="products.subtitle">Premium accessories for your vehicle</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CAR MODEL FILTER ======================== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <!-- Car Model Pills -->
+      <div class="car-filter-pills" id="car-filter-pills">
+        <!-- Rendered by inline script -->
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div class="product-filters" id="product-filters">
+        <button class="filter-btn filter-btn--active" data-category="all" data-i18n="filter.all">All</button>
+        <button class="filter-btn" data-category="exterior" data-i18n="filter.exterior">Exterior</button>
+        <button class="filter-btn" data-category="interior" data-i18n="filter.interior">Interior</button>
+        <button class="filter-btn" data-category="lighting" data-i18n="filter.lighting">Lighting</button>
+        <button class="filter-btn" data-category="utility" data-i18n="filter.utility">Utility</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="product-grid animate-in" id="product-grid">
+        <!-- Rendered by renderProducts -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <span class="footer__brand-ar">وادي العوير</span>
+        <span class="footer__brand-sub" data-i18n="footer.tagline">Car Accessories &amp; Window Tinting</span>
+      </div>
+      <div class="footer__links">
+        <a href="index.html#products" data-i18n="nav.products">Products</a>
+        <a href="index.html#services" data-i18n="nav.services">Services</a>
+        <a href="index.html#reviews" data-i18n="nav.reviews">Reviews</a>
+        <a href="index.html#location" data-i18n="nav.contact">Contact</a>
+      </div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/wadi_alawir/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://wa.me/971553573156" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <p class="footer__copyright">&copy; 2024 Wadi Al Awir Car Accessories. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ======================== FLOATING WHATSAPP BUTTON ======================== -->
+  <a href="https://wa.me/971553573156" class="fab-whatsapp" id="fab-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="fab-whatsapp__pulse"></span>
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ======================== LIGHTBOX MODAL ======================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Product details">
+    <div class="lightbox__backdrop"></div>
+    <div class="lightbox__container">
+      <button class="lightbox__close" id="lightbox-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="lightbox__gallery">
+        <img class="lightbox__main-img" id="lightbox-main-img" src="" alt="">
+        <div class="lightbox__thumbs" id="lightbox-thumbs"></div>
+      </div>
+      <div class="lightbox__info">
+        <h3 class="lightbox__title" id="lightbox-title"></h3>
+        <div class="lightbox__price" id="lightbox-price"></div>
+        <div class="lightbox__warranty" id="lightbox-warranty"></div>
+        <ul class="lightbox__features" id="lightbox-features"></ul>
+        <a href="#" class="btn btn--whatsapp btn--lg lightbox__order-btn" id="lightbox-order-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-i18n="product.order">Order via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title" data-i18n="cart.title">Your Cart</h3>
+      <button class="cart-drawer__close" id="cart-drawer-close" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <p class="cart-drawer__empty" id="cart-empty" data-i18n="cart.empty">Your cart is empty</p>
+    <div class="cart-drawer__body" id="cart-drawer-body"></div>
+    <div class="cart-drawer__total" id="cart-drawer-total" style="display:none"></div>
+    <a href="#" class="btn btn--whatsapp btn--lg cart-drawer__send" id="cart-send-btn" target="_blank" rel="noopener" style="display:none">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="cart.send">Send Order via WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- ======================== SCRIPTS ======================== -->
+  <script src="js/products.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+  (function () {
+    /* ---- Determine language ---- */
+    var lang = 'en';
+    try {
+      var stored = localStorage.getItem('wadi-lang');
+      if (stored === 'ar' || stored === 'en') lang = stored;
+    } catch (e) {}
+
+    /* ---- Set page title based on language ---- */
+    var pageTitle = document.getElementById('page-title');
+    if (pageTitle) {
+      pageTitle.textContent = lang === 'ar' ? '\u0645\u0646\u062A\u062C\u0627\u062A\u0646\u0627' : 'Our Products';
+    }
+
+    /* ---- Read URL params for pre-selected car ---- */
+    var urlParams = new URLSearchParams(window.location.search);
+    var preselectedCar = urlParams.get('car') || 'all';
+
+    /* ---- Render car filter pills ---- */
+    function renderCarPills(currentLang, selectedCar) {
+      var container = document.getElementById('car-filter-pills');
+      if (!container || typeof window.CAR_MODELS === 'undefined') return;
+
+      var allLabel = currentLang === 'ar' ? '\u0627\u0644\u0643\u0644' : 'All';
+      var totalProducts = window.CAR_MODELS.reduce(function (sum, c) { return sum + c.productCount; }, 0);
+
+      var html = '<button class="car-pill' + (selectedCar === 'all' ? ' car-pill--active' : '') + '" data-car="all">' +
+        allLabel + ' <span class="car-pill__count">' + totalProducts + '</span></button>';
+
+      window.CAR_MODELS.forEach(function (car) {
+        var isActive = selectedCar === car.id;
+        html += '<button class="car-pill' + (isActive ? ' car-pill--active' : '') + '" data-car="' + car.id + '">' +
+          car.name[currentLang] + ' <span class="car-pill__count">' + car.productCount + '</span></button>';
+      });
+
+      container.innerHTML = html;
+
+      /* Attach click handlers */
+      var pills = container.querySelectorAll('.car-pill');
+      pills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          var carId = this.getAttribute('data-car');
+
+          /* Update active state */
+          pills.forEach(function (p) { p.classList.remove('car-pill--active'); });
+          this.classList.add('car-pill--active');
+
+          /* Update global _selectedCar */
+          window._selectedCar = carId;
+          if (typeof window.filterByCar === 'function') {
+            /* We call filterByCar but prevent scroll since we're already on the products page */
+            window._selectedCar = carId;
+          }
+
+          /* Reset category filter to All */
+          var filterBtns = document.querySelectorAll('.filter-btn');
+          filterBtns.forEach(function (btn) {
+            btn.classList.toggle('filter-btn--active', btn.getAttribute('data-category') === 'all');
+          });
+
+          /* Re-render products */
+          if (typeof window.renderProducts === 'function') {
+            window.renderProducts(currentLang, 'all', carId);
+          }
+
+          /* Update URL without reload */
+          var newUrl = carId === 'all'
+            ? window.location.pathname
+            : window.location.pathname + '?car=' + carId;
+          history.replaceState(null, '', newUrl);
+
+          if (typeof initScrollAnimations === 'function') initScrollAnimations();
+        });
+      });
+    }
+
+    /* ---- Override the setLanguage re-render to also update car pills ---- */
+    var _origSetLanguage = window.setLanguage;
+    if (typeof _origSetLanguage === 'function') {
+      window.setLanguage = function (newLang) {
+        _origSetLanguage(newLang);
+        /* Update page title */
+        var pt = document.getElementById('page-title');
+        if (pt) {
+          pt.textContent = newLang === 'ar' ? '\u0645\u0646\u062A\u062C\u0627\u062A\u0646\u0627' : 'Our Products';
+        }
+        /* Re-render car pills */
+        var activePill = document.querySelector('.car-pill--active');
+        var currentCar = (activePill && activePill.getAttribute('data-car')) || 'all';
+        renderCarPills(newLang, currentCar);
+      };
+    }
+
+    /* ---- Wait for DOMContentLoaded (main.js init runs here too) ---- */
+    /* main.js already calls init() on DOMContentLoaded which sets up:
+       navbar, hamburger, filters, cart, language toggle, scroll animations.
+       We just need to render car pills after that. */
+
+    var origInit = window.init;
+
+    /* Render car pills after main init completes */
+    document.addEventListener('DOMContentLoaded', function () {
+      /* Give main.js init a tick to complete */
+      setTimeout(function () {
+        var currentLang = 'en';
+        try {
+          var s = localStorage.getItem('wadi-lang');
+          if (s === 'ar' || s === 'en') currentLang = s;
+        } catch (e) {}
+
+        /* Set the global _selectedCar for the preselected car */
+        if (typeof window._selectedCar !== 'undefined') {
+          window._selectedCar = preselectedCar;
+        }
+
+        /* Render car pills */
+        renderCarPills(currentLang, preselectedCar);
+
+        /* Render all products (or filtered by preselected car) */
+        if (typeof window.renderProducts === 'function') {
+          window.renderProducts(currentLang, 'all', preselectedCar);
+        }
+
+        /* Load cart from localStorage */
+        if (typeof loadCart === 'function') loadCart();
+        if (typeof updateCartUI === 'function') updateCartUI();
+
+        /* Re-observe animations for newly rendered cards */
+        if (typeof initScrollAnimations === 'function') initScrollAnimations();
+      }, 0);
+    });
+  })();
+  </script>
+</body>
+</html>

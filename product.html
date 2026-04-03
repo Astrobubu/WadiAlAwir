@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loading... | Wadi Al Awir Car Accessories</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="">
+  <meta name="theme-color" content="#070B14">
+
+  <!-- Geo Meta -->
+  <meta name="geo.region" content="AE-DU">
+  <meta name="geo.placename" content="Al Awir Dubai">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="en_AE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bebas+Neue&family=Cairo:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Product Schema - injected by JS -->
+  <script id="product-schema" type="application/ld+json">{}</script>
+
+  <!-- Breadcrumb Schema - injected by JS -->
+  <script id="breadcrumb-schema" type="application/ld+json">{}</script>
+
+  <style>
+    /* ---- Product page additions ---- */
+
+    /* Car compatibility badge */
+    .product-page__car-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 0.45rem 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+    .product-page__car-badge svg { opacity: 0.6; flex-shrink: 0; }
+
+    /* Quantity selector */
+    .product-page__qty {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 1.25rem;
+    }
+    .product-page__qty-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-right: 1rem;
+    }
+    [dir="rtl"] .product-page__qty-label {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+    .product-page__qty-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .product-page__qty-btn:first-of-type { border-radius: 6px 0 0 6px; }
+    .product-page__qty-btn:last-of-type  { border-radius: 0 6px 6px 0; }
+    [dir="rtl"] .product-page__qty-btn:first-of-type { border-radius: 0 6px 6px 0; }
+    [dir="rtl"] .product-page__qty-btn:last-of-type  { border-radius: 6px 0 0 6px; }
+    .product-page__qty-btn:hover { background: var(--bg-surface); color: var(--accent); }
+    .product-page__qty-val {
+      width: 44px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Image zoom overlay */
+    .product-page__zoom-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0s 0.3s;
+      cursor: zoom-out;
+    }
+    .product-page__zoom-overlay--open {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s;
+    }
+    .product-page__zoom-overlay img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .product-page__zoom-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.2s;
+    }
+    .product-page__zoom-close:hover { background: rgba(255,255,255,0.2); }
+
+    /* Main image cursor */
+    .product-page__main-img-wrap { cursor: zoom-in; }
+
+    /* Related products section */
+    .related-section {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .related-section__title {
+      font-family: var(--font-en-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    .related-grid .product-card { text-decoration: none; color: inherit; }
+
+    /* Product not found */
+    .product-not-found {
+      text-align: center;
+      padding: 6rem 1rem;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-not-found__icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+    .product-not-found h2 {
+      font-family: var(--font-en-display);
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .product-not-found p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    /* Cart notification toast */
+    .cart-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120%);
+      background: var(--accent);
+      color: #070B14;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-full);
+      z-index: 3000;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s;
+      pointer-events: none;
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .cart-toast--show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body data-lang="en">
+
+  <!-- ======================== NAVBAR ======================== -->
+  <nav class="navbar navbar--scrolled" id="navbar">
+    <div class="navbar__inner container">
+      <a href="/" class="navbar__brand">
+        <span class="navbar__brand-ar">&#1608;&#1575;&#1583;&#1610; &#1575;&#1604;&#1593;&#1608;&#1610;&#1585;</span>
+        <span class="navbar__brand-en">WADI AL AWIR</span>
+      </a>
+      <ul class="navbar__links">
+        <li><a href="/#products" class="navbar__link" data-i18n="nav.products">Products</a></li>
+        <li><a href="/#services" class="navbar__link" data-i18n="nav.services">Services</a></li>
+        <li><a href="/#reviews" class="navbar__link" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="/#location" class="navbar__link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="cart-btn" id="cart-btn" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+        </button>
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+          <span class="lang-toggle__label" data-i18n="nav.lang">&#1593;&#1585;&#1576;&#1610;</span>
+        </button>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__links">
+      <li><a href="/#products" data-i18n="nav.products">Products</a></li>
+      <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="/#reviews" data-i18n="nav.reviews">Reviews</a></li>
+      <li><a href="/#location" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ======================== PRODUCT PAGE ======================== -->
+  <section class="product-page" id="product-page">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+        <a href="javascript:history.back()" class="product-page__back" id="pp-back-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span id="pp-back-text">Back</span>
+        </a>
+      </nav>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" id="breadcrumb-home">Home</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="/products.html" id="breadcrumb-products">Products</a>
+        <span class="breadcrumb__sep">/</span>
+        <span class="breadcrumb__current" id="breadcrumb-name"></span>
+      </nav>
+
+      <div class="product-page__layout" id="pp-layout">
+        <!-- LEFT: Gallery -->
+        <div class="product-page__gallery">
+          <div class="product-page__main-img-wrap" id="pp-main-img-wrap">
+            <img class="product-page__main-img" id="pp-main-img" src="" alt="">
+          </div>
+          <div class="product-page__thumbs" id="pp-thumbs"></div>
+        </div>
+
+        <!-- RIGHT: Info -->
+        <div class="product-page__info">
+          <h1 class="product-page__title" id="pp-title"></h1>
+          <div class="product-page__price" id="pp-price"></div>
+
+          <!-- Tabby installment -->
+          <div class="product-page__tabby" id="pp-tabby">
+            <div class="product-page__tabby-left">
+              <span class="product-page__tabby-amount" id="pp-tabby-amount"></span>
+              <span class="product-page__tabby-sub" id="pp-tabby-sub"></span>
+            </div>
+            <div class="product-page__tabby-right">
+              <img src="assets/badges/tabby-logo.png" alt="Tabby" height="22">
+            </div>
+          </div>
+
+          <!-- Warranty badge -->
+          <div class="product-page__warranty" id="pp-warranty" style="display:none">
+            <div class="product-page__warranty-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#4ade80" stroke-width="1.8"><path d="M12 2L3 7V12C3 17.25 6.75 21.5 12 22.5C17.25 21.5 21 17.25 21 12V7L12 2Z" fill="rgba(74,222,128,0.12)"/><polyline points="9 12 11 14 15 10" stroke-width="2.2"/></svg>
+            </div>
+            <span id="pp-warranty-text"></span>
+          </div>
+
+          <!-- Description -->
+          <p class="product-page__desc" id="pp-desc"></p>
+
+          <!-- Features -->
+          <ul class="product-page__features" id="pp-features"></ul>
+
+          <!-- Car compatibility -->
+          <div class="product-page__car-badge" id="pp-car-badge">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17h14M7 11l1.5-4h7L17 11M5 11h14v6H5z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+            <span id="pp-car-text"></span>
+          </div>
+
+          <!-- Quantity selector -->
+          <div class="product-page__qty" id="pp-qty-wrap">
+            <span class="product-page__qty-label" id="pp-qty-label">Quantity:</span>
+            <button class="product-page__qty-btn" id="pp-qty-minus" aria-label="Decrease quantity">&minus;</button>
+            <span class="product-page__qty-val" id="pp-qty-val">1</span>
+            <button class="product-page__qty-btn" id="pp-qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="product-page__actions">
+            <button class="btn btn--primary btn--lg" id="pp-cart-btn" style="width:100%">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span id="pp-cart-text">Add to Cart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== RELATED PRODUCTS ======================== -->
+  <section class="related-section" id="related-section" style="display:none">
+    <div class="container">
+      <h2 class="related-section__title" id="related-title">You may also like</h2>
+      <div class="related-grid" id="related-grid"></div>
+    </div>
+  </section>
+
+  <!-- ======================== IMAGE ZOOM OVERLAY ======================== -->
+  <div class="product-page__zoom-overlay" id="zoom-overlay">
+    <button class="product-page__zoom-close" id="zoom-close" aria-label="Close">&times;</button>
+    <img id="zoom-img" src="" alt="">
+  </div>
+
+  <!-- ======================== CART TOAST ======================== -->
+  <div class="cart-toast" id="cart-toast"></div>
+
+  <!-- ======================== CART DRAWER ======================== -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title" id="cart-drawer-title">Your Cart</h3>
+      <button class="cart-drawer__close" id="cart-drawer-close" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <p class="cart-drawer__empty" id="cart-empty">Your cart is empty</p>
+    <div class="cart-drawer__body" id="cart-drawer-body"></div>
+    <div class="cart-drawer__total" id="cart-drawer-total" style="display:none"></div>
+    <a href="#" class="btn btn--whatsapp btn--lg cart-drawer__send" id="cart-send-btn" target="_blank" rel="noopener" style="display:none">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span id="cart-send-text">Send Order via WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- ======================== FLOATING WHATSAPP BUTTON ======================== -->
+  <a href="https://wa.me/971553573156" class="fab-whatsapp" id="fab-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="fab-whatsapp__pulse"></span>
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <span class="footer__brand-ar">&#1608;&#1575;&#1583;&#1610; &#1575;&#1604;&#1593;&#1608;&#1610;&#1585;</span>
+        <span class="footer__brand-sub" id="footer-tagline">Car Accessories &amp; Window Tinting</span>
+      </div>
+      <div class="footer__links">
+        <a href="/#products" id="footer-link-products">Products</a>
+        <a href="/#services" id="footer-link-services">Services</a>
+        <a href="/#reviews" id="footer-link-reviews">Reviews</a>
+        <a href="/#location" id="footer-link-contact">Contact</a>
+      </div>
+      <p class="footer__copyright">&copy; 2024 Wadi Al Awir Car Accessories. <span id="footer-rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ======================== SCRIPTS ======================== -->
+  <script src="js/products.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script>
+  /* ============================================================
+     product-page.js  --  Wadi Al Awir Car Accessories
+     Individual product page: rendering, cart, language, zoom
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    /* ---- Translation dictionary (product page subset) ---- */
+    var T = {
+      en: {
+        'nav.products': 'Products',
+        'nav.services': 'Services',
+        'nav.reviews': 'Reviews',
+        'nav.contact': 'Contact',
+        'nav.lang': '\u0639\u0631\u0628\u064A',
+        'breadcrumb.home': 'Home',
+        'breadcrumb.products': 'Products',
+        'qty.label': 'Quantity:',
+        'addToCart': 'Add to Cart',
+        'orderWhatsApp': 'Order via WhatsApp',
+        'cart.title': 'Your Cart',
+        'cart.empty': 'Your cart is empty',
+        'cart.total': 'Total',
+        'cart.send': 'Send Order via WhatsApp',
+        'cart.added': 'Added to cart!',
+        'related.title': 'You may also like',
+        'tabby.text': 'Or split in 4 payments of {amount} AED - No late fees',
+        'warranty.suffix': 'Warranty',
+        'notfound.title': 'Product Not Found',
+        'notfound.text': 'Sorry, we couldn\'t find the product you\'re looking for.',
+        'notfound.back': 'Back to Products',
+        'footer.tagline': 'Car Accessories & Window Tinting',
+        'footer.rights': 'All rights reserved.',
+        'footer.products': 'Products',
+        'footer.services': 'Services',
+        'footer.reviews': 'Reviews',
+        'footer.contact': 'Contact'
+      },
+      ar: {
+        'nav.products': '\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
+        'nav.services': '\u0627\u0644\u062E\u062F\u0645\u0627\u062A',
+        'nav.reviews': '\u0627\u0644\u062A\u0642\u064A\u064A\u0645\u0627\u062A',
+        'nav.contact': '\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627',
+        'nav.lang': 'English',
+        'breadcrumb.home': '\u0627\u0644\u0631\u0626\u064A\u0633\u064A\u0629',
+        'breadcrumb.products': '\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
+        'qty.label': '\u0627\u0644\u0643\u0645\u064A\u0629:',
+        'addToCart': '\u0623\u0636\u0641 \u0644\u0644\u0633\u0644\u0629',
+        'orderWhatsApp': '\u0627\u0637\u0644\u0628 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628',
+        'cart.title': '\u0633\u0644\u0629 \u0627\u0644\u062A\u0633\u0648\u0642',
+        'cart.empty': '\u0633\u0644\u0629 \u0627\u0644\u062A\u0633\u0648\u0642 \u0641\u0627\u0631\u063A\u0629',
+        'cart.total': '\u0627\u0644\u0645\u062C\u0645\u0648\u0639',
+        'cart.send': '\u0623\u0631\u0633\u0644 \u0627\u0644\u0637\u0644\u0628 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628',
+        'cart.added': '\u062A\u0645\u062A \u0627\u0644\u0625\u0636\u0627\u0641\u0629!',
+        'related.title': '\u0642\u062F \u064A\u0639\u062C\u0628\u0643 \u0623\u064A\u0636\u0627\u064B',
+        'tabby.text': '\u0623\u0648 \u0642\u0633\u0651\u0645\u0647\u0627 \u0639\u0644\u0649 4 \u062F\u0641\u0639\u0627\u062A \u0628\u0642\u064A\u0645\u0629 {amount} \u062F.\u0625 \u0628\u062F\u0648\u0646 \u0631\u0633\u0648\u0645 \u062A\u0623\u062E\u064A\u0631',
+        'warranty.suffix': '\u0636\u0645\u0627\u0646',
+        'notfound.title': '\u0627\u0644\u0645\u0646\u062A\u062C \u063A\u064A\u0631 \u0645\u0648\u062C\u0648\u062F',
+        'notfound.text': '\u0639\u0630\u0631\u0627\u064B\u060C \u0644\u0645 \u0646\u062A\u0645\u0643\u0646 \u0645\u0646 \u0627\u0644\u0639\u062B\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0646\u062A\u062C \u0627\u0644\u0645\u0637\u0644\u0648\u0628.',
+        'notfound.back': '\u0627\u0644\u0639\u0648\u062F\u0629 \u0644\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
+        'footer.tagline': '\u0632\u064A\u0646\u0629 \u0627\u0644\u0633\u064A\u0627\u0631\u0627\u062A \u0648\u062A\u0638\u0644\u064A\u0644 \u0627\u0644\u0632\u062C\u0627\u062C',
+        'footer.rights': '\u062C\u0645\u064A\u0639 \u0627\u0644\u062D\u0642\u0648\u0642 \u0645\u062D\u0641\u0648\u0638\u0629.',
+        'footer.products': '\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
+        'footer.services': '\u0627\u0644\u062E\u062F\u0645\u0627\u062A',
+        'footer.reviews': '\u0627\u0644\u062A\u0642\u064A\u064A\u0645\u0627\u062A',
+        'footer.contact': '\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627'
+      }
+    };
+
+    function t(key) { return (T[lang] && T[lang][key]) || (T.en[key]) || key; }
+
+    /* ---- State ---- */
+    var lang = 'en';
+    var qty = 1;
+    var _cart = [];
+
+    /* ---- Load saved language ---- */
+    try {
+      var s = localStorage.getItem('wadi-lang');
+      if (s === 'ar' || s === 'en') lang = s;
+    } catch (e) {}
+
+    /* ---- Parse product ID from URL ---- */
+    var params = new URLSearchParams(window.location.search);
+    var productId = params.get('id');
+    var product = productId ? window.getProductById(productId) : null;
+
+    /* ---- Get car model info ---- */
+    function getCarModel(id) {
+      if (!window.CAR_MODELS) return null;
+      return window.CAR_MODELS.find(function(c) { return c.id === id; }) || null;
+    }
+
+    /* ============================================================
+       CART SYSTEM (localStorage-based, independent of main.js)
+       ============================================================ */
+    function saveCart() {
+      try { localStorage.setItem('wadi-cart', JSON.stringify(_cart)); } catch (e) {}
+    }
+
+    function loadCart() {
+      try {
+        var stored = localStorage.getItem('wadi-cart');
+        if (stored) {
+          var parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) _cart = parsed;
+        }
+      } catch (e) {}
+    }
+
+    function getCartCount() {
+      return _cart.reduce(function(sum, item) { return sum + item.qty; }, 0);
+    }
+
+    function getCartTotal() {
+      return _cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
+    }
+
+    function updateCartBadge() {
+      var badge = document.getElementById('cart-badge');
+      var count = getCartCount();
+      if (badge) {
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'flex' : 'none';
+      }
+    }
+
+    function addToCart(pid, quantity) {
+      var p = window.getProductById(pid);
+      if (!p) return;
+      var existing = _cart.find(function(item) { return item.id === pid; });
+      if (existing) {
+        existing.qty += (quantity || 1);
+      } else {
+        _cart.push({ id: pid, name: p.name, price: p.price, qty: (quantity || 1) });
+      }
+      saveCart();
+      updateCartBadge();
+      renderCartDrawer();
+      showCartToast();
+      bounceCartBtn();
+    }
+
+    function removeFromCart(pid) {
+      _cart = _cart.filter(function(item) { return item.id !== pid; });
+      saveCart();
+      updateCartBadge();
+      renderCartDrawer();
+    }
+
+    function updateCartQty(pid, newQty) {
+      if (newQty < 1) { removeFromCart(pid); return; }
+      var item = _cart.find(function(i) { return i.id === pid; });
+      if (item) { item.qty = newQty; }
+      saveCart();
+      updateCartBadge();
+      renderCartDrawer();
+    }
+
+    function toggleCart() {
+      var drawer = document.getElementById('cart-drawer');
+      var backdrop = document.getElementById('cart-drawer-backdrop');
+      if (drawer) {
+        drawer.classList.toggle('cart-drawer--open');
+        if (backdrop) backdrop.classList.toggle('cart-drawer-backdrop--open');
+        document.body.style.overflow = drawer.classList.contains('cart-drawer--open') ? 'hidden' : '';
+      }
+    }
+
+    function renderCartDrawer() {
+      var body = document.getElementById('cart-drawer-body');
+      var totalEl = document.getElementById('cart-drawer-total');
+      var sendBtn = document.getElementById('cart-send-btn');
+      var emptyMsg = document.getElementById('cart-empty');
+      var titleEl = document.getElementById('cart-drawer-title');
+      var sendText = document.getElementById('cart-send-text');
+
+      if (titleEl) titleEl.textContent = t('cart.title');
+      if (emptyMsg) emptyMsg.textContent = t('cart.empty');
+      if (sendText) sendText.textContent = t('cart.send');
+
+      if (!body) return;
+
+      if (_cart.length === 0) {
+        body.innerHTML = '';
+        if (emptyMsg) emptyMsg.style.display = 'block';
+        if (totalEl) totalEl.style.display = 'none';
+        if (sendBtn) sendBtn.style.display = 'none';
+        return;
+      }
+
+      if (emptyMsg) emptyMsg.style.display = 'none';
+      if (totalEl) {
+        totalEl.style.display = 'flex';
+        totalEl.innerHTML = '<span>' + t('cart.total') + '</span><span>' + getCartTotal() + ' AED</span>';
+      }
+      if (sendBtn) {
+        sendBtn.style.display = 'flex';
+        if (typeof window.getCartWhatsAppURL === 'function') {
+          sendBtn.href = window.getCartWhatsAppURL(_cart, lang);
+        }
+      }
+
+      body.innerHTML = _cart.map(function(item) {
+        var p = window.getProductById(item.id);
+        var thumb = p ? p.thumbnail : '';
+        var name = item.name[lang] || item.name.en;
+        return '<div class="cart-item">' +
+          '<img class="cart-item__img" src="' + thumb + '" alt="' + name + '" width="60" height="60">' +
+          '<div class="cart-item__info">' +
+            '<p class="cart-item__name">' + name + '</p>' +
+            '<p class="cart-item__price">' + item.price + ' AED x ' + item.qty + '</p>' +
+          '</div>' +
+          '<div class="cart-item__actions">' +
+            '<button class="cart-item__qty-btn" data-action="dec" data-id="' + item.id + '">\u2212</button>' +
+            '<span class="cart-item__qty">' + item.qty + '</span>' +
+            '<button class="cart-item__qty-btn" data-action="inc" data-id="' + item.id + '">+</button>' +
+            '<button class="cart-item__remove" data-action="remove" data-id="' + item.id + '">&times;</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      /* Attach delegated event listeners */
+      body.querySelectorAll('[data-action]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-id');
+          var action = btn.getAttribute('data-action');
+          var item = _cart.find(function(i) { return i.id === id; });
+          if (!item) return;
+          if (action === 'inc') updateCartQty(id, item.qty + 1);
+          else if (action === 'dec') updateCartQty(id, item.qty - 1);
+          else if (action === 'remove') removeFromCart(id);
+        });
+      });
+    }
+
+    function showCartToast() {
+      var toast = document.getElementById('cart-toast');
+      if (!toast) return;
+      toast.textContent = t('cart.added');
+      toast.classList.add('cart-toast--show');
+      setTimeout(function() { toast.classList.remove('cart-toast--show'); }, 2000);
+    }
+
+    function bounceCartBtn() {
+      var btn = document.getElementById('cart-btn');
+      if (btn) {
+        btn.classList.add('cart-btn--bounce');
+        setTimeout(function() { btn.classList.remove('cart-btn--bounce'); }, 500);
+      }
+    }
+
+    /* Expose for inline onclick if needed */
+    window.addToCart = addToCart;
+    window.removeFromCart = removeFromCart;
+    window.updateCartQty = updateCartQty;
+    window.toggleCart = toggleCart;
+
+    /* ============================================================
+       RENDER PAGE
+       ============================================================ */
+    function renderNotFound() {
+      var page = document.getElementById('product-page');
+      if (!page) return;
+      page.innerHTML = '<div class="container"><div class="product-not-found">' +
+        '<div class="product-not-found__icon">&#128269;</div>' +
+        '<h2 id="nf-title">' + t('notfound.title') + '</h2>' +
+        '<p id="nf-text">' + t('notfound.text') + '</p>' +
+        '<a href="/#products" class="btn btn--primary btn--lg" id="nf-btn">' + t('notfound.back') + '</a>' +
+        '</div></div>';
+      document.title = t('notfound.title') + ' | Wadi Al Awir';
+    }
+
+    function render() {
+      /* Set HTML dir/lang */
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.body.dataset.lang = lang;
+
+      /* Translate data-i18n elements */
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (T[lang] && T[lang][key] !== undefined) {
+          el.textContent = T[lang][key];
+        }
+      });
+
+      /* If no product, show not found */
+      if (!product) {
+        renderNotFound();
+        renderCartDrawer();
+        return;
+      }
+
+      /* ---- SEO Meta ---- */
+      var pageTitle = product.name[lang] + ' | Wadi Al Awir Car Accessories';
+      document.title = pageTitle;
+
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = product.description[lang];
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.href = 'https://wadialawir.com/product.html?id=' + product.id;
+
+      /* OG tags */
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.content = pageTitle;
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.content = product.description[lang];
+      var ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg) ogImg.content = 'https://wadialawir.com/' + product.thumbnail;
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = 'https://wadialawir.com/product.html?id=' + product.id;
+
+      /* Twitter tags */
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.content = pageTitle;
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.content = product.description[lang];
+      var twImg = document.querySelector('meta[name="twitter:image"]');
+      if (twImg) twImg.content = 'https://wadialawir.com/' + product.thumbnail;
+
+      /* ---- Product Schema JSON-LD ---- */
+      var schemaEl = document.getElementById('product-schema');
+      if (schemaEl) {
+        schemaEl.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.name.en,
+          "description": product.description.en,
+          "image": product.images.map(function(img) { return 'https://wadialawir.com/' + img; }),
+          "brand": { "@type": "Brand", "name": "Wadi Al Awir" },
+          "sku": product.id,
+          "offers": {
+            "@type": "Offer",
+            "price": product.price,
+            "priceCurrency": "AED",
+            "availability": "https://schema.org/InStock",
+            "seller": { "@type": "Organization", "name": "Wadi Al Awir Car Accessories" },
+            "url": "https://wadialawir.com/product.html?id=" + product.id
+          }
+        });
+      }
+
+      /* ---- Breadcrumb Schema ---- */
+      var bcSchema = document.getElementById('breadcrumb-schema');
+      if (bcSchema) {
+        bcSchema.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wadialawir.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://wadialawir.com/#products" },
+            { "@type": "ListItem", "position": 3, "name": product.name.en, "item": "https://wadialawir.com/product.html?id=" + product.id }
+          ]
+        });
+      }
+
+      /* ---- Breadcrumb ---- */
+      var bcHome = document.getElementById('breadcrumb-home');
+      if (bcHome) bcHome.textContent = t('breadcrumb.home');
+      var bcProducts = document.getElementById('breadcrumb-products');
+      if (bcProducts) bcProducts.textContent = t('breadcrumb.products');
+      var bcName = document.getElementById('breadcrumb-name');
+      if (bcName) bcName.textContent = product.name[lang];
+
+      /* ---- Main Image ---- */
+      var mainImg = document.getElementById('pp-main-img');
+      if (mainImg) {
+        mainImg.src = product.images[0];
+        mainImg.alt = product.name[lang];
+      }
+
+      /* ---- Thumbnails ---- */
+      var thumbsWrap = document.getElementById('pp-thumbs');
+      if (thumbsWrap) {
+        thumbsWrap.innerHTML = product.images.map(function(img, idx) {
+          var cls = idx === 0 ? ' product-page__thumb--active' : '';
+          return '<img class="product-page__thumb' + cls + '" src="' + img + '" alt="' + product.name[lang] + ' ' + (idx + 1) + '" width="80" height="80" loading="lazy" data-full-src="' + img + '">';
+        }).join('');
+      }
+
+      /* ---- Title ---- */
+      var titleEl = document.getElementById('pp-title');
+      if (titleEl) titleEl.textContent = product.name[lang];
+
+      /* ---- Price ---- */
+      var priceEl = document.getElementById('pp-price');
+      if (priceEl) {
+        priceEl.innerHTML = '<span class="product-page__price-amount">' + product.price + '</span> <span class="product-page__price-currency">' + product.currency + '</span>';
+      }
+
+      /* ---- Tabby ---- */
+      var tabbyAmount = (product.price / 4).toFixed(2);
+      var tabbyAmountEl = document.getElementById('pp-tabby-amount');
+      var tabbySubEl = document.getElementById('pp-tabby-sub');
+      if (tabbyAmountEl) {
+        if (lang === 'ar') {
+          tabbyAmountEl.innerHTML = '4 دفعات بقيمة <strong>' + tabbyAmount + ' د.إ</strong>';
+          if (tabbySubEl) tabbySubEl.textContent = 'بدون رسوم تأخير';
+        } else {
+          tabbyAmountEl.innerHTML = '4 payments of <strong>' + tabbyAmount + ' AED</strong>';
+          if (tabbySubEl) tabbySubEl.textContent = 'No late fees, no interest';
+        }
+      }
+
+      /* ---- Warranty ---- */
+      var warrantyEl = document.getElementById('pp-warranty');
+      var warrantyTextEl = document.getElementById('pp-warranty-text');
+      if (warrantyEl) {
+        if (product.warranty) {
+          if (warrantyTextEl) warrantyTextEl.textContent = product.warranty + ' ' + (lang === 'ar' ? 'ضمان' : 'Warranty');
+          warrantyEl.style.display = '';
+        } else {
+          warrantyEl.style.display = 'none';
+        }
+      }
+
+      /* ---- Description ---- */
+      var descEl = document.getElementById('pp-desc');
+      if (descEl) descEl.textContent = product.description[lang];
+
+      /* ---- Features ---- */
+      var featuresEl = document.getElementById('pp-features');
+      if (featuresEl) {
+        featuresEl.innerHTML = (product.features[lang] || []).map(function(f) {
+          return '<li>' + f + '</li>';
+        }).join('');
+      }
+
+      /* ---- Car Compatibility ---- */
+      var carBadge = document.getElementById('pp-car-badge');
+      var carText = document.getElementById('pp-car-text');
+      if (carBadge && carText) {
+        var carModel = getCarModel(product.carModel);
+        var carName = carModel ? carModel.name[lang] : product.carModel;
+        carText.textContent = carName + ' (' + product.carYear + ')';
+      }
+
+      /* ---- Quantity ---- */
+      var qtyLabel = document.getElementById('pp-qty-label');
+      if (qtyLabel) qtyLabel.textContent = t('qty.label');
+      var qtyVal = document.getElementById('pp-qty-val');
+      if (qtyVal) qtyVal.textContent = qty;
+
+      /* ---- Action buttons ---- */
+      var cartText = document.getElementById('pp-cart-text');
+      if (cartText) cartText.textContent = t('addToCart');
+
+      var orderText = document.getElementById('pp-order-text');
+      if (orderText) orderText.textContent = t('orderWhatsApp');
+
+      var orderBtn = document.getElementById('pp-order-btn');
+      if (orderBtn && typeof window.getProductWhatsAppURL === 'function') {
+        orderBtn.href = window.getProductWhatsAppURL(product, lang);
+      }
+
+      /* ---- Footer ---- */
+      var footerTagline = document.getElementById('footer-tagline');
+      if (footerTagline) footerTagline.innerHTML = t('footer.tagline');
+      var footerRights = document.getElementById('footer-rights');
+      if (footerRights) footerRights.textContent = t('footer.rights');
+      var flProducts = document.getElementById('footer-link-products');
+      if (flProducts) flProducts.textContent = t('footer.products');
+      var flServices = document.getElementById('footer-link-services');
+      if (flServices) flServices.textContent = t('footer.services');
+      var flReviews = document.getElementById('footer-link-reviews');
+      if (flReviews) flReviews.textContent = t('footer.reviews');
+      var flContact = document.getElementById('footer-link-contact');
+      if (flContact) flContact.textContent = t('footer.contact');
+
+      /* ---- WhatsApp FAB ---- */
+      var fabWA = document.getElementById('fab-whatsapp');
+      if (fabWA && typeof window.getGeneralWhatsAppURL === 'function') {
+        fabWA.href = window.getGeneralWhatsAppURL(lang);
+      }
+
+      /* ---- Related Products ---- */
+      renderRelated();
+
+      /* ---- Cart Drawer ---- */
+      renderCartDrawer();
+    }
+
+    /* ============================================================
+       RELATED PRODUCTS
+       ============================================================ */
+    function renderRelated() {
+      if (!product) return;
+      var section = document.getElementById('related-section');
+      var grid = document.getElementById('related-grid');
+      var title = document.getElementById('related-title');
+      if (!section || !grid) return;
+
+      if (title) title.textContent = t('related.title');
+
+      /* Filter: same carModel, exclude current, limit 4 */
+      var related = PRODUCTS.filter(function(p) {
+        return p.carModel === product.carModel && p.id !== product.id;
+      }).slice(0, 4);
+
+      if (related.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
+
+      section.style.display = '';
+
+      grid.innerHTML = related.map(function(p) {
+        var name = p.name[lang] || p.name.en;
+        var badgeHTML = '';
+        if (p.badge === 'warranty') {
+          badgeHTML = '<span class="product-card__badge">' + (lang === 'ar' ? '\u0636\u0645\u0627\u0646' : 'Warranty') + '</span>';
+        } else if (p.badge === 'popular') {
+          badgeHTML = '<span class="product-card__badge">' + (lang === 'ar' ? '\u0627\u0644\u0623\u0643\u062B\u0631 \u0645\u0628\u064A\u0639\u0627\u064B' : 'Popular') + '</span>';
+        }
+
+        var tabbyAmt = (p.price / 4).toFixed(2);
+
+        return '<a href="product.html?id=' + p.id + '" class="product-card">' +
+          '<div class="product-card__image-wrap">' +
+            badgeHTML +
+            '<img class="product-card__image" src="' + p.thumbnail + '" alt="' + name + '" loading="lazy" width="400" height="300">' +
+          '</div>' +
+          '<div class="product-card__body">' +
+            '<div class="product-card__tabby">' +
+              '<img src="assets/badges/tabby-logo.png" alt="Tabby" height="14">' +
+              '<span>' + tabbyAmt + ' AED x4</span>' +
+            '</div>' +
+            '<h3 class="product-card__name">' + name + '</h3>' +
+            '<p class="product-card__price">' + p.price + ' <span class="product-card__price-currency">' + p.currency + '</span></p>' +
+          '</div>' +
+        '</a>';
+      }).join('');
+    }
+
+    /* ============================================================
+       EVENT LISTENERS
+       ============================================================ */
+    function initEvents() {
+      /* ---- Thumbnail clicks ---- */
+      var thumbsWrap = document.getElementById('pp-thumbs');
+      var mainImg = document.getElementById('pp-main-img');
+      if (thumbsWrap) {
+        thumbsWrap.addEventListener('click', function(e) {
+          var thumb = e.target.closest('.product-page__thumb');
+          if (!thumb) return;
+          thumbsWrap.querySelectorAll('.product-page__thumb').forEach(function(t) {
+            t.classList.remove('product-page__thumb--active');
+          });
+          thumb.classList.add('product-page__thumb--active');
+          if (mainImg) mainImg.src = thumb.getAttribute('data-full-src');
+        });
+      }
+
+      /* ---- Image zoom ---- */
+      var mainImgWrap = document.getElementById('pp-main-img-wrap');
+      var zoomOverlay = document.getElementById('zoom-overlay');
+      var zoomImg = document.getElementById('zoom-img');
+      var zoomClose = document.getElementById('zoom-close');
+
+      if (mainImgWrap && zoomOverlay) {
+        mainImgWrap.addEventListener('click', function() {
+          if (mainImg && mainImg.src) {
+            zoomImg.src = mainImg.src;
+            zoomImg.alt = mainImg.alt;
+            zoomOverlay.classList.add('product-page__zoom-overlay--open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+        zoomOverlay.addEventListener('click', function(e) {
+          if (e.target === zoomOverlay || e.target === zoomClose) {
+            closeZoom();
+          }
+        });
+        if (zoomClose) {
+          zoomClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeZoom();
+          });
+        }
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && zoomOverlay.classList.contains('product-page__zoom-overlay--open')) {
+            closeZoom();
+          }
+        });
+      }
+
+      function closeZoom() {
+        zoomOverlay.classList.remove('product-page__zoom-overlay--open');
+        /* Only restore scroll if cart drawer not open */
+        var drawer = document.getElementById('cart-drawer');
+        if (!drawer || !drawer.classList.contains('cart-drawer--open')) {
+          document.body.style.overflow = '';
+        }
+      }
+
+      /* ---- Quantity selector ---- */
+      var qtyMinus = document.getElementById('pp-qty-minus');
+      var qtyPlus = document.getElementById('pp-qty-plus');
+      var qtyVal = document.getElementById('pp-qty-val');
+
+      if (qtyMinus) {
+        qtyMinus.addEventListener('click', function() {
+          if (qty > 1) { qty--; if (qtyVal) qtyVal.textContent = qty; }
+        });
+      }
+      if (qtyPlus) {
+        qtyPlus.addEventListener('click', function() {
+          qty++;
+          if (qtyVal) qtyVal.textContent = qty;
+        });
+      }
+
+      /* ---- Add to Cart button ---- */
+      var cartBtn = document.getElementById('pp-cart-btn');
+      if (cartBtn && product) {
+        cartBtn.addEventListener('click', function() {
+          addToCart(product.id, qty);
+        });
+      }
+
+      /* ---- Language toggle ---- */
+      var langToggle = document.getElementById('lang-toggle');
+      if (langToggle) {
+        langToggle.addEventListener('click', function() {
+          lang = lang === 'en' ? 'ar' : 'en';
+          try { localStorage.setItem('wadi-lang', lang); } catch (e) {}
+          render();
+          initEvents(); /* Re-bind dynamic elements */
+        });
+      }
+
+      /* ---- Hamburger menu ---- */
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (hamburger && mobileMenu) {
+        hamburger.onclick = function() {
+          hamburger.classList.toggle('navbar__hamburger--active');
+          mobileMenu.classList.toggle('mobile-menu--open');
+          var isOpen = mobileMenu.classList.contains('mobile-menu--open');
+          hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+        /* Close on link click */
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('navbar__hamburger--active');
+            mobileMenu.classList.remove('mobile-menu--open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* ---- Cart button ---- */
+      var cartBtnNav = document.getElementById('cart-btn');
+      if (cartBtnNav) {
+        cartBtnNav.onclick = toggleCart;
+      }
+
+      /* ---- Cart close ---- */
+      var cartClose = document.getElementById('cart-drawer-close');
+      if (cartClose) cartClose.onclick = toggleCart;
+
+      /* ---- Cart backdrop ---- */
+      var cartBackdrop = document.getElementById('cart-drawer-backdrop');
+      if (cartBackdrop) cartBackdrop.onclick = toggleCart;
+
+      /* ---- Escape to close cart drawer ---- */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var drawer = document.getElementById('cart-drawer');
+          if (drawer && drawer.classList.contains('cart-drawer--open')) {
+            toggleCart();
+          }
+        }
+      });
+    }
+
+    /* ============================================================
+       BOOT
+       ============================================================ */
+    loadCart();
+    render();
+    initEvents();
+
+  })();
+  </script>
+</body>
+</html>
