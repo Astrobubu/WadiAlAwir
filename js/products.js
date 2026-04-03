@@ -363,6 +363,150 @@ const PRODUCTS = [
       { id: "black", name: { en: "Black", ar: "أسود" }, color: "#2A2A2A", imageIndex: 5 }
     ]
   },
+  {
+    id: "rox-01-spoiler",
+    name: { en: "Rear Spoiler Wing (Glossy Black)", ar: "جناح سبويلر خلفي (أسود لامع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Glossy black rear spoiler wing for ROX 01. Enhances the sporty look and improves aerodynamics.",
+      ar: "جناح سبويلر خلفي أسود لامع لروكس 01. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية"
+    },
+    features: {
+      en: ["Glossy black finish", "Custom fit for ROX 01", "Improved aerodynamics", "Easy bolt-on installation"],
+      ar: ["لون أسود لامع", "مقاس مخصص لروكس 01", "ديناميكا هوائية محسّنة", "تركيب سهل بمسامير"]
+    },
+    images: [
+      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-side-view.webp",
+      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-installed.jpg",
+      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-close-up.webp",
+      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-rear.webp"
+    ],
+    thumbnail: "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-side-view.webp",
+    badge: null
+  },
+  {
+    id: "rox-01-mud-flaps",
+    name: { en: "4Pcs Mudguards Mud Flaps", ar: "واقي طين 4 قطع" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 250,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "4-piece mud flaps set for ROX 01. Protects car fenders from road debris, mud, and water splash.",
+      ar: "طقم واقي طين 4 قطع لروكس 01. يحمي رفارف السيارة من الحصى والطين ورذاذ الماء"
+    },
+    features: {
+      en: ["4-piece set (front & rear)", "Custom fit for ROX 01", "Durable flexible material", "No drilling installation"],
+      ar: ["طقم 4 قطع (أمامي وخلفي)", "مقاس مخصص لروكس 01", "مادة مرنة متينة", "تركيب بدون حفر"]
+    },
+    images: [
+      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-front.jpg",
+      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-rear.jpg",
+      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-installed.jpg"
+    ],
+    thumbnail: "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-front.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-hr-wheel-spacer",
+    name: { en: "H&R TRAK+ Wheel Spacer Set", ar: "طقم فواصل عجلات H&R TRAK+" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 1800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "German-made H&R TRAK+ wheel spacers for ROX 01. Improves handling, stability, and gives a wider aggressive stance. Includes lug nuts and hardware.",
+      ar: "فواصل عجلات H&R TRAK+ صناعة ألمانية لروكس 01. تحسّن الثبات والتحكم وتعطي مظهراً عريضاً وعدوانياً. تشمل الصواميل والقطع"
+    },
+    features: {
+      en: ["Made in Germany by H&R", "TRAK+ hub-centric design", "Improved handling & stability", "Wider aggressive stance", "Includes lug nuts & hardware"],
+      ar: ["صناعة ألمانية من H&R", "تصميم TRAK+ متمركز على المحور", "تحسين الثبات والتحكم", "مظهر عريض وعدواني", "يشمل الصواميل والقطع"]
+    },
+    images: [
+      "HR Wheel Spacer Jetour T2/jetour-t2-hr-trak-wheel-spacer-set.jpg"
+    ],
+    thumbnail: "HR Wheel Spacer Jetour T2/jetour-t2-hr-trak-wheel-spacer-set.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-brake-caliper",
+    name: { en: "Brake Caliper Cover Set", ar: "غطاء فرامل كاليبر" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 750,
+    currency: "AED",
+    warranty: "1 year",
+    category: "exterior",
+    description: {
+      en: "Premium ROX-branded brake caliper covers. Available in multiple colors for a custom sporty look. 1 year warranty included.",
+      ar: "أغطية كاليبر فرامل بعلامة ROX. متوفرة بألوان متعددة لمظهر رياضي مخصص. ضمان سنة"
+    },
+    features: {
+      en: ["ROX branded design", "Multiple color options", "Easy installation", "Protective design", "1 Year Warranty"],
+      ar: ["تصميم بعلامة ROX", "خيارات ألوان متعددة", "تركيب سهل", "تصميم واقي", "ضمان سنة"]
+    },
+    images: [
+      "Brake Caliper Cover Jetour ROX 01/jetour-rox-01-brake-caliper-cover-colors.png"
+    ],
+    thumbnail: "Brake Caliper Cover Jetour ROX 01/jetour-rox-01-brake-caliper-cover-colors.png",
+    badge: "warranty"
+  },
+  {
+    id: "rox-01-phone-holder",
+    name: { en: "Car Phone Holder Bracket", ar: "حامل هاتف للسيارة" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 100,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Custom-fit phone holder bracket for ROX 01. Stable mount with easy access to your phone while driving.",
+      ar: "حامل هاتف مخصص لروكس 01. تثبيت ثابت مع سهولة الوصول للهاتف أثناء القيادة"
+    },
+    features: {
+      en: ["Custom fit for ROX 01", "Stable no-shake mount", "Easy installation", "360° adjustable angle"],
+      ar: ["مقاس مخصص لروكس 01", "تثبيت ثابت بدون اهتزاز", "تركيب سهل", "زاوية قابلة للتعديل 360°"]
+    },
+    images: [
+      "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-bracket.jpg",
+      "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-installed.jpg"
+    ],
+    thumbnail: "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-bracket.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-screen-protector",
+    name: { en: "Dashboard Screen Protector Set", ar: "طقم حماية شاشة لوحة القيادة" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 250,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Tempered glass screen protector set for ROX 01 dashboard and instrument cluster. Anti-scratch, anti-fingerprint, HD clarity.",
+      ar: "طقم حماية شاشة زجاج مقوى للوحة القيادة وعداد جيتور روكس 01. مضاد للخدش وبصمات الأصابع، وضوح عالي"
+    },
+    features: {
+      en: ["Covers main screen + instrument cluster", "Tempered glass protection", "Anti-scratch & anti-fingerprint", "HD clarity, no bubbles"],
+      ar: ["يغطي الشاشة الرئيسية + عداد السرعة", "حماية زجاج مقوى", "مضاد للخدش وبصمات الأصابع", "وضوح عالي بدون فقاعات"]
+    },
+    images: [
+      "Screen Protector Jetour ROX 01/jetour-rox-01-screen-protector-dashboard.jpg"
+    ],
+    thumbnail: "Screen Protector Jetour ROX 01/jetour-rox-01-screen-protector-dashboard.jpg",
+    badge: null
+  }
 ];
 
 const CAR_MODELS = [
@@ -372,6 +516,13 @@ const CAR_MODELS = [
     years: "2023-2024",
     heroImage: "assets/cars/jetour-t2.jpg",
     productCount: 14
+  },
+  {
+    id: "jetour-rox-01",
+    name: { en: "ROX 01", ar: "روكس 01" },
+    years: "2024-2025",
+    heroImage: "assets/cars/rox-01.jpg",
+    productCount: 6
   }
 ];
 
