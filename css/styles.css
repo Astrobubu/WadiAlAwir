@@ -1027,13 +1027,11 @@ button {
 
 .service-card {
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   padding: 2rem 1.5rem;
   text-align: center;
-  -webkit-transition: border-color 0.5s ease;
-  -moz-transition: border-color 0.5s ease;
-  transition: border-color 0.5s ease;
+  transition: border-color var(--transition-base);
   position: relative;
 }
 
@@ -1048,7 +1046,7 @@ button {
 }
 
 .service-card:hover {
-  border-color: rgba(212, 168, 83, 0.6);
+  border-color: var(--accent);
 }
 
 .service-card__icon {
