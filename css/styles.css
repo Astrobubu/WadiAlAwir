@@ -49,6 +49,10 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  image-rendering: auto;
+}
+
 body {
   background-color: var(--bg-deep);
   color: var(--text-primary);
@@ -702,6 +706,9 @@ button {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   background: var(--bg-elevated);
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .car-card__info {
