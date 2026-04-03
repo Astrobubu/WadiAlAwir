@@ -786,8 +786,8 @@ button {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
 }
 
 .section-cta {
@@ -1561,8 +1561,10 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .footer__brand-ar {
@@ -1622,6 +1624,22 @@ button {
 .footer__copyright {
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+.footer__powered {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
+.footer__powered a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer__powered a:hover {
+  text-decoration: underline;
 }
 
 
