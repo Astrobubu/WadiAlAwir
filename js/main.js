@@ -47,7 +47,15 @@ var TRANSLATIONS = {
     "product.order": "Order via WhatsApp",
     "product.details": "Details",
     "product.inquire": "Inquire",
-    "products.viewAll": "View All Products"
+    "products.viewAll": "View All Products",
+    "footer.copyright": "\u00a9 2026 Wadi Al Awir Car Accessories.",
+    "footer.powered": "Powered by",
+    "reviews.subtitle": "4.4 \u2605 on Google (33 reviews)",
+    "review.1": "\u201cExcellent place for JETOUR accessories. Wide range of products and very helpful staff.\u201d",
+    "review.2": "\u201cThe majority of the accessories are in stock, the team is fantastic and very knowledgeable.\u201d",
+    "review.3": "\u201cBest shop for Jetour T2 accessories in Dubai. Professional installation and fair prices.\u201d",
+    "review.4": "\u201cGreat selection of car accessories. Good quality products and reasonable prices. Recommended!\u201d",
+    "review.source": "Google Review"
   },
   ar: {
     "nav.products": "\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A",
@@ -89,7 +97,15 @@ var TRANSLATIONS = {
     "product.order": "\u0627\u0637\u0644\u0628 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628",
     "product.details": "\u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644",
     "product.inquire": "\u0627\u0633\u062A\u0641\u0633\u0627\u0631",
-    "products.viewAll": "\u0639\u0631\u0636 \u062C\u0645\u064A\u0639 \u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A"
+    "products.viewAll": "عرض جميع المنتجات",
+    "footer.copyright": "\u00a9 2026 وادي العوير لزينة السيارات.",
+    "footer.powered": "بواسطة",
+    "reviews.subtitle": "4.4 \u2605 على جوجل (33 تقييم)",
+    "review.1": "\u201cمكان ممتاز لإكسسوارات جيتور. مجموعة واسعة من المنتجات وموظفين متعاونين جداً.\u201d",
+    "review.2": "\u201cمعظم الإكسسوارات متوفرة، الفريق رائع وذو خبرة عالية.\u201d",
+    "review.3": "\u201cأفضل محل لإكسسوارات جيتور T2 في دبي. تركيب احترافي وأسعار عادلة.\u201d",
+    "review.4": "\u201cتشكيلة رائعة من إكسسوارات السيارات. جودة ممتازة وأسعار معقولة. أنصح به!\u201d",
+    "review.source": "تقييم جوجل"
   }
 };
 
