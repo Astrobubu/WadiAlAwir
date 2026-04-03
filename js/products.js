@@ -676,7 +676,7 @@ function renderProducts(lang, category, carModel, limit) {
 
     return '<a class="product-card animate-in" data-product-id="' + product.id + '" data-category="' + product.category + '" href="product.html?id=' + product.id + '">' +
       '<div class="product-card__image-wrap">' +
-        '<img class="product-card__image" src="' + product.thumbnail + '" alt="' + product.name[lang] + '" loading="lazy">' +
+        '<img class="product-card__image" src="' + (typeof getThumb === 'function' ? getThumb(product.thumbnail) : product.thumbnail) + '" alt="' + product.name[lang] + '" loading="lazy">' +
         badgeHTML +
       '</div>' +
       '<div class="product-card__body">' +
