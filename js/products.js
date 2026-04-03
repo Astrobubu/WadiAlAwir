@@ -155,7 +155,7 @@ const PRODUCTS = [
       "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/H5b5baa7d838c4977b46b9844fa758d446.jpg",
       "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/H69fec78b49874b01b627d47a96e393859.jpg"
     ],
-    thumbnail: "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/Hb0ac5473be0f43e29c2e89a00a59f167E.jpg",
+    thumbnail: "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/H69fec78b49874b01b627d47a96e393859.jpg",
     badge: null
   },
   {
