@@ -441,7 +441,8 @@ button {
   border-radius: var(--radius-full);
   padding: 0.35rem 1rem;
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--text-primary);
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -450,6 +451,7 @@ button {
 
 .hero__badge--tabby {
   background: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
   padding: 0.3rem 0.75rem;
 }
 
