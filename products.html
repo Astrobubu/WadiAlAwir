@@ -385,8 +385,20 @@
           });
 
           /* Re-render products */
+          var activeLang = window._currentLang || currentLang;
           if (typeof window.renderProducts === 'function') {
-            window.renderProducts(currentLang, 'all', carId);
+            window.renderProducts(activeLang, 'all', carId);
+          }
+
+          /* Update car button label */
+          var carLabel = document.getElementById('filter-car-label');
+          if (carLabel) {
+            if (carId === 'all') {
+              carLabel.textContent = activeLang === 'ar' ? '\u0627\u0644\u0633\u064A\u0627\u0631\u0627\u062A' : 'Cars';
+            } else {
+              var carModel = window.CAR_MODELS.find(function(c) { return c.id === carId; });
+              if (carModel) carLabel.textContent = carModel.name[activeLang];
+            }
           }
 
           /* Update URL without reload */

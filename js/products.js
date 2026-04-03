@@ -332,15 +332,15 @@ const PRODUCTS = [
   {
     id: "central-control-pad",
     name: { en: "Central Control Wireless Charger Pad & Cup Holder Set", ar: "وسادة شحن لاسلكي وحامل أكواب للكونسول المركزي" },
-    carModel: "jetour-t2",
-    carYear: "2023-2025",
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
     price: 250,
     currency: "AED",
     warranty: null,
     category: "interior",
     description: {
-      en: "3-piece silicone pad set for Jetour T2 central console. Covers wireless charger, cup holder, and armrest box. Non-slip, dustproof, and shockproof. Available in White, Orange, and Black.",
-      ar: "طقم وسادات سيليكون 3 قطع للكونسول المركزي لجيتور T2. يغطي الشاحن اللاسلكي وحامل الأكواب وصندوق المسند. مانع للانزلاق ومقاوم للغبار والصدمات. متوفر بالأبيض والبرتقالي والأسود"
+      en: "3-piece silicone pad set for ROX 01 central console. Covers wireless charger, cup holder, and armrest box. Non-slip, dustproof, and shockproof. Available in White, Orange, and Black.",
+      ar: "طقم وسادات سيليكون 3 قطع للكونسول المركزي لروكس 01. يغطي الشاحن اللاسلكي وحامل الأكواب وصندوق المسند. مانع للانزلاق ومقاوم للغبار والصدمات. متوفر بالأبيض والبرتقالي والأسود"
     },
     features: {
       en: ["3-piece set: charger pad + cup holder + armrest box", "Non-slip silicone material", "Dustproof & shockproof protection", "Wireless charger compatible", "Easy to install and remove for cleaning"],
@@ -515,14 +515,14 @@ const CAR_MODELS = [
     name: { en: "Jetour T2", ar: "جيتور T2" },
     years: "2023-2024",
     heroImage: "assets/cars/jetour-t2.jpg",
-    productCount: 14
+    productCount: 13
   },
   {
     id: "jetour-rox-01",
     name: { en: "ROX 01", ar: "روكس 01" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 6
+    productCount: 7
   }
 ];
 
