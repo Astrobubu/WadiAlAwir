@@ -1031,18 +1031,12 @@ button {
   border-radius: var(--radius-md);
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: border-color var(--transition-base);
+  transition: border-color 0.4s ease;
   position: relative;
 }
 
 .service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  display: none;
 }
 
 .service-card:hover {
