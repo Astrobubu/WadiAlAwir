@@ -90,7 +90,8 @@ function getCartWhatsAppURL(cartItems, lang) {
     lines.push('السلام عليكم، أود طلب المنتجات التالية:');
     lines.push('');
     cartItems.forEach(function(item, i) {
-      lines.push((i+1) + '. ' + item.name.ar + ' — ' + item.price + ' درهم × ' + item.qty);
+      var varAr = item.variant ? ' (' + (item.variant.ar || item.variant.en) + ')' : '';
+      lines.push((i+1) + '. ' + item.name.ar + varAr + ' — ' + item.price + ' درهم × ' + item.qty);
       total += item.price * item.qty;
     });
     lines.push('');
@@ -101,7 +102,8 @@ function getCartWhatsAppURL(cartItems, lang) {
     lines.push('Hello, I would like to order:');
     lines.push('');
     cartItems.forEach(function(item, i) {
-      lines.push((i+1) + '. ' + item.name.en + ' — ' + item.price + ' AED × ' + item.qty);
+      var varEn = item.variant ? ' (' + (item.variant.en || item.variant.ar) + ')' : '';
+      lines.push((i+1) + '. ' + item.name.en + varEn + ' — ' + item.price + ' AED × ' + item.qty);
       total += item.price * item.qty;
     });
     lines.push('');

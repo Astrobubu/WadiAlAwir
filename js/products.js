@@ -82,32 +82,6 @@ const PRODUCTS = [
     badge: "warranty"
   },
   {
-    id: "roof-light",
-    name: { en: "Defender Style LED Roof Light Spotlight", ar: "كشاف سقف LED بتصميم ديفندر" },
-    carModel: "jetour-traveler-t2",
-    carYear: "2023-2024",
-    price: 900,
-    currency: "AED",
-    warranty: null,
-    category: "lighting",
-    description: {
-      en: "Powerful LED roof light with Defender-style design. Weather-resistant, energy-efficient searchlight for on and off-road use.",
-      ar: "كشاف سقف LED قوي بتصميم ديفندر. مقاوم للعوامل الجوية وموفر للطاقة"
-    },
-    features: {
-      en: ["Powerful focused LED beam", "Weather-resistant construction", "Defender-style aesthetic", "Energy efficient", "Easy installation"],
-      ar: ["شعاع LED مركّز وقوي", "بناء مقاوم للطقس", "تصميم ديفندر الأنيق", "موفر للطاقة", "تركيب سهل"]
-    },
-    images: [
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hc7405ac90e1b4cb280ef94c3f6b3546d1.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hea00dc8f543a4940a03ed91b6c9746a1U.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H297b061ce2b04f1dafaa7ab01ac1ab43r.jpg"
-    ],
-    thumbnail: "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hc7405ac90e1b4cb280ef94c3f6b3546d1.jpg",
-    badge: null
-  },
-  {
     id: "door-handle-protector",
     name: { en: "Interior Door Handle Protectors", ar: "حماية مقابض الأبواب الداخلية" },
     carModel: "jetour-t2",
@@ -182,110 +156,6 @@ const PRODUCTS = [
       "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/H69fec78b49874b01b627d47a96e393859.jpg"
     ],
     thumbnail: "Rear Bumper Steel Tow Bar for Jetour T2 Accessories Factory Direct Trailer Bar Popular Exterior Car Accessories Hot Sale/Hb0ac5473be0f43e29c2e89a00a59f167E.jpg",
-    badge: null
-  },
-  {
-    id: "rear-spoiler-wing",
-    name: { en: "Rear Spoiler Wing - Glossy Black", ar: "جناح سبويلر خلفي - أسود لامع" },
-    carModel: "jetour-traveler-t2",
-    carYear: "2023-2024",
-    price: 300,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Sleek rear spoiler wing in glossy black. Enhances aerodynamic appeal with sporty aesthetic.",
-      ar: "جناح سبويلر خلفي أنيق أسود لامع. يعزز المظهر الرياضي"
-    },
-    features: {
-      en: ["Polypropylene (PP) material", "Glossy black finish", "Improves airflow", "Secure rooftop mount", "Easy installation"],
-      ar: ["مادة بولي بروبيلين", "تشطيب أسود لامع", "يحسّن تدفق الهواء", "تثبيت آمن على السقف", "تركيب سهل"]
-    },
-    images: [
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/718Nwv51AgL._AC_SL1500_.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51G+4kEdgTL._AC_SL1188_.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/31bRkGv6fcL._AC_SL1132_.jpg"
-    ],
-    thumbnail: "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/718Nwv51AgL._AC_SL1500_.jpg",
-    badge: null
-  },
-  {
-    id: "rear-spoiler-abs",
-    name: { en: "Split ABS Rear Spoiler Wing", ar: "جناح سبويلر خلفي ABS منقسم" },
-    carModel: "jetour-traveler-t2",
-    carYear: "2023-2024",
-    price: 500,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Off-road exterior split ABS spoiler rear wing. Fits original vehicle dimensions.",
-      ar: "جناح سبويلر خلفي ABS منقسم للطرق الوعرة. يناسب أبعاد السيارة الأصلية"
-    },
-    features: {
-      en: ["Split ABS construction", "OEM-fit dimensions", "Off-road style design", "Black finish", "Pickup available in 24hrs"],
-      ar: ["بناء ABS منقسم", "أبعاد مطابقة للأصلي", "تصميم طرق وعرة", "لون أسود", "استلام خلال 24 ساعة"]
-    },
-    images: [
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_2_-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_3_-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/967471387868532737__80373-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp"
-    ],
-    thumbnail: "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_2_-Photoroom.webp",
-    badge: null
-  },
-  {
-    id: "side-ladder",
-    name: { en: "Side Ladder for Roof Rack Access", ar: "سلم جانبي للوصول لرف السقف" },
-    carModel: "jetour-traveler-t2",
-    carYear: "2023-2024",
-    price: 650,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Heavy-duty side ladder for safe roof access. Non-slip rungs, weather-resistant, bolt-on installation.",
-      ar: "سلم جانبي متين للوصول الآمن للسقف. درجات مانعة للانزلاق ومقاومة للطقس"
-    },
-    features: {
-      en: ["Heavy-duty aluminum/steel", "Non-slip textured rungs", "Powder-coated weather resistance", "Bolt-on, no drilling", "Includes mounting hardware"],
-      ar: ["ألمنيوم/فولاذ شديد التحمل", "درجات مانعة للانزلاق", "طلاء مقاوم للطقس", "تركيب بمسامير بدون حفر", "يشمل معدات التركيب"]
-    },
-    images: [
-      "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U111-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U12-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U121-Photoroom.webp"
-    ],
-    thumbnail: "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
-    badge: null
-  },
-  {
-    id: "side-storage-box",
-    name: { en: "Side Storage Box with Lock", ar: "صندوق تخزين جانبي بقفل" },
-    carModel: "jetour-traveler-t2",
-    carYear: "2023-2024",
-    price: 650,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Extra-large ABS side storage box with waterproof rubber frame and imported lock cylinder.",
-      ar: "صندوق تخزين جانبي ABS كبير مع إطار مطاطي مقاوم للماء وقفل مستورد"
-    },
-    features: {
-      en: ["High-quality ABS material", "Waterproof rubber frame", "Imported lock with key", "Extra-large storage", "Easy DIY installation"],
-      ar: ["مادة ABS عالية الجودة", "إطار مطاطي مقاوم للماء", "قفل مستورد مع مفتاح", "مساحة تخزين كبيرة", "تركيب ذاتي سهل"]
-    },
-    images: [
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221-Photoroom.png",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U122111.jpg",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221111.jpg"
-    ],
-    thumbnail: "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
     badge: null
   },
   {
@@ -460,149 +330,39 @@ const PRODUCTS = [
     badge: null
   },
   {
-    id: "rox-01-spoiler",
-    name: { en: "Rear Spoiler Wing (Glossy Black)", ar: "جناح سبويلر خلفي (أسود لامع)" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 500,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Glossy black rear spoiler wing for ROX 01. Enhances the sporty look and improves aerodynamics.",
-      ar: "جناح سبويلر خلفي أسود لامع لروكس 01. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية"
-    },
-    features: {
-      en: ["Glossy black finish", "Custom fit for ROX 01", "Improved aerodynamics", "Easy bolt-on installation"],
-      ar: ["لون أسود لامع", "مقاس مخصص لروكس 01", "ديناميكا هوائية محسّنة", "تركيب سهل بمسامير"]
-    },
-    images: [
-      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-side-view.webp",
-      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-installed.jpg",
-      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-close-up.webp",
-      "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-rear.webp"
-    ],
-    thumbnail: "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-side-view.webp",
-    badge: null
-  },
-  {
-    id: "rox-01-mud-flaps",
-    name: { en: "4Pcs Mudguards Mud Flaps", ar: "واقي طين 4 قطع" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 250,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "4-piece mud flaps set for ROX 01. Protects car fenders from road debris, mud, and water splash.",
-      ar: "طقم واقي طين 4 قطع لروكس 01. يحمي رفارف السيارة من الحصى والطين ورذاذ الماء"
-    },
-    features: {
-      en: ["4-piece set (front & rear)", "Custom fit for ROX 01", "Durable flexible material", "No drilling installation"],
-      ar: ["طقم 4 قطع (أمامي وخلفي)", "مقاس مخصص لروكس 01", "مادة مرنة متينة", "تركيب بدون حفر"]
-    },
-    images: [
-      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-front.jpg",
-      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-rear.jpg",
-      "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-installed.jpg"
-    ],
-    thumbnail: "Mud Flaps Jetour ROX 01/jetour-rox-01-mud-flaps-front.jpg",
-    badge: null
-  },
-  {
-    id: "rox-01-hr-wheel-spacer",
-    name: { en: "H&R TRAK+ Wheel Spacer Set", ar: "طقم فواصل عجلات H&R TRAK+" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 1800,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "German-made H&R TRAK+ wheel spacers for ROX 01. Improves handling, stability, and gives a wider aggressive stance. Includes lug nuts and hardware.",
-      ar: "فواصل عجلات H&R TRAK+ صناعة ألمانية لروكس 01. تحسّن الثبات والتحكم وتعطي مظهراً عريضاً وعدوانياً. تشمل الصواميل والقطع"
-    },
-    features: {
-      en: ["Made in Germany by H&R", "TRAK+ hub-centric design", "Improved handling & stability", "Wider aggressive stance", "Includes lug nuts & hardware"],
-      ar: ["صناعة ألمانية من H&R", "تصميم TRAK+ متمركز على المحور", "تحسين الثبات والتحكم", "مظهر عريض وعدواني", "يشمل الصواميل والقطع"]
-    },
-    images: [
-      "HR Wheel Spacer Jetour T2/jetour-t2-hr-trak-wheel-spacer-set.jpg"
-    ],
-    thumbnail: "HR Wheel Spacer Jetour T2/jetour-t2-hr-trak-wheel-spacer-set.jpg",
-    badge: null
-  },
-  {
-    id: "rox-01-brake-caliper",
-    name: { en: "Brake Caliper Cover Set", ar: "غطاء فرامل كاليبر" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 750,
-    currency: "AED",
-    warranty: "1 year",
-    category: "exterior",
-    description: {
-      en: "Premium ROX-branded brake caliper covers. Available in multiple colors for a custom sporty look. 1 year warranty included.",
-      ar: "أغطية كاليبر فرامل بعلامة ROX. متوفرة بألوان متعددة لمظهر رياضي مخصص. ضمان سنة"
-    },
-    features: {
-      en: ["ROX branded design", "Multiple color options", "Easy installation", "Protective design", "1 Year Warranty"],
-      ar: ["تصميم بعلامة ROX", "خيارات ألوان متعددة", "تركيب سهل", "تصميم واقي", "ضمان سنة"]
-    },
-    images: [
-      "Brake Caliper Cover Jetour ROX 01/jetour-rox-01-brake-caliper-cover-colors.png"
-    ],
-    thumbnail: "Brake Caliper Cover Jetour ROX 01/jetour-rox-01-brake-caliper-cover-colors.png",
-    badge: "warranty"
-  },
-  {
-    id: "rox-01-phone-holder",
-    name: { en: "Car Phone Holder Bracket", ar: "حامل هاتف للسيارة" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 100,
-    currency: "AED",
-    warranty: null,
-    category: "interior",
-    description: {
-      en: "Custom-fit phone holder bracket for ROX 01. Stable mount with easy access to your phone while driving.",
-      ar: "حامل هاتف مخصص لروكس 01. تثبيت ثابت مع سهولة الوصول للهاتف أثناء القيادة"
-    },
-    features: {
-      en: ["Custom fit for ROX 01", "Stable no-shake mount", "Easy installation", "360° adjustable angle"],
-      ar: ["مقاس مخصص لروكس 01", "تثبيت ثابت بدون اهتزاز", "تركيب سهل", "زاوية قابلة للتعديل 360°"]
-    },
-    images: [
-      "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-bracket.jpg",
-      "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-installed.jpg"
-    ],
-    thumbnail: "Phone Holder Jetour ROX 01/jetour-rox-01-phone-holder-bracket.jpg",
-    badge: null
-  },
-  {
-    id: "rox-01-screen-protector",
-    name: { en: "Dashboard Screen Protector Set", ar: "طقم حماية شاشة لوحة القيادة" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
+    id: "central-control-pad",
+    name: { en: "Central Control Wireless Charger Pad & Cup Holder Set", ar: "وسادة شحن لاسلكي وحامل أكواب للكونسول المركزي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2025",
     price: 250,
     currency: "AED",
     warranty: null,
     category: "interior",
     description: {
-      en: "Tempered glass screen protector set for ROX 01 dashboard and instrument cluster. Anti-scratch, anti-fingerprint, HD clarity.",
-      ar: "طقم حماية شاشة زجاج مقوى للوحة القيادة وعداد جيتور روكس 01. مضاد للخدش وبصمات الأصابع، وضوح عالي"
+      en: "3-piece silicone pad set for Jetour T2 central console. Covers wireless charger, cup holder, and armrest box. Non-slip, dustproof, and shockproof. Available in White, Orange, and Black.",
+      ar: "طقم وسادات سيليكون 3 قطع للكونسول المركزي لجيتور T2. يغطي الشاحن اللاسلكي وحامل الأكواب وصندوق المسند. مانع للانزلاق ومقاوم للغبار والصدمات. متوفر بالأبيض والبرتقالي والأسود"
     },
     features: {
-      en: ["Covers main screen + instrument cluster", "Tempered glass protection", "Anti-scratch & anti-fingerprint", "HD clarity, no bubbles"],
-      ar: ["يغطي الشاشة الرئيسية + عداد السرعة", "حماية زجاج مقوى", "مضاد للخدش وبصمات الأصابع", "وضوح عالي بدون فقاعات"]
+      en: ["3-piece set: charger pad + cup holder + armrest box", "Non-slip silicone material", "Dustproof & shockproof protection", "Wireless charger compatible", "Easy to install and remove for cleaning"],
+      ar: ["طقم 3 قطع: وسادة شاحن + حامل أكواب + صندوق مسند", "مادة سيليكون مانعة للانزلاق", "حماية من الغبار والصدمات", "متوافق مع الشحن اللاسلكي", "سهل التركيب والإزالة للتنظيف"]
     },
     images: [
-      "Screen Protector Jetour ROX 01/jetour-rox-01-screen-protector-dashboard.jpg"
+      "Central Control Pad Jetour T2/before-after.jpg",
+      "Central Control Pad Jetour T2/parts-layout.jpg",
+      "Central Control Pad Jetour T2/installed-white.jpg",
+      "Central Control Pad Jetour T2/installed-orange.jpg",
+      "Central Control Pad Jetour T2/variant-white.jpg",
+      "Central Control Pad Jetour T2/variant-black.jpg",
+      "Central Control Pad Jetour T2/variant-orange.jpg"
     ],
-    thumbnail: "Screen Protector Jetour ROX 01/jetour-rox-01-screen-protector-dashboard.jpg",
-    badge: null
-  }
+    thumbnail: "Central Control Pad Jetour T2/before-after.jpg",
+    badge: null,
+    variants: [
+      { id: "white", name: { en: "White", ar: "أبيض" }, color: "#E8E8E8", imageIndex: 4 },
+      { id: "orange", name: { en: "Orange", ar: "برتقالي" }, color: "#C67A3C", imageIndex: 6 },
+      { id: "black", name: { en: "Black", ar: "أسود" }, color: "#2A2A2A", imageIndex: 5 }
+    ]
+  },
 ];
 
 const CAR_MODELS = [
@@ -611,28 +371,7 @@ const CAR_MODELS = [
     name: { en: "Jetour T2", ar: "جيتور T2" },
     years: "2023-2024",
     heroImage: "assets/cars/jetour-t2.jpg",
-    productCount: 13
-  },
-  {
-    id: "jetour-traveler-t2",
-    name: { en: "Jetour Traveler T2", ar: "جيتور ترافلر T2" },
-    years: "2023-2024",
-    heroImage: "assets/cars/jetour-traveler-t2.jpg",
-    productCount: 5
-  },
-  {
-    id: "jetour-t2-phev",
-    name: { en: "Jetour T2 PHEV", ar: "جيتور T2 هايبرد" },
-    years: "2023-2024",
-    heroImage: "assets/cars/jetour-t2-phev.jpg",
-    productCount: 2
-  },
-  {
-    id: "jetour-rox-01",
-    name: { en: "ROX 01", ar: "روكس 01" },
-    years: "2024-2025",
-    heroImage: "assets/cars/rox-01.jpg",
-    productCount: 6
+    productCount: 14
   }
 ];
 
