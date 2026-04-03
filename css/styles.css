@@ -1031,11 +1031,10 @@ button {
   border-radius: var(--radius-md);
   padding: 2rem 1.5rem;
   text-align: center;
-  -webkit-transition: border-color 0.3s ease;
-  -moz-transition: border-color 0.3s ease;
-  transition: border-color 0.3s ease;
+  -webkit-transition: border-color 0.5s ease;
+  -moz-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .service-card::before {
