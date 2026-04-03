@@ -211,7 +211,6 @@ button {
 }
 
 .lang-toggle {
-  background: transparent;
   background: var(--bg-elevated);
   border: none;
   border-radius: var(--radius-full);
@@ -219,8 +218,8 @@ button {
   color: var(--text-secondary);
   font-size: 0.8rem;
   cursor: pointer;
-  transition: border-color var(--transition-fast), color var(--transition-fast);
-  font-family: inherit;
+  transition: color var(--transition-fast);
+  font-family: var(--font-ar-body);
 }
 
 .lang-toggle:hover {
@@ -590,7 +589,14 @@ button {
 /* ----- 7. Sections ----- */
 
 .section {
-  padding: 6rem 0;
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
 }
 
 .section--alt {
@@ -599,7 +605,13 @@ button {
 
 .section-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .section-header__label {
@@ -646,19 +658,28 @@ button {
   margin-inline: auto;
 }
 
-@media (max-width: 767px) {
-  .section {
-    padding: 4rem 0;
-  }
-}
+/* mobile section padding handled in .section base */
 
 
 /* ----- 8. Car Models Grid ----- */
 
 .car-models-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .car-models-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .car-models-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .car-card {
@@ -684,14 +705,26 @@ button {
 }
 
 .car-card__info {
-  padding: 1.25rem;
+  padding: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .car-card__info {
+    padding: 1.25rem;
+  }
 }
 
 .car-card__name {
   font-family: var(--font-en-display);
-  font-size: 1.4rem;
+  font-size: 1rem;
   letter-spacing: 0.05em;
   color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .car-card__name {
+    font-size: 1.4rem;
+  }
 }
 
 .car-card__year {
@@ -719,14 +752,14 @@ button {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
   padding: 0 1rem;
 }
 
 .filter-btn {
   background: var(--bg-elevated);
-  border: none;
+  border: none !important;
   color: var(--text-secondary);
   padding: 0.5rem 1.25rem;
   border-radius: var(--radius-full);
@@ -758,7 +791,7 @@ button {
 
 .car-pill {
   background: var(--bg-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: none;
   color: var(--text-secondary);
   padding: 0.5rem 1.5rem;
   border-radius: var(--radius-full);
@@ -771,14 +804,12 @@ button {
 .car-pill:hover {
   background: var(--bg-surface);
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .car-pill--active {
   background: var(--accent);
   color: #070B14;
   font-weight: 600;
-  border-color: var(--accent);
 }
 
 
@@ -786,8 +817,21 @@ button {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .section-cta {
@@ -846,10 +890,16 @@ button {
 }
 
 .product-card__body {
-  padding: 0.75rem 1rem 0.85rem;
+  padding: 0.5rem 0.6rem 0.65rem;
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .product-card__body {
+    padding: 0.75rem 1rem 0.85rem;
+  }
 }
 
 .product-card__btn-cart {
@@ -896,7 +946,7 @@ button {
 }
 
 .product-card__name {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: auto;
@@ -905,6 +955,12 @@ button {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .product-card__name {
+    font-size: 0.95rem;
+  }
 }
 
 .product-card__price {
@@ -942,7 +998,7 @@ button {
 
 @media (max-width: 479px) {
   .product-grid {
-    grid-template-columns: minmax(240px, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -951,8 +1007,15 @@ button {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 .service-card {
@@ -1025,10 +1088,9 @@ button {
 }
 
 .service-card__packages {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
 
@@ -1036,12 +1098,13 @@ button {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-sm, 8px);
-  padding: 1rem 1.25rem;
-  min-width: 180px;
-  flex: 1;
-  max-width: 240px;
+  padding: 0.85rem 1rem;
   text-align: center;
   transition: border-color var(--transition-base);
+}
+
+.service-package:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .service-package:hover {
@@ -1095,18 +1158,25 @@ button {
 /* ----- Product Page (individual) ----- */
 
 .product-page {
-  padding-top: 100px;
-  padding-bottom: 4rem;
+  padding-top: 70px;
+  padding-bottom: 2rem;
   min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .product-page {
+    padding-top: 90px;
+    padding-bottom: 4rem;
+  }
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
@@ -1143,8 +1213,16 @@ button {
 }
 
 .product-page__gallery {
-  position: sticky;
-  top: 100px;
+  position: static;
+}
+
+@media (min-width: 769px) {
+  .product-page__gallery {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    z-index: 1;
+  }
 }
 
 .product-page__main-img-wrap {
@@ -1226,7 +1304,7 @@ button {
   justify-content: space-between;
   padding: 1rem 1.25rem;
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: none;
   border-radius: var(--radius-md);
   margin-bottom: 0.75rem;
 }
@@ -1266,7 +1344,7 @@ button {
   color: #4ade80;
   padding: 0.85rem 1.25rem;
   background: rgba(74, 222, 128, 0.06);
-  border: 1px solid rgba(74, 222, 128, 0.12);
+  border: none;
   border-radius: var(--radius-md);
   margin-bottom: 1.25rem;
 }
@@ -1336,11 +1414,11 @@ button {
 .product-page__back {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.3rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.85rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
   transition: color 0.2s;
 }
 
@@ -2260,15 +2338,15 @@ button {
 
 @media (max-width: 479px) {
   .product-grid {
-    grid-template-columns: minmax(240px, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .car-models-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero__title-ar {
@@ -2312,7 +2390,7 @@ button {
 
 @media (min-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -2338,8 +2416,8 @@ button {
 
 /* ----- Page Transitions ----- */
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes pageOut {
@@ -2348,11 +2426,11 @@ button {
 }
 
 body {
-  animation: pageIn 0.35s ease-out;
+  animation: pageIn 0.15s ease-out;
 }
 
 body.page-exit {
-  animation: pageOut 0.2s ease-in forwards;
+  animation: pageOut 0.1s ease-in forwards;
 }
 
 .product-card {

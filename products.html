@@ -19,30 +19,64 @@
 
   <style>
     /* ---- Products page: car filter pills ---- */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    .filter-bar__btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-elevated);
+      border: none;
+      color: var(--text-primary);
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex: 1;
+      max-width: 220px;
+      justify-content: center;
+    }
+    .filter-bar__btn:hover,
+    .filter-bar__btn--active {
+      background: var(--accent);
+      color: #070B14;
+      border-color: var(--accent);
+    }
+    .filter-bar__arrow {
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .filter-bar__btn--active .filter-bar__arrow {
+      transform: rotate(180deg);
+    }
+    .filter-dropdown {
+      margin-bottom: 1rem;
+      animation: dropIn 0.2s ease-out;
+      overflow: hidden;
+    }
+    .filter-dropdown--closing {
+      animation: dropOut 0.2s ease-in forwards;
+    }
+    @keyframes dropIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes dropOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-8px); }
+    }
     .car-filter-pills {
       display: flex;
       gap: 0.5rem;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 0.5rem 0 1rem;
-      margin-bottom: 0.5rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) transparent;
+      padding: 0.5rem 0;
       justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .car-filter-pills::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    .car-filter-pills::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .car-filter-pills::-webkit-scrollbar-thumb {
-      background: var(--accent);
-      border-radius: 4px;
     }
 
     .car-pill {
@@ -51,7 +85,7 @@
       gap: 0.4rem;
       padding: 0.5rem 1.2rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
+      border: none;
       background: var(--bg-elevated);
       color: var(--text-secondary);
       font-family: var(--font-body);
@@ -105,10 +139,8 @@
 
     @media (max-width: 768px) {
       .car-filter-pills {
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       [dir="rtl"] .car-filter-pills {
@@ -172,18 +204,31 @@
   <!-- ======================== CAR MODEL FILTER ======================== -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
-      <!-- Car Model Pills -->
-      <div class="car-filter-pills" id="car-filter-pills">
-        <!-- Rendered by inline script -->
+      <!-- Filter Buttons -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-bar__btn" id="filter-car-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17h14M7 11l1.5-4h7L17 11M5 11h14v6H5z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+          <span id="filter-car-label">Cars</span>
+          <svg class="filter-bar__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <button class="filter-bar__btn" id="filter-cat-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span id="filter-cat-label">Categories</span>
+          <svg class="filter-bar__arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
       </div>
-
-      <!-- Category Filter Buttons -->
-      <div class="product-filters" id="product-filters">
-        <button class="filter-btn filter-btn--active" data-category="all" data-i18n="filter.all">All</button>
-        <button class="filter-btn" data-category="exterior" data-i18n="filter.exterior">Exterior</button>
-        <button class="filter-btn" data-category="interior" data-i18n="filter.interior">Interior</button>
-        <button class="filter-btn" data-category="lighting" data-i18n="filter.lighting">Lighting</button>
-        <button class="filter-btn" data-category="utility" data-i18n="filter.utility">Utility</button>
+      <!-- Dropdown panels -->
+      <div class="filter-dropdown" id="filter-car-dropdown" style="display:none">
+        <div class="car-filter-pills" id="car-filter-pills"></div>
+      </div>
+      <div class="filter-dropdown" id="filter-cat-dropdown" style="display:none">
+        <div class="product-filters" id="product-filters">
+          <button class="filter-btn filter-btn--active" data-category="all" data-i18n="filter.all">All</button>
+          <button class="filter-btn" data-category="exterior" data-i18n="filter.exterior">Exterior</button>
+          <button class="filter-btn" data-category="interior" data-i18n="filter.interior">Interior</button>
+          <button class="filter-btn" data-category="lighting" data-i18n="filter.lighting">Lighting</button>
+          <button class="filter-btn" data-category="utility" data-i18n="filter.utility">Utility</button>
+        </div>
       </div>
 
       <!-- Product Grid -->
@@ -269,7 +314,7 @@
     if (link.hostname !== location.hostname) return;
     e.preventDefault();
     document.body.classList.add('page-exit');
-    setTimeout(function() { window.location.href = link.href; }, 200);
+    setTimeout(function() { window.location.href = link.href; }, 100);
   });
   window.addEventListener('pageshow', function(e) { document.body.classList.remove('page-exit'); });
   </script>
@@ -408,6 +453,67 @@
 
         /* Re-observe animations for newly rendered cards */
         if (typeof initScrollAnimations === 'function') initScrollAnimations();
+
+        /* ---- Filter dropdown toggles ---- */
+        var carBtn = document.getElementById('filter-car-btn');
+        var catBtn = document.getElementById('filter-cat-btn');
+        var carDrop = document.getElementById('filter-car-dropdown');
+        var catDrop = document.getElementById('filter-cat-dropdown');
+
+        function closeDrop(btn, drop) {
+          drop.classList.add('filter-dropdown--closing');
+          btn.classList.remove('filter-bar__btn--active');
+          setTimeout(function() {
+            drop.style.display = 'none';
+            drop.classList.remove('filter-dropdown--closing');
+          }, 200);
+        }
+        function toggleDrop(btn, drop, otherBtn, otherDrop) {
+          var isOpen = drop.style.display !== 'none';
+          if (isOpen) {
+            closeDrop(btn, drop);
+          } else {
+            drop.style.display = '';
+            btn.classList.add('filter-bar__btn--active');
+          }
+          if (otherDrop.style.display !== 'none') {
+            closeDrop(otherBtn, otherDrop);
+          }
+        }
+
+        if (carBtn && carDrop) {
+          carBtn.addEventListener('click', function() {
+            toggleDrop(carBtn, carDrop, catBtn, catDrop);
+          });
+        }
+        if (catBtn && catDrop) {
+          catBtn.addEventListener('click', function() {
+            toggleDrop(catBtn, catDrop, carBtn, carDrop);
+          });
+        }
+
+        /* Auto-open car filter if preselected */
+        if (preselectedCar !== 'all' && carDrop && carBtn) {
+          carDrop.style.display = '';
+          carBtn.classList.add('filter-bar__btn--active');
+        }
+
+        /* Update car button label when a car is selected */
+        var origRenderCarPills = renderCarPills;
+        renderCarPills = function(lang, selectedCar) {
+          origRenderCarPills(lang, selectedCar);
+          var carLabel = document.getElementById('filter-car-label');
+          if (carLabel) {
+            if (selectedCar === 'all') {
+              carLabel.textContent = lang === 'ar' ? 'السيارات' : 'Cars';
+            } else {
+              var car = window.CAR_MODELS.find(function(c) { return c.id === selectedCar; });
+              if (car) carLabel.textContent = car.name[lang];
+            }
+          }
+        };
+        renderCarPills(currentLang, preselectedCar);
+
       }, 0);
     });
   })();

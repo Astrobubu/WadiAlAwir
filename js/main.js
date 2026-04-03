@@ -84,7 +84,7 @@ var TRANSLATIONS = {
     "location.hours.label": "\u0633\u0627\u0639\u0627\u062A \u0627\u0644\u0639\u0645\u0644",
     "location.hours.value": "\u0645\u0641\u062A\u0648\u062D \u064A\u0648\u0645\u064A\u0627\u064B \u062D\u062A\u0649 11 \u0645\u0633\u0627\u0621\u064B",
     "location.directions": "\u0627\u062D\u0635\u0644 \u0639\u0644\u0649 \u0627\u0644\u0627\u062A\u062C\u0627\u0647\u0627\u062A",
-    "footer.tagline": "\u0632\u064A\u0646\u0629 \u0627\u0644\u0633\u064A\u0627\u0631\u0627\u062A \u0648\u062A\u0638\u0644\u064A\u0644 \u0627\u0644\u0632\u062C\u0627\u062C",
+    "footer.tagline": "لزينة السيارات وتظليل الزجاج",
     "footer.rights": "\u062C\u0645\u064A\u0639 \u0627\u0644\u062D\u0642\u0648\u0642 \u0645\u062D\u0641\u0648\u0638\u0629.",
     "product.order": "\u0627\u0637\u0644\u0628 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628",
     "product.details": "\u0627\u0644\u062A\u0641\u0627\u0635\u064A\u0644",
@@ -130,7 +130,7 @@ function setLanguage(lang) {
     var isHomePage = !window.location.pathname.includes('products.html');
     var activeFilter = document.querySelector('.filter-btn--active');
     var cat = (activeFilter && activeFilter.dataset.category) ? activeFilter.dataset.category : 'all';
-    var homeLimit = isHomePage ? 6 : undefined;
+    var homeLimit = isHomePage ? 8 : undefined;
     window.renderProducts(lang, cat, _selectedCar, homeLimit);
   }
   if (typeof window.renderServices === 'function') window.renderServices(lang);
