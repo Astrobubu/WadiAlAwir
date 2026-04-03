@@ -517,10 +517,10 @@ function renderCartDrawer() {
         '<p class="cart-item__price">' + item.price + ' AED × ' + item.qty + '</p>' +
       '</div>' +
       '<div class="cart-item__actions">' +
-        '<button class="cart-item__qty-btn" onclick="window.updateCartQty(\'' + item.id + '\', ' + (item.qty - 1) + ')">−</button>' +
+        '<button class="cart-item__qty-btn" onclick="window.updateCartQty(\'' + item.id + '\', ' + (item.qty - 1) + ')">-</button>' +
         '<span class="cart-item__qty">' + item.qty + '</span>' +
         '<button class="cart-item__qty-btn" onclick="window.updateCartQty(\'' + item.id + '\', ' + (item.qty + 1) + ')">+</button>' +
-        '<button class="cart-item__remove" onclick="window.removeFromCart(\'' + item.id + '\')">&times;</button>' +
+        '<button class="cart-item__remove" onclick="window.removeFromCart(\'' + item.id + '\')">x</button>' +
       '</div>' +
     '</div>';
   }).join('');

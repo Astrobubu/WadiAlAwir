@@ -267,6 +267,17 @@
   </div>
 
   <!-- ======================== SCRIPTS ======================== -->
+  <script>
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (!link || link.target === '_blank' || link.href.startsWith('javascript') || link.href.startsWith('#') || link.href.includes('#')) return;
+    if (link.hostname !== location.hostname) return;
+    e.preventDefault();
+    document.body.classList.add('page-exit');
+    setTimeout(function() { window.location.href = link.href; }, 200);
+  });
+  window.addEventListener('pageshow', function(e) { document.body.classList.remove('page-exit'); });
+  </script>
   <script src="js/products.js"></script>
   <script src="js/whatsapp.js"></script>
   <script src="js/gallery.js"></script>

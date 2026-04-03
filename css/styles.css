@@ -1982,6 +1982,7 @@ button {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 0;
+  min-height: 60px;
 }
 
 .cart-item + .cart-item {
@@ -2005,16 +2006,18 @@ button {
 .cart-item__name {
   font-size: 0.85rem;
   color: var(--text-primary);
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.15rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .cart-item__price {
   font-size: 0.8rem;
   color: var(--accent);
   margin: 0;
+  line-height: 1.2;
 }
 
 .cart-item__actions {
@@ -2022,21 +2025,25 @@ button {
   align-items: center;
   gap: 0.35rem;
   flex-shrink: 0;
+  align-self: center;
 }
 
 .cart-item__qty-btn {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--bg-elevated);
   border: none;
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 34px;
+  text-align: center;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  padding: 0;
   transition: background var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .cart-item__qty-btn:hover {
@@ -2046,18 +2053,28 @@ button {
 .cart-item__qty {
   font-size: 0.85rem;
   color: var(--text-primary);
-  min-width: 20px;
+  width: 24px;
   text-align: center;
+  line-height: 28px;
+  flex-shrink: 0;
 }
 
 .cart-item__remove {
-  background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 1.2rem;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
   cursor: pointer;
-  padding: 0 0.25rem;
-  margin-left: 0.25rem;
+  padding: 0;
+  margin-left: 0.35rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  display: block;
+  text-align: center;
+  line-height: 34px;
+  flex-shrink: 0;
 }
 
 .cart-item__remove:hover {
@@ -2304,12 +2321,21 @@ button {
 
 /* ----- Page Transitions ----- */
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes pageOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 body {
-  animation: pageIn 0.4s ease-out;
+  animation: pageIn 0.35s ease-out;
+}
+
+body.page-exit {
+  animation: pageOut 0.2s ease-in forwards;
 }
 
 .product-card {

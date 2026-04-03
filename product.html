@@ -413,6 +413,17 @@
   </footer>
 
   <!-- ======================== SCRIPTS ======================== -->
+  <script>
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (!link || link.target === '_blank' || link.href.startsWith('javascript') || link.href.startsWith('#') || link.href.includes('#')) return;
+    if (link.hostname !== location.hostname) return;
+    e.preventDefault();
+    document.body.classList.add('page-exit');
+    setTimeout(function() { window.location.href = link.href; }, 200);
+  });
+  window.addEventListener('pageshow', function(e) { document.body.classList.remove('page-exit'); });
+  </script>
   <script src="js/products.js"></script>
   <script src="js/whatsapp.js"></script>
   <script>
@@ -630,10 +641,10 @@
             '<p class="cart-item__price">' + item.price + ' AED x ' + item.qty + '</p>' +
           '</div>' +
           '<div class="cart-item__actions">' +
-            '<button class="cart-item__qty-btn" data-action="dec" data-id="' + item.id + '">\u2212</button>' +
+            '<button class="cart-item__qty-btn" data-action="dec" data-id="' + item.id + '">-</button>' +
             '<span class="cart-item__qty">' + item.qty + '</span>' +
             '<button class="cart-item__qty-btn" data-action="inc" data-id="' + item.id + '">+</button>' +
-            '<button class="cart-item__remove" data-action="remove" data-id="' + item.id + '">&times;</button>' +
+            '<button class="cart-item__remove" data-action="remove" data-id="' + item.id + '">x</button>' +
           '</div>' +
         '</div>';
       }).join('');
@@ -932,20 +943,25 @@
           badgeHTML = '<span class="product-card__badge">' + (lang === 'ar' ? '\u0627\u0644\u0623\u0643\u062B\u0631 \u0645\u0628\u064A\u0639\u0627\u064B' : 'Popular') + '</span>';
         }
 
-        var tabbyAmt = (p.price / 4).toFixed(2);
+        /* Find car model name */
+        var carName = '';
+        if (typeof window.CAR_MODELS !== 'undefined') {
+          var carModel = window.CAR_MODELS.find(function(c) { return c.id === p.carModel; });
+          if (carModel) carName = carModel.name[lang];
+        }
 
-        return '<a href="product.html?id=' + p.id + '" class="product-card">' +
+        return '<a class="product-card" href="product.html?id=' + p.id + '">' +
           '<div class="product-card__image-wrap">' +
+            '<img class="product-card__image" src="' + p.thumbnail + '" alt="' + name + '" loading="lazy">' +
             badgeHTML +
-            '<img class="product-card__image" src="' + p.thumbnail + '" alt="' + name + '" loading="lazy" width="400" height="300">' +
           '</div>' +
           '<div class="product-card__body">' +
-            '<div class="product-card__tabby">' +
-              '<img src="assets/badges/tabby-logo.png" alt="Tabby" height="14">' +
-              '<span>' + tabbyAmt + ' AED x4</span>' +
-            '</div>' +
+            '<span class="product-card__car">' + carName + '</span>' +
             '<h3 class="product-card__name">' + name + '</h3>' +
-            '<p class="product-card__price">' + p.price + ' <span class="product-card__price-currency">' + p.currency + '</span></p>' +
+            '<div class="product-card__price">' +
+              '<span>' + p.price + '</span>' +
+              '<span class="product-card__price-currency">' + p.currency + '</span>' +
+            '</div>' +
           '</div>' +
         '</a>';
       }).join('');
