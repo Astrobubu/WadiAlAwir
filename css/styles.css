@@ -1040,9 +1040,9 @@ button {
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  background: var(--bg-elevated);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  transform: none;
+  background: var(--bg-card);
+  box-shadow: none;
 }
 
 .service-card__icon {
@@ -1108,7 +1108,7 @@ button {
 }
 
 .service-package:hover {
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .service-package__header {
