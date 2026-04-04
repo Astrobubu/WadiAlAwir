@@ -1198,17 +1198,27 @@ button {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
+  min-width: 0;
+}
+
+.product-page__info {
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
   .product-page__layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
 
 .product-page__gallery {
   position: static;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 @media (min-width: 769px) {
@@ -1242,6 +1252,12 @@ button {
   gap: 0.5rem;
   overflow-x: auto;
   padding-bottom: 0.5rem;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.product-page__thumbs::-webkit-scrollbar {
+  display: none;
 }
 
 .product-page__thumb {
