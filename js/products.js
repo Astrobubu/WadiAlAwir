@@ -48,12 +48,12 @@ const PRODUCTS = [
       ar: ["تعديل ألوان متعدد", "تحكم سلس بالسطوع", "بدون حفر أو قطع أسلاك", "مقاوم للحرارة: -30 إلى 70 درجة", "ضمان سنة"]
     },
     images: [
-      "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/4_6bd5af70-49e4-4adf-8306-f2f32c8e7128_720x.jpg",
       "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/66_cf63fb6b-9524-4dc1-a82e-0f4ee54a6357_1800x1800.webp",
+      "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/4_6bd5af70-49e4-4adf-8306-f2f32c8e7128_720x.jpg",
       "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/8_ec135337-b9ed-4b8c-9fdb-257f85e6b1da_1800x1800.webp",
       "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/9_c3d54028-1ae9-44a9-844f-be9971ce947d_1800x1800.webp"
     ],
-    thumbnail: "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/4_6bd5af70-49e4-4adf-8306-f2f32c8e7128_720x.jpg",
+    thumbnail: "Automotive 318 Ambient Lighting for Chery Jetour T2 & Jetour T2 PHEV/66_cf63fb6b-9524-4dc1-a82e-0f4ee54a6357_1800x1800.webp",
     badge: "warranty"
   },
   {
@@ -506,6 +506,596 @@ const PRODUCTS = [
     ],
     thumbnail: "Screen Protector Jetour ROX 01/jetour-rox-01-screen-protector-dashboard.jpg",
     badge: null
+  },
+  {
+    id: "car-mat-2ply-t2",
+    name: { en: "3D Car Floor Mat - 2 Ply Water Resistant", ar: "دعاسات سيارة ثلاثية الأبعاد - طبقتين مقاومة للماء" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 450,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Premium 2-ply 3D molded car floor mats for Jetour T2. Water resistant with raised edges for full protection against spills, mud, and dirt.",
+      ar: "دعاسات أرضية ثلاثية الأبعاد بطبقتين لجيتور T2. مقاومة للماء مع حواف مرتفعة لحماية كاملة من الانسكابات والطين والأوساخ"
+    },
+    features: {
+      en: ["2-ply heavy-duty construction", "3D molded perfect fit", "Water resistant surface", "Raised edges trap spills", "Full set: front & rear"],
+      ar: ["بناء متين بطبقتين", "قالب ثلاثي الأبعاد بمقاس مثالي", "سطح مقاوم للماء", "حواف مرتفعة تحتجز الانسكابات", "طقم كامل: أمامي وخلفي"]
+    },
+    images: [
+      "Car Mat 2 Ply Jetour T2/jetour-t2-3d-floor-mat-set.jpg",
+      "Car Mat 2 Ply Jetour T2/jetour-t2-3d-floor-mat-driver.jpg",
+      "Car Mat 2 Ply Jetour T2/jetour-t2-3d-floor-mat-rear.jpg"
+    ],
+    thumbnail: "Car Mat 2 Ply Jetour T2/jetour-t2-3d-floor-mat-set.jpg",
+    badge: null
+  },
+  {
+    id: "car-mat-t2",
+    name: { en: "Carpet Car Floor Mat Set", ar: "طقم دعاسات سيارة قماش" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 350,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Custom-fit carpet floor mats for Jetour T2 with embroidered T2 logo. Soft fabric finish with anti-slip backing.",
+      ar: "دعاسات أرضية قماش بمقاس مخصص لجيتور T2 مع شعار T2 مطرز. تشطيب قماشي ناعم مع قاعدة مانعة للانزلاق"
+    },
+    features: {
+      en: ["Custom-fit for Jetour T2", "Embroidered T2 logo", "Soft carpet finish", "Anti-slip backing", "Full set: front & rear"],
+      ar: ["مقاس مخصص لجيتور T2", "شعار T2 مطرز", "تشطيب قماشي ناعم", "قاعدة مانعة للانزلاق", "طقم كامل: أمامي وخلفي"]
+    },
+    images: [
+      "Car Mat Jetour T2/jetour-t2-carpet-floor-mat-set.jpg"
+    ],
+    thumbnail: "Car Mat Jetour T2/jetour-t2-carpet-floor-mat-set.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-car-mat",
+    name: { en: "Carpet Car Floor Mat Set", ar: "طقم دعاسات سيارة قماش" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 500,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Custom-fit carpet floor mats for Jetour ROX 01. Full coverage set with anti-slip backing. Available in white, black, and red.",
+      ar: "دعاسات أرضية قماش بمقاس مخصص لجيتور روكس 01. طقم تغطية كاملة مع قاعدة مانعة للانزلاق. متوفرة بالأبيض والأسود والأحمر"
+    },
+    features: {
+      en: ["Custom-fit for ROX 01", "Full 3-row coverage", "Anti-slip backing", "Available in 3 colors", "Soft carpet finish"],
+      ar: ["مقاس مخصص لروكس 01", "تغطية كاملة 3 صفوف", "قاعدة مانعة للانزلاق", "متوفرة بـ 3 ألوان", "تشطيب قماشي ناعم"]
+    },
+    images: [
+      "Car Mat Jetour ROX 01/jetour-rox-01-carpet-mat-white.jpg",
+      "Car Mat Jetour ROX 01/jetour-rox-01-carpet-mat-black.jpg",
+      "Car Mat Jetour ROX 01/jetour-rox-01-carpet-mat-red.jpg"
+    ],
+    thumbnail: "Car Mat Jetour ROX 01/jetour-rox-01-carpet-mat-white.jpg",
+    badge: null,
+    variants: [
+      { id: "white", name: { en: "White", ar: "أبيض" }, color: "#C8C0B8", imageIndex: 0 },
+      { id: "black", name: { en: "Black", ar: "أسود" }, color: "#2A2A2A", imageIndex: 1 },
+      { id: "red", name: { en: "Red", ar: "أحمر" }, color: "#C44B2F", imageIndex: 2 }
+    ]
+  },
+  {
+    id: "dubai-ambient-panel",
+    name: { en: "Side Ambient Light Panel - Dubai Edition", ar: "لوحة إضاءة جانبية - إصدار دبي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 750,
+    currency: "AED",
+    warranty: null,
+    category: "lighting",
+    description: {
+      en: "Exclusive Dubai Edition side ambient light panel featuring the iconic Dubai skyline with Burj Khalifa, Burj Al Arab, and Jetour T2 silhouette. Multi-color LED illumination.",
+      ar: "لوحة إضاءة جانبية حصرية إصدار دبي تتميز بأفق دبي الشهير مع برج خليفة وبرج العرب وصورة جيتور T2. إضاءة LED متعددة الألوان"
+    },
+    features: {
+      en: ["Dubai skyline design with iconic landmarks", "Multi-color LED illumination", "Includes Jetour T2 silhouette", "Dashboard panel replacement", "Exclusive Dubai Edition"],
+      ar: ["تصميم أفق دبي مع معالم شهيرة", "إضاءة LED متعددة الألوان", "يتضمن صورة جيتور T2", "بديل لوحة القيادة", "إصدار دبي الحصري"]
+    },
+    images: [
+      "Side Ambient Light Panel Dubai Edition Jetour T2/jetour-t2-dubai-ambient-panel-blue.webp",
+      "Side Ambient Light Panel Dubai Edition Jetour T2/jetour-t2-dubai-ambient-panel-green.webp",
+      "Side Ambient Light Panel Dubai Edition Jetour T2/jetour-t2-dubai-ambient-panel-pink.webp"
+    ],
+    thumbnail: "Side Ambient Light Panel Dubai Edition Jetour T2/jetour-t2-dubai-ambient-panel-blue.webp",
+    badge: null
+  },
+  {
+    id: "original-spare-tire-cover",
+    name: { en: "Original Spare Tire Cover", ar: "غطاء الإطار الاحتياطي الأصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 1000,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Original gloss black spare tire cover for Jetour T2. OEM-style design with premium finish, direct replacement for the factory spare tire housing.",
+      ar: "غطاء إطار احتياطي أصلي أسود لامع لجيتور T2. تصميم بمواصفات المصنع مع تشطيب فاخر، بديل مباشر لحاوية الإطار الاحتياطي"
+    },
+    features: {
+      en: ["OEM-style original design", "Gloss black premium finish", "Direct factory replacement", "Durable weather-resistant material", "Perfect fit for Jetour T2"],
+      ar: ["تصميم أصلي بمواصفات المصنع", "تشطيب أسود لامع فاخر", "بديل مباشر للمصنع", "مادة متينة مقاومة للعوامل الجوية", "مقاس مثالي لجيتور T2"]
+    },
+    images: [
+      "Original Spare Tire Cover Jetour T2/jetour-t2-original-spare-tire-cover.jpg"
+    ],
+    thumbnail: "Original Spare Tire Cover Jetour T2/jetour-t2-original-spare-tire-cover.jpg",
+    badge: null
+  },
+  {
+    id: "key-cover-t2",
+    name: { en: "Leather Key Cover Case", ar: "غطاء مفتاح جلد" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 50,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Premium leather key case for Jetour T2. Handstitched full-flip design with keyring attachment. Available in multiple colors.",
+      ar: "غطاء مفتاح جلد فاخر لجيتور T2. تصميم قلاب كامل مخيط يدوياً مع حلقة مفاتيح. متوفر بعدة ألوان"
+    },
+    features: {
+      en: ["Premium leather material", "Handstitched finish", "Full-flip protective design", "Keyring attachment included", "Available in multiple colors"],
+      ar: ["جلد فاخر", "تشطيب مخيط يدوياً", "تصميم قلاب كامل للحماية", "حلقة مفاتيح مرفقة", "متوفر بعدة ألوان"]
+    },
+    images: [
+      "Key Cover Jetour T2/jetour-t2-key-cover-orange.jpg",
+      "Key Cover Jetour T2/jetour-t2-key-cover-green-black.jpg",
+      "Key Cover Jetour T2/jetour-t2-key-cover-black.png"
+    ],
+    thumbnail: "Key Cover Jetour T2/jetour-t2-key-cover-green-black.jpg",
+    badge: null
+  },
+  {
+    id: "dashcam-mirror-t2",
+    name: { en: "Dash Cam Rearview Mirror - Original Cable", ar: "كاميرا مرآة رؤية خلفية - كيبل أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 1350,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Custom-fit electronic rearview mirror dash cam for Jetour T2 with original cable integration. 2K front recording, 1080P rear streaming, 9.66-inch IPS HD screen with 24-hour parking surveillance.",
+      ar: "كاميرا مرآة رؤية خلفية إلكترونية مخصصة لجيتور T2 مع توصيل كيبل أصلي. تسجيل أمامي 2K، بث خلفي 1080P، شاشة IPS عالية الدقة 9.66 بوصة مع مراقبة وقوف 24 ساعة"
+    },
+    features: {
+      en: ["2K WDR front recording", "1080P rear-view streaming", "9.66-inch IPS HD screen", "Original cable - hidden wiring", "24-hour parking surveillance", "120° wide angle AHD camera"],
+      ar: ["تسجيل أمامي 2K عالي الوضوح", "بث خلفي 1080P", "شاشة IPS عالية الدقة 9.66 بوصة", "كيبل أصلي - أسلاك مخفية", "مراقبة وقوف 24 ساعة", "كاميرا زاوية واسعة 120 درجة"]
+    },
+    images: [
+      "Dash Cam Mirror Jetour T2/jetour-t2-dashcam-mirror-reversing.webp",
+      "Dash Cam Mirror Jetour T2/jetour-t2-dashcam-mirror-bracket.webp",
+      "Dash Cam Mirror Jetour T2/jetour-t2-dashcam-mirror-features.webp"
+    ],
+    thumbnail: "Dash Cam Mirror Jetour T2/jetour-t2-dashcam-mirror-reversing.webp",
+    badge: null
+  },
+  {
+    id: "defender-headlights-t2",
+    name: { en: "Defender Style LED Headlights", ar: "مصابيح أمامية LED بتصميم ديفندر" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 2500,
+    currency: "AED",
+    warranty: null,
+    category: "lighting",
+    description: {
+      en: "Defender-style LED headlight set for Jetour T2. Round halo DRL design with projector lens for a bold, iconic look. Direct plug-and-play replacement.",
+      ar: "طقم مصابيح أمامية LED بتصميم ديفندر لجيتور T2. تصميم هالة دائرية مع عدسة بروجكتور لمظهر جريء. تركيب مباشر بدون تعديل"
+    },
+    features: {
+      en: ["Defender-style round halo design", "LED projector lens", "Plug-and-play installation", "Pair set: left & right", "Bold iconic look"],
+      ar: ["تصميم هالة دائرية بأسلوب ديفندر", "عدسة بروجكتور LED", "تركيب مباشر بدون تعديل", "طقم: يمين ويسار", "مظهر جريء وأيقوني"]
+    },
+    images: [
+      "Defender Style Headlights Jetour T2/jetour-t2-defender-style-headlights.jpg"
+    ],
+    thumbnail: "Defender Style Headlights Jetour T2/jetour-t2-defender-style-headlights.jpg",
+    badge: null
+  },
+  {
+    id: "defender-tail-lights-t2",
+    name: { en: "Defender Style LED Tail Lights", ar: "مصابيح خلفية LED بتصميم ديفندر" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 1800,
+    currency: "AED",
+    warranty: null,
+    category: "lighting",
+    description: {
+      en: "Defender-style LED tail lights for Jetour T2. Square red LED signature with smoked black housing for a rugged, premium look. Direct replacement.",
+      ar: "مصابيح خلفية LED بتصميم ديفندر لجيتور T2. توقيع LED أحمر مربع مع إطار أسود مدخن لمظهر متين وفاخر. بديل مباشر"
+    },
+    features: {
+      en: ["Defender-style square LED design", "Smoked black housing", "Red LED signature", "Direct replacement", "Pair set: left & right"],
+      ar: ["تصميم LED مربع بأسلوب ديفندر", "إطار أسود مدخن", "توقيع LED أحمر", "بديل مباشر", "طقم: يمين ويسار"]
+    },
+    images: [
+      "Defender Style Tail Lights Jetour T2/jetour-t2-defender-style-tail-light.jpg"
+    ],
+    thumbnail: "Defender Style Tail Lights Jetour T2/jetour-t2-defender-style-tail-light.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-rear-fender-liner",
+    name: { en: "Rear Fender Liner", ar: "بطانة رفرف خلفي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 250,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Rear fender liner for Jetour ROX 01. Protects the inner fender from mud, rocks, and road debris. Durable plastic construction with direct-fit installation.",
+      ar: "بطانة رفرف خلفي لجيتور روكس 01. تحمي الرفرف الداخلي من الطين والحصى وحطام الطريق. بلاستيك متين بتركيب مباشر"
+    },
+    features: {
+      en: ["Direct-fit for ROX 01", "Durable plastic construction", "Protects from mud & debris", "Easy bolt-on installation", "Rear coverage"],
+      ar: ["مقاس مباشر لروكس 01", "بلاستيك متين", "حماية من الطين والحطام", "تركيب سهل بالبراغي", "تغطية خلفية"]
+    },
+    images: [
+      "Rear Fender Liner Jetour ROX 01/jetour-rox-01-rear-fender-liner.jpg"
+    ],
+    thumbnail: "Rear Fender Liner Jetour ROX 01/jetour-rox-01-rear-fender-liner.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-badge-emblem",
+    name: { en: "ROX 01 Chrome Badge Emblem", ar: "شعار ROX 01 كروم" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 200,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Chrome 'ROX 01' badge emblem lettering set. 3D chrome finish with self-adhesive backing for easy installation.",
+      ar: "طقم شعار حروف ROX 01 كروم. تشطيب كروم ثلاثي الأبعاد مع لاصق ذاتي لتركيب سهل"
+    },
+    features: {
+      en: ["3D chrome finish", "Self-adhesive backing", "ROX + 01 lettering set", "Direct replacement or upgrade", "Weather resistant"],
+      ar: ["تشطيب كروم ثلاثي الأبعاد", "لاصق ذاتي", "طقم حروف ROX + 01", "بديل مباشر أو ترقية", "مقاوم للعوامل الجوية"]
+    },
+    images: [
+      "ROX 01 Badge Emblem/jetour-rox-01-badge-emblem.jpg"
+    ],
+    thumbnail: "ROX 01 Badge Emblem/jetour-rox-01-badge-emblem.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-2112",
+    name: { en: "20\" Alloy Rim - 2112 Gloss Black Milling (4 Pcs)", ar: "جنط 20 بوصة - 2112 أسود لامع (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" Fuel-style alloy rim set (4 pieces) for Jetour T2. 20x9, 5x114/108, ET:15, CB:73. Gloss black with milling detail. 4x4 off-road design.",
+      ar: "طقم جنوط 20 بوصة (4 قطع) لجيتور T2. 20x9، 5x114/108، ET:15، CB:73. أسود لامع مع تفاصيل مطحونة. تصميم 4x4 للطرق الوعرة"
+    },
+    features: {
+      en: ["20x9 size", "5x114/108 bolt pattern", "Gloss black milling finish", "4x4 off-road style", "Set of 4 pieces"],
+      ar: ["مقاس 20x9", "تقسيمة 5x114/108", "أسود لامع مع تفاصيل مطحونة", "تصميم 4x4 للطرق الوعرة", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-2112-gloss-black-milling.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-2112-gloss-black-milling.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-zs019",
+    name: { en: "20\" Alloy Rim - ZS019 Hyper Black M Lip (4 Pcs)", ar: "جنط 20 بوصة - ZS019 أسود هايبر (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" 5-spoke alloy rim set (4 pieces) for Jetour T2. 20x9, 5x108, ET:35, CB:73.1. Hyper black with machined lip. Sporty concave design.",
+      ar: "طقم جنوط 20 بوصة 5 أذرع (4 قطع) لجيتور T2. 20x9، 5x108، ET:35، CB:73.1. أسود هايبر مع حافة مصقولة. تصميم رياضي مقعر"
+    },
+    features: {
+      en: ["20x9 size", "5x108 bolt pattern", "Hyper black machined lip", "5-spoke concave design", "Set of 4 pieces"],
+      ar: ["مقاس 20x9", "تقسيمة 5x108", "أسود هايبر مع حافة مصقولة", "تصميم 5 أذرع مقعر", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-zs019-hyper-black.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-zs019-hyper-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-3134",
+    name: { en: "20\" Alloy Rim - 3134 Gloss Carbon (4 Pcs)", ar: "جنط 20 بوصة - 3134 كربون لامع (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" mesh-style alloy rim set (4 pieces) for Jetour T2. 20x8.5, 5x108, ET:45, CB:63.4. Gloss carbon finish with intricate mesh spoke design.",
+      ar: "طقم جنوط 20 بوصة شبكية (4 قطع) لجيتور T2. 20x8.5، 5x108، ET:45، CB:63.4. كربون لامع مع تصميم أذرع شبكية"
+    },
+    features: {
+      en: ["20x8.5 size", "5x108 bolt pattern", "Gloss carbon finish", "Mesh spoke design", "Set of 4 pieces"],
+      ar: ["مقاس 20x8.5", "تقسيمة 5x108", "تشطيب كربون لامع", "تصميم أذرع شبكية", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-3134-gloss-carbon.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-3134-gloss-carbon.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-0376",
+    name: { en: "20\" Alloy Rim - 0376 Hyper Black (4 Pcs)", ar: "جنط 20 بوصة - 0376 أسود هايبر (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" multi-spoke alloy rim set (4 pieces) for Jetour T2. 20x9, 5x108, ET:35, CB:65.1. Hyper black finish with directional spoke pattern.",
+      ar: "طقم جنوط 20 بوصة متعددة الأذرع (4 قطع) لجيتور T2. 20x9، 5x108، ET:35، CB:65.1. أسود هايبر مع نمط أذرع اتجاهي"
+    },
+    features: {
+      en: ["20x9 size", "5x108 bolt pattern", "Hyper black finish", "Multi-spoke directional design", "Set of 4 pieces"],
+      ar: ["مقاس 20x9", "تقسيمة 5x108", "تشطيب أسود هايبر", "تصميم أذرع اتجاهي", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-0376-hyper-black.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-0376-hyper-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-0319",
+    name: { en: "20\" Alloy Rim - 0319 Gloss Black (4 Pcs)", ar: "جنط 20 بوصة - 0319 أسود لامع (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 4000,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" alloy rim set (4 pieces) for Jetour T2. 20x8, 5x108, ET:45, CB:63.3. Full gloss black with angular Y-spoke design.",
+      ar: "طقم جنوط 20 بوصة (4 قطع) لجيتور T2. 20x8، 5x108، ET:45، CB:63.3. أسود لامع بالكامل مع تصميم أذرع Y زاوية"
+    },
+    features: {
+      en: ["20x8 size", "5x108 bolt pattern", "Full gloss black", "Angular Y-spoke design", "Set of 4 pieces"],
+      ar: ["مقاس 20x8", "تقسيمة 5x108", "أسود لامع بالكامل", "تصميم أذرع Y زاوية", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-0319-black.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-0319-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-xf015",
+    name: { en: "20\" Alloy Rim - XF015 Hyper Black (4 Pcs)", ar: "جنط 20 بوصة - XF015 أسود هايبر (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" alloy rim set (4 pieces) for Jetour T2. 20x8, 5x108, ET:35, CB:73.1. Hyper black with fine multi-spoke mesh pattern.",
+      ar: "طقم جنوط 20 بوصة (4 قطع) لجيتور T2. 20x8، 5x108، ET:35، CB:73.1. أسود هايبر مع نمط شبكي متعدد الأذرع"
+    },
+    features: {
+      en: ["20x8 size", "5x108 bolt pattern", "Hyper black finish", "Fine multi-spoke mesh", "Set of 4 pieces"],
+      ar: ["مقاس 20x8", "تقسيمة 5x108", "تشطيب أسود هايبر", "شبكة أذرع دقيقة", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-xf015-hyper-black.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-xf015-hyper-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-t2-fc030",
+    name: { en: "20\" Alloy Rim - FC030 Hyper Black (4 Pcs)", ar: "جنط 20 بوصة - FC030 أسود هايبر (4 قطع)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 3800,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "20\" alloy rim set (4 pieces) for Jetour T2. 20x8.5, 5x108, ET:35, CB:73.1. Hyper black with clean split 10-spoke design.",
+      ar: "طقم جنوط 20 بوصة (4 قطع) لجيتور T2. 20x8.5، 5x108، ET:35، CB:73.1. أسود هايبر مع تصميم 10 أذرع مقسمة"
+    },
+    features: {
+      en: ["20x8.5 size", "5x108 bolt pattern", "Hyper black finish", "Split 10-spoke design", "Set of 4 pieces"],
+      ar: ["مقاس 20x8.5", "تقسيمة 5x108", "تشطيب أسود هايبر", "تصميم 10 أذرع مقسمة", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour T2/jetour-t2-rim-fc030-hyper-black.jpg"
+    ],
+    thumbnail: "Rims Jetour T2/jetour-t2-rim-fc030-hyper-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-rox01-yf5705",
+    name: { en: "22\" Alloy Rim - YF5705 Matt Black Milling Spoke (4 Pcs)", ar: "جنط 22 بوصة - YF5705 أسود مطفي (4 قطع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 4500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "22\" alloy rim set (4 pieces) for Jetour ROX 01. 22x9, 5x120, ET:35, CB:72. Matt black with milling spoke detail. AMG-style star design.",
+      ar: "طقم جنوط 22 بوصة (4 قطع) لجيتور روكس 01. 22x9، 5x120، ET:35، CB:72. أسود مطفي مع تفاصيل أذرع مطحونة. تصميم نجمة بأسلوب AMG"
+    },
+    features: {
+      en: ["22x9 size", "5x120 bolt pattern", "Matt black milling spoke", "AMG-style star design", "Set of 4 pieces"],
+      ar: ["مقاس 22x9", "تقسيمة 5x120", "أذرع مطحونة أسود مطفي", "تصميم نجمة بأسلوب AMG", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour ROX 01/jetour-rox-01-rim-yf5705-matt-black.jpg"
+    ],
+    thumbnail: "Rims Jetour ROX 01/jetour-rox-01-rim-yf5705-matt-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-rox01-536",
+    name: { en: "22\" Alloy Rim - 536 Gloss Black Swirl (4 Pcs)", ar: "جنط 22 بوصة - 536 أسود لامع حلزوني (4 قطع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 4000,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "22\" alloy rim set (4 pieces) for Jetour ROX 01. 22x8.5, 5x112/120, ET:38, CB:74.1. Full gloss black with bold swirl spoke design.",
+      ar: "طقم جنوط 22 بوصة (4 قطع) لجيتور روكس 01. 22x8.5، 5x112/120، ET:38، CB:74.1. أسود لامع مع تصميم أذرع حلزونية جريئة"
+    },
+    features: {
+      en: ["22x8.5 size", "5x112/120 bolt pattern", "Full gloss black", "Swirl spoke design", "Set of 4 pieces"],
+      ar: ["مقاس 22x8.5", "تقسيمة 5x112/120", "أسود لامع بالكامل", "تصميم أذرع حلزونية", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour ROX 01/jetour-rox-01-rim-536-gloss-black.jpg"
+    ],
+    thumbnail: "Rims Jetour ROX 01/jetour-rox-01-rim-536-gloss-black.jpg",
+    badge: null
+  },
+  {
+    id: "rim-rox01-m121",
+    name: { en: "22\" Alloy Rim - M121 Gloss Black M Face (4 Pcs)", ar: "جنط 22 بوصة - M121 أسود لامع (4 قطع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 4500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "22\" MKW alloy rim set (4 pieces) for Jetour ROX 01. 22x9, 5x115/120, ET:18, CB:74.1. Gloss black with machined face. Angular geometric design.",
+      ar: "طقم جنوط MKW 22 بوصة (4 قطع) لجيتور روكس 01. 22x9، 5x115/120، ET:18، CB:74.1. أسود لامع مع وجه مصقول. تصميم هندسي زاوي"
+    },
+    features: {
+      en: ["22x9 size", "5x115/120 bolt pattern", "Gloss black machined face", "Angular geometric design", "Set of 4 pieces"],
+      ar: ["مقاس 22x9", "تقسيمة 5x115/120", "أسود لامع مع وجه مصقول", "تصميم هندسي زاوي", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour ROX 01/jetour-rox-01-rim-m121-gloss-black-mface.jpg"
+    ],
+    thumbnail: "Rims Jetour ROX 01/jetour-rox-01-rim-m121-gloss-black-mface.jpg",
+    badge: null
+  },
+  {
+    id: "rim-rox01-m122",
+    name: { en: "22\" Alloy Rim - M122 Gloss Black M Face (4 Pcs)", ar: "جنط 22 بوصة - M122 أسود لامع (4 قطع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 4200,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "22\" MKW alloy rim set (4 pieces) for Jetour ROX 01. 22x9, 5x115/120, ET:18, CB:74.1. Gloss black with machined face. Multi-spoke turbine design.",
+      ar: "طقم جنوط MKW 22 بوصة (4 قطع) لجيتور روكس 01. 22x9، 5x115/120، ET:18، CB:74.1. أسود لامع مع وجه مصقول. تصميم توربين متعدد الأذرع"
+    },
+    features: {
+      en: ["22x9 size", "5x115/120 bolt pattern", "Gloss black machined face", "Multi-spoke turbine design", "Set of 4 pieces"],
+      ar: ["مقاس 22x9", "تقسيمة 5x115/120", "أسود لامع مع وجه مصقول", "تصميم توربين متعدد الأذرع", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour ROX 01/jetour-rox-01-rim-m122-gloss-black-mface.jpg"
+    ],
+    thumbnail: "Rims Jetour ROX 01/jetour-rox-01-rim-m122-gloss-black-mface.jpg",
+    badge: null
+  },
+  {
+    id: "rim-rox01-0389",
+    name: { en: "22\" Alloy Rim - 0389 BMF Maybach Style (4 Pcs)", ar: "جنط 22 بوصة - 0389 بأسلوب مايباخ (4 قطع)" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 4500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "22\" Maybach-style alloy rim set (4 pieces) for Jetour ROX 01. 22x9, 5x120, ET:35, CB:72.5. Black machined face with classic multi-spoke turbine design.",
+      ar: "طقم جنوط 22 بوصة بأسلوب مايباخ (4 قطع) لجيتور روكس 01. 22x9، 5x120، ET:35، CB:72.5. أسود مع وجه مصقول وتصميم توربين كلاسيكي"
+    },
+    features: {
+      en: ["22x9 size", "5x120 bolt pattern", "Black machined face (BMF)", "Maybach-style turbine design", "Set of 4 pieces"],
+      ar: ["مقاس 22x9", "تقسيمة 5x120", "أسود مع وجه مصقول", "تصميم توربين بأسلوب مايباخ", "طقم 4 قطع"]
+    },
+    images: [
+      "Rims Jetour ROX 01/jetour-rox-01-rim-0389-bmf.jpg"
+    ],
+    thumbnail: "Rims Jetour ROX 01/jetour-rox-01-rim-0389-bmf.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-number-plate-cover",
+    name: { en: "Rear Number Plate Cover", ar: "غطاء لوحة أرقام خلفي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 300,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Rear number plate cover for Jetour ROX 01 with ROX branding. Smoked black finish for a clean, premium look.",
+      ar: "غطاء لوحة أرقام خلفي لجيتور روكس 01 مع شعار ROX. تشطيب أسود مدخن لمظهر أنيق وفاخر"
+    },
+    features: {
+      en: ["ROX branded design", "Smoked black finish", "Direct-fit for ROX 01", "Premium clean look", "Easy installation"],
+      ar: ["تصميم بشعار ROX", "تشطيب أسود مدخن", "مقاس مباشر لروكس 01", "مظهر أنيق وفاخر", "تركيب سهل"]
+    },
+    images: [
+      "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg"
+    ],
+    thumbnail: "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg",
+    badge: null
+  },
+  {
+    id: "original-brake-pad-t2",
+    name: { en: "Original Brake Pad Set", ar: "طقم فحمات فرامل أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 1000,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Original brake pad set for Jetour T2. OEM-spec ceramic brake pads for reliable stopping power and long pad life.",
+      ar: "طقم فحمات فرامل أصلي لجيتور T2. فحمات سيراميك بمواصفات المصنع لقوة فرملة موثوقة وعمر طويل"
+    },
+    features: {
+      en: ["OEM original specification", "Ceramic compound", "Reliable stopping power", "Long pad life", "Direct fit for Jetour T2"],
+      ar: ["مواصفات المصنع الأصلية", "مركب سيراميك", "قوة فرملة موثوقة", "عمر طويل للفحمات", "مقاس مباشر لجيتور T2"]
+    },
+    images: [
+      "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png"
+    ],
+    thumbnail: "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png",
+    badge: null
   }
 ];
 
@@ -515,14 +1105,14 @@ const CAR_MODELS = [
     name: { en: "Jetour T2", ar: "جيتور T2" },
     years: "2023-2024",
     heroImage: "assets/cars/jetour-t2.jpg",
-    productCount: 13
+    productCount: 29
   },
   {
     id: "jetour-rox-01",
     name: { en: "ROX 01", ar: "روكس 01" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 7
+    productCount: 16
   }
 ];
 
@@ -626,7 +1216,7 @@ function renderCarModels(lang) {
   grid.innerHTML = CAR_MODELS.map(function (car) {
     return '<div class="car-card animate-in" data-car-id="' + car.id + '" onclick="window.filterByCar(\'' + car.id + '\')">' +
       '<div class="car-card__image-wrap">' +
-        '<img class="car-card__image" src="' + car.heroImage + '" alt="' + car.name[lang] + '" loading="lazy">' +
+        '<img class="car-card__image img-lazy" src="' + car.heroImage + '" alt="' + car.name[lang] + '" loading="lazy" onload="this.classList.add(\'img-lazy--loaded\')">' +
       '</div>' +
       '<div class="car-card__info">' +
         '<h3 class="car-card__name">' + car.name[lang] + '</h3>' +
@@ -676,7 +1266,7 @@ function renderProducts(lang, category, carModel, limit) {
 
     return '<a class="product-card animate-in" data-product-id="' + product.id + '" data-category="' + product.category + '" href="product.html?id=' + product.id + '">' +
       '<div class="product-card__image-wrap">' +
-        '<img class="product-card__image" src="' + (typeof getThumb === 'function' ? getThumb(product.thumbnail) : product.thumbnail) + '" alt="' + product.name[lang] + '" loading="lazy">' +
+        '<img class="product-card__image img-lazy" src="' + (typeof getThumb === 'function' ? getThumb(product.thumbnail) : product.thumbnail) + '" alt="' + product.name[lang] + '" loading="lazy" onload="this.classList.add(\'img-lazy--loaded\')">' +
         badgeHTML +
       '</div>' +
       '<div class="product-card__body">' +

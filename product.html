@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <link rel="canonical" href="">
   <meta name="theme-color" content="#070B14">
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Geo Meta -->
   <meta name="geo.region" content="AE-DU">
@@ -319,7 +320,7 @@
     <div class="container">
       <!-- Breadcrumb -->
       <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
-        <a href="javascript:history.back()" class="product-page__back" id="pp-back-btn">
+        <a href="javascript:void(0)" onclick="if(history.length>1){history.back()}else{location.href='/products.html'}" class="product-page__back" id="pp-back-btn">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           <span id="pp-back-text">Back</span>
         </a>
@@ -478,6 +479,7 @@
   </script>
   <script src="js/products.js"></script>
   <script src="js/whatsapp.js"></script>
+  <script src="js/haptics.js"></script>
   <script>
   /* ============================================================
      product-page.js  --  Wadi Al Awir Car Accessories

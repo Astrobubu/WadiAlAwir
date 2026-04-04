@@ -483,6 +483,16 @@ function showCartNotification() {
     cartBtn.classList.add('cart-btn--bounce');
     setTimeout(function() { cartBtn.classList.remove('cart-btn--bounce'); }, 500);
   }
+
+  /* Show toast */
+  var existing = document.querySelector('.cart-toast');
+  if (existing) existing.remove();
+
+  var toast = document.createElement('div');
+  toast.className = 'cart-toast';
+  toast.textContent = _currentLang === 'ar' ? '\u2713 \u062A\u0645\u062A \u0627\u0644\u0625\u0636\u0627\u0641\u0629 \u0644\u0644\u0633\u0644\u0629' : '\u2713 Added to cart';
+  document.body.appendChild(toast);
+  setTimeout(function() { if (toast.parentNode) toast.remove(); }, 2500);
 }
 
 function toggleCart() {
