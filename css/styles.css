@@ -413,7 +413,7 @@ button {
     rgba(7, 11, 20, 0.7) 0%,
     rgba(7, 11, 20, 0.4) 25%,
     rgba(7, 11, 20, 0.85) 55%,
-    var(--bg-deep) 100%
+    var(--bg-card) 100%
   );
   z-index: 1;
 }
