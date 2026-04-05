@@ -1294,9 +1294,9 @@ function renderServices(lang) {
   grid.innerHTML = SERVICES.map(function (service) {
     var iconSVG = SERVICE_ICONS[service.icon] || '';
 
-    var waURL = (typeof window.getServiceWhatsAppURL === 'function')
+    var waMsg = (typeof window.getServiceWhatsAppURL === 'function')
       ? window.getServiceWhatsAppURL(service, lang)
-      : '#';
+      : '';
 
     var packagesHTML = '';
     if (service.packages && service.packages.length) {
@@ -1321,7 +1321,7 @@ function renderServices(lang) {
       '<h3 class="service-card__name">' + service.name[lang] + '</h3>' +
       '<p class="service-card__desc">' + service.description[lang] + '</p>' +
       packagesHTML +
-      '<a href="' + waURL + '" target="_blank" rel="noopener" class="btn btn--outline btn--sm service-card__cta">' + inquireLabel + '</a>' +
+      '<a href="#" onclick="event.preventDefault(); window.openWhatsApp(\'' + waMsg.replace(/'/g, "\\'") + '\');" class="btn btn--outline btn--sm service-card__cta">' + inquireLabel + '</a>' +
     '</div>';
   }).join('');
 }

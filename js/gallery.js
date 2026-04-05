@@ -92,8 +92,13 @@ function openLightbox(productId) {
 
   /* Order button */
   if (orderBtn) {
-    orderBtn.href = window.getProductWhatsAppURL(product, lang);
+    orderBtn._waMessage = window.getProductWhatsAppURL(product, lang);
+    orderBtn.href = '#';
     orderBtn.textContent = lang === 'ar' ? 'اطلب عبر واتساب' : 'Order via WhatsApp';
+    orderBtn.onclick = function(e) {
+      e.preventDefault();
+      window.openWhatsApp(orderBtn._waMessage);
+    };
   }
 
   /* Show lightbox */

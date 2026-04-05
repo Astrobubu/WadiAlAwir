@@ -3,18 +3,96 @@
    WhatsApp deep-link URL generators
    ============================================================ */
 
-var WA_NUMBER = '971553573156';
+var WA_NUMBERS = [
+  { id: '971553573156', label: { en: 'Line 1', ar: 'الخط 1' } },
+  { id: '971581796614', label: { en: 'Line 2', ar: 'الخط 2' } }
+];
+var WA_NUMBER = WA_NUMBERS[0].id;
+
+/* ----------------------------------------------------------
+   WhatsApp Number Picker
+   Shows a small popup letting the user choose which line.
+   ---------------------------------------------------------- */
+var _waPendingMessage = '';
+
+function _createWAPicker() {
+  if (document.getElementById('wa-picker')) return;
+
+  var picker = document.createElement('div');
+  picker.id = 'wa-picker';
+  picker.className = 'wa-picker';
+  picker.setAttribute('aria-hidden', 'true');
+  picker.innerHTML =
+    '<div class="wa-picker__backdrop"></div>' +
+    '<div class="wa-picker__card">' +
+      '<p class="wa-picker__title" id="wa-picker-title">Choose a WhatsApp line</p>' +
+      '<div class="wa-picker__buttons" id="wa-picker-buttons"></div>' +
+      '<p class="wa-picker__hint" id="wa-picker-hint">If one line doesn\'t reply, try the other</p>' +
+    '</div>';
+  document.body.appendChild(picker);
+
+  picker.querySelector('.wa-picker__backdrop').addEventListener('click', _closeWAPicker);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') _closeWAPicker();
+  });
+}
+
+function _closeWAPicker() {
+  var picker = document.getElementById('wa-picker');
+  if (picker) {
+    picker.setAttribute('aria-hidden', 'true');
+    picker.classList.remove('wa-picker--open');
+  }
+}
+
+function _openWAPicker(encodedMessage) {
+  _createWAPicker();
+
+  var lang = (document.body.dataset && document.body.dataset.lang) || 'en';
+  var picker = document.getElementById('wa-picker');
+  var titleEl = document.getElementById('wa-picker-title');
+  var hintEl = document.getElementById('wa-picker-hint');
+  var buttonsEl = document.getElementById('wa-picker-buttons');
+
+  if (titleEl) {
+    titleEl.textContent = lang === 'ar'
+      ? 'اختر رقم الواتساب'
+      : 'Choose a WhatsApp line';
+  }
+  if (hintEl) {
+    hintEl.textContent = lang === 'ar'
+      ? 'إذا لم يرد أحد الخطوط، جرّب الآخر'
+      : 'If one line doesn\'t reply, try the other';
+  }
+
+  buttonsEl.innerHTML = WA_NUMBERS.map(function(num) {
+    var url = 'https://wa.me/' + num.id + '?text=' + encodedMessage;
+    return '<a class="btn btn--whatsapp wa-picker__btn" href="' + url + '" target="_blank" rel="noopener" onclick="setTimeout(function(){document.getElementById(\'wa-picker\').classList.remove(\'wa-picker--open\');},200);">' +
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+      '<span>' + num.label[lang] + '</span>' +
+    '</a>';
+  }).join('');
+
+  picker.classList.add('wa-picker--open');
+  picker.setAttribute('aria-hidden', 'false');
+
+  if (typeof haptic === 'function') haptic('select');
+}
+
+/* ----------------------------------------------------------
+   Intercept WhatsApp navigation — show picker instead
+   ---------------------------------------------------------- */
+function openWhatsApp(encodedMessage) {
+  _openWAPicker(encodedMessage);
+}
 
 /**
  * Build a WhatsApp order URL for a specific product.
- * @param {Object} product  - product object from PRODUCTS array
- * @param {string} lang     - 'en' or 'ar'
- * @returns {string} wa.me URL with pre-filled message
  */
 function getProductWhatsAppURL(product, lang) {
   var message;
 
-  /* Find car model name */
   var carName = product.carYear || '';
   if (typeof window.CAR_MODELS !== 'undefined') {
     var car = window.CAR_MODELS.find(function(c) { return c.id === product.carModel; });
@@ -37,14 +115,11 @@ function getProductWhatsAppURL(product, lang) {
       'Is this available?';
   }
 
-  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  return encodeURIComponent(message);
 }
 
 /**
  * Build a WhatsApp inquiry URL for a service.
- * @param {Object} service  - service object from SERVICES array
- * @param {string} lang     - 'en' or 'ar'
- * @returns {string} wa.me URL
  */
 function getServiceWhatsAppURL(service, lang) {
   var message;
@@ -55,13 +130,11 @@ function getServiceWhatsAppURL(service, lang) {
     message = 'Hello, I\'d like to inquire about your ' + service.name.en + ' service.';
   }
 
-  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  return encodeURIComponent(message);
 }
 
 /**
  * Build a general WhatsApp inquiry URL.
- * @param {string} lang - 'en' or 'ar'
- * @returns {string} wa.me URL
  */
 function getGeneralWhatsAppURL(lang) {
   var message;
@@ -72,17 +145,13 @@ function getGeneralWhatsAppURL(lang) {
     message = 'Hello, I\'d like to learn more about your products and services.';
   }
 
-  return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  return encodeURIComponent(message);
 }
 
 /**
  * Build a WhatsApp order URL for cart items.
- * @param {Array} cartItems - array of {id, name, price, qty} objects
- * @param {string} lang     - 'en' or 'ar'
- * @returns {string} wa.me URL with pre-filled message
  */
 function getCartWhatsAppURL(cartItems, lang) {
-  var WHATSAPP_NUMBER = '971553573156';
   var lines = [];
   var total = 0;
 
@@ -112,10 +181,11 @@ function getCartWhatsAppURL(cartItems, lang) {
     lines.push('Are these items available?');
   }
 
-  return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+  return encodeURIComponent(lines.join('\n'));
 }
 
 window.getCartWhatsAppURL = getCartWhatsAppURL;
+window.openWhatsApp = openWhatsApp;
 
 /* Expose globals */
 window.getProductWhatsAppURL = getProductWhatsAppURL;

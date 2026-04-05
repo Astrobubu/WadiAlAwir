@@ -377,13 +377,19 @@ function initScrollAnimations() {
 function initWhatsAppButtons() {
   if (typeof window.getGeneralWhatsAppURL !== 'function') return;
 
-  var url = window.getGeneralWhatsAppURL(_currentLang);
+  var msg = window.getGeneralWhatsAppURL(_currentLang);
 
   var heroWA = document.getElementById('hero-whatsapp');
-  if (heroWA) heroWA.href = url;
+  if (heroWA) {
+    heroWA.href = '#';
+    heroWA.onclick = function(e) { e.preventDefault(); window.openWhatsApp(window.getGeneralWhatsAppURL(_currentLang)); };
+  }
 
   var fabWA = document.getElementById('fab-whatsapp');
-  if (fabWA) fabWA.href = url;
+  if (fabWA) {
+    fabWA.href = '#';
+    fabWA.onclick = function(e) { e.preventDefault(); window.openWhatsApp(window.getGeneralWhatsAppURL(_currentLang)); };
+  }
 }
 
 /* ----------------------------------------------------------
@@ -529,7 +535,8 @@ function renderCartDrawer() {
   }
   if (sendBtn) {
     sendBtn.style.display = 'flex';
-    sendBtn.href = window.getCartWhatsAppURL(_cart, lang);
+    sendBtn.href = '#';
+    sendBtn.onclick = function(e) { e.preventDefault(); window.openWhatsApp(window.getCartWhatsAppURL(_cart, lang)); };
   }
 
   body.innerHTML = _cart.map(function(item) {
