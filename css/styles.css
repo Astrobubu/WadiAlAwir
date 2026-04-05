@@ -2788,3 +2788,19 @@ a:focus:not(:focus-visible) {
 [dir="rtl"] .faq-item__toggle {
   text-align: right;
 }
+
+/* Footer policy links */
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0.75rem 0;
+}
+.footer__links a {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.footer__links a:hover {
+  color: var(--accent);
+}
