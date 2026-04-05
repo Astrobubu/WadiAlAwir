@@ -461,7 +461,7 @@
         </a>
       </div>
       <p class="footer__copyright" id="footer-copyright">&copy; 2026 Wadi Al Awir Car Accessories.</p>
-      <p class="footer__powered"><span id="footer-powered">Powered by</span> <a href="https://constantlabs.ai" target="_blank" rel="noopener">ConstantLabs</a></p>
+      <p class="footer__powered"><span id="footer-powered">Built by</span> <a href="https://constantlabs.ai" target="_blank" rel="noopener">ConstantLabs</a></p>
     </div>
   </footer>
 
@@ -512,9 +512,10 @@
         'notfound.title': 'Product Not Found',
         'notfound.text': 'Sorry, we couldn\'t find the product you\'re looking for.',
         'notfound.back': 'Back to Products',
+        'back': 'Back',
         'footer.tagline': 'Car Accessories & Window Tinting',
         'footer.copyright': '\u00a9 2026 Wadi Al Awir Car Accessories.',
-        'footer.powered': 'Powered by'
+        'footer.powered': 'Built by'
       },
       ar: {
         'nav.products': '\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
@@ -538,9 +539,10 @@
         'notfound.title': '\u0627\u0644\u0645\u0646\u062A\u062C \u063A\u064A\u0631 \u0645\u0648\u062C\u0648\u062F',
         'notfound.text': '\u0639\u0630\u0631\u0627\u064B\u060C \u0644\u0645 \u0646\u062A\u0645\u0643\u0646 \u0645\u0646 \u0627\u0644\u0639\u062B\u0648\u0631 \u0639\u0644\u0649 \u0627\u0644\u0645\u0646\u062A\u062C \u0627\u0644\u0645\u0637\u0644\u0648\u0628.',
         'notfound.back': '\u0627\u0644\u0639\u0648\u062F\u0629 \u0644\u0644\u0645\u0646\u062A\u062C\u0627\u062A',
+        'back': '\u0631\u062C\u0648\u0639',
         'footer.tagline': 'لزينة السيارات وتظليل الزجاج',
         'footer.copyright': '\u00a9 2026 وادي العوير لزينة السيارات.',
-        'footer.powered': 'بواسطة'
+        'footer.powered': '\u0628\u0646\u0627\u0621'
       }
     };
 
@@ -957,6 +959,10 @@
         var carName = carModel ? carModel.name[lang] : product.carModel;
         carText.textContent = carName + ' (' + product.carYear + ')';
       }
+
+      /* ---- Back button ---- */
+      var backText = document.getElementById('pp-back-text');
+      if (backText) backText.textContent = t('back');
 
       /* ---- Quantity ---- */
       var qtyLabel = document.getElementById('pp-qty-label');
