@@ -55,7 +55,22 @@ var TRANSLATIONS = {
     "review.2": "\u201cThe majority of the accessories are in stock, the team is fantastic and very knowledgeable.\u201d",
     "review.3": "\u201cBest shop for Jetour T2 accessories in Dubai. Professional installation and fair prices.\u201d",
     "review.4": "\u201cGreat selection of car accessories. Good quality products and reasonable prices. Recommended!\u201d",
-    "review.source": "Google Review"
+    "review.source": "Google Review",
+    "faq.label": "FAQ",
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "Everything you need to know",
+    "faq.q1": "Do you offer installation for all accessories? / \u0647\u0644 \u062A\u0642\u062F\u0645\u0648\u0646 \u062E\u062F\u0645\u0629 \u0627\u0644\u062A\u0631\u0643\u064A\u0628 \u0644\u062C\u0645\u064A\u0639 \u0627\u0644\u0625\u0643\u0633\u0633\u0648\u0627\u0631\u0627\u062A\u061F",
+    "faq.a1": "Yes, all our accessories come with free professional installation at our Al Awir workshop. / \u0646\u0639\u0645\u060C \u062C\u0645\u064A\u0639 \u0625\u0643\u0633\u0633\u0648\u0627\u0631\u0627\u062A\u0646\u0627 \u062A\u0623\u062A\u064A \u0645\u0639 \u062A\u0631\u0643\u064A\u0628 \u0645\u062C\u0627\u0646\u064A \u0627\u062D\u062A\u0631\u0627\u0641\u064A \u0641\u064A \u0648\u0631\u0634\u062A\u0646\u0627 \u0628\u0627\u0644\u0639\u0648\u064A\u0631.",
+    "faq.q2": "What payment methods do you accept? / \u0645\u0627 \u0647\u064A \u0637\u0631\u0642 \u0627\u0644\u062F\u0641\u0639 \u0627\u0644\u0645\u062A\u0627\u062D\u0629\u061F",
+    "faq.a2": "We accept cash, credit/debit cards, and Tabby (split your payment into 4 interest-free installments). / \u0646\u0642\u0628\u0644 \u0627\u0644\u062F\u0641\u0639 \u0646\u0642\u062F\u0627\u064B\u060C \u0648\u0628\u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062A \u0627\u0644\u0627\u0626\u062A\u0645\u0627\u0646\u064A\u0629/\u0627\u0644\u062E\u0635\u0645\u060C \u0648\u062A\u0627\u0628\u064A (\u062A\u0642\u0633\u064A\u0637 \u0639\u0644\u0649 4 \u062F\u0641\u0639\u0627\u062A \u0628\u062F\u0648\u0646 \u0641\u0648\u0627\u0626\u062F).",
+    "faq.q3": "Do your accessories come with a warranty? / \u0647\u0644 \u0627\u0644\u0625\u0643\u0633\u0633\u0648\u0627\u0631\u0627\u062A \u0645\u0634\u0645\u0648\u0644\u0629 \u0628\u0636\u0645\u0627\u0646\u061F",
+    "faq.a3": "Select products include a manufacturer warranty. Check each product listing for warranty details. / \u0628\u0639\u0636 \u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A \u062A\u0623\u062A\u064A \u0628\u0636\u0645\u0627\u0646 \u0645\u0646 \u0627\u0644\u0634\u0631\u0643\u0629 \u0627\u0644\u0645\u0635\u0646\u0639\u0629. \u062A\u062D\u0642\u0642 \u0645\u0646 \u062A\u0641\u0627\u0635\u064A\u0644 \u0643\u0644 \u0645\u0646\u062A\u062C \u0644\u0645\u0639\u0631\u0641\u0629 \u0627\u0644\u0636\u0645\u0627\u0646.",
+    "faq.q4": "Which car models do you support? / \u0645\u0627 \u0647\u064A \u0627\u0644\u0633\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u0645\u062F\u0639\u0648\u0645\u0629\u061F",
+    "faq.a4": "We specialize in Jetour T2 (2023-2024) and Jetour ROX 01 (2024-2025) accessories. / \u0646\u062D\u0646 \u0645\u062A\u062E\u0635\u0635\u0648\u0646 \u0641\u064A \u0625\u0643\u0633\u0633\u0648\u0627\u0631\u0627\u062A \u062C\u064A\u062A\u0648\u0631 T2 (2023-2024) \u0648\u062C\u064A\u062A\u0648\u0631 \u0631\u0648\u0643\u0633 01 (2024-2025).",
+    "faq.q5": "How can I place an order? / \u0643\u064A\u0641 \u064A\u0645\u0643\u0646\u0646\u064A \u0627\u0644\u0637\u0644\u0628\u061F",
+    "faq.a5": "Browse our products, then order directly via WhatsApp. We\u2019ll confirm availability and arrange installation. / \u062A\u0635\u0641\u062D \u0645\u0646\u062A\u062C\u0627\u062A\u0646\u0627\u060C \u062B\u0645 \u0627\u0637\u0644\u0628 \u0645\u0628\u0627\u0634\u0631\u0629 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628. \u0633\u0646\u0624\u0643\u062F \u0627\u0644\u062A\u0648\u0641\u0631 \u0648\u0646\u0631\u062A\u0628 \u0627\u0644\u062A\u0631\u0643\u064A\u0628.",
+    "faq.q6": "Where are you located? / \u0623\u064A\u0646 \u0645\u0648\u0642\u0639\u0643\u0645\u061F",
+    "faq.a6": "We\u2019re in Al Awir 1, Dubai (near Dubai Safari Park). Open daily from 9 AM to 11 PM. / \u0646\u062D\u0646 \u0641\u064A \u0627\u0644\u0639\u0648\u064A\u0631 \u0627\u0644\u0623\u0648\u0644\u0649 - \u062F\u0628\u064A (\u0628\u0627\u0644\u0642\u0631\u0628 \u0645\u0646 \u062F\u0628\u064A \u0633\u0641\u0627\u0631\u064A \u0628\u0627\u0631\u0643). \u0645\u0641\u062A\u0648\u062D\u0648\u0646 \u064A\u0648\u0645\u064A\u0627\u064B \u0645\u0646 9 \u0635\u0628\u0627\u062D\u0627\u064B \u062D\u062A\u0649 11 \u0645\u0633\u0627\u0621\u064B."
   },
   ar: {
     "nav.products": "\u0627\u0644\u0645\u0646\u062A\u062C\u0627\u062A",
@@ -105,7 +120,22 @@ var TRANSLATIONS = {
     "review.2": "\u201cمعظم الإكسسوارات متوفرة، الفريق رائع وذو خبرة عالية.\u201d",
     "review.3": "\u201cأفضل محل لإكسسوارات جيتور T2 في دبي. تركيب احترافي وأسعار عادلة.\u201d",
     "review.4": "\u201cتشكيلة رائعة من إكسسوارات السيارات. جودة ممتازة وأسعار معقولة. أنصح به!\u201d",
-    "review.source": "تقييم جوجل"
+    "review.source": "تقييم جوجل",
+    "faq.label": "الأسئلة الشائعة",
+    "faq.title": "الأسئلة المتكررة",
+    "faq.subtitle": "كل ما تحتاج معرفته",
+    "faq.q1": "هل تقدمون خدمة التركيب لجميع الإكسسوارات؟ / Do you offer installation for all accessories?",
+    "faq.a1": "نعم، جميع إكسسواراتنا تأتي مع تركيب مجاني احترافي في ورشتنا بالعوير. / Yes, all our accessories come with free professional installation at our Al Awir workshop.",
+    "faq.q2": "ما هي طرق الدفع المتاحة؟ / What payment methods do you accept?",
+    "faq.a2": "نقبل الدفع نقداً، وبالبطاقات الائتمانية/الخصم، وتابي (تقسيط على 4 دفعات بدون فوائد). / We accept cash, credit/debit cards, and Tabby (split your payment into 4 interest-free installments).",
+    "faq.q3": "هل الإكسسوارات مشمولة بضمان؟ / Do your accessories come with a warranty?",
+    "faq.a3": "بعض المنتجات تأتي بضمان من الشركة المصنعة. تحقق من تفاصيل كل منتج لمعرفة الضمان. / Select products include a manufacturer warranty. Check each product listing for warranty details.",
+    "faq.q4": "ما هي السيارات المدعومة؟ / Which car models do you support?",
+    "faq.a4": "نحن متخصصون في إكسسوارات جيتور T2 (2023-2024) وجيتور روكس 01 (2024-2025). / We specialize in Jetour T2 (2023-2024) and Jetour ROX 01 (2024-2025) accessories.",
+    "faq.q5": "كيف يمكنني الطلب؟ / How can I place an order?",
+    "faq.a5": "تصفح منتجاتنا، ثم اطلب مباشرة عبر واتساب. سنؤكد التوفر ونرتب التركيب. / Browse our products, then order directly via WhatsApp. We\u2019ll confirm availability and arrange installation.",
+    "faq.q6": "أين موقعكم؟ / Where are you located?",
+    "faq.a6": "نحن في العوير الأولى - دبي (بالقرب من دبي سفاري بارك). مفتوحون يومياً من 9 صباحاً حتى 11 مساءً. / We\u2019re in Al Awir 1, Dubai (near Dubai Safari Park). Open daily from 9 AM to 11 PM."
   }
 };
 
@@ -616,6 +646,27 @@ function init() {
   if (cartBackdrop) {
     cartBackdrop.addEventListener('click', toggleCart);
   }
+
+  /* FAQ accordion */
+  var faqToggles = document.querySelectorAll('.faq-item__toggle');
+  faqToggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var answer = btn.nextElementSibling;
+      if (expanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        /* Close all others */
+        faqToggles.forEach(function (other) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.style.maxHeight = null;
+        });
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 }
 
 /* ----------------------------------------------------------

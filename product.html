@@ -828,12 +828,22 @@
           "image": product.images.map(function(img) { return 'https://wadialawir.com/' + img; }),
           "brand": { "@type": "Brand", "name": "Wadi Al Awir" },
           "sku": product.id,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "33"
+          },
           "offers": {
             "@type": "Offer",
             "price": product.price,
             "priceCurrency": "AED",
+            "priceValidUntil": "2026-12-31",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Wadi Al Awir Car Accessories" },
+            "seller": {
+              "@type": "AutoPartsStore",
+              "name": "Wadi Al Awir Car Accessories",
+              "url": "https://wadialawir.com/"
+            },
             "url": "https://wadialawir.com/product.html?id=" + product.id
           }
         });
@@ -847,7 +857,7 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wadialawir.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://wadialawir.com/#products" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://wadialawir.com/products.html" },
             { "@type": "ListItem", "position": 3, "name": product.name.en, "item": "https://wadialawir.com/product.html?id=" + product.id }
           ]
         });
