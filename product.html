@@ -1098,16 +1098,18 @@
         shareBtn.onclick = function(e) {
           e.preventDefault();
           e.stopPropagation();
-          var shareUrl = location.origin + '/product.html?id=' + product.id;
-          var shareData = {
-            title: product.name[lang],
-            text: product.name[lang] + ' - ' + product.price + ' ' + product.currency + '\n' + shareUrl,
-            url: shareUrl
-          };
+          var shareUrl = 'https://wadialawir.com/product.html?id=' + product.id;
+          var title = product.name[lang];
+          var price = product.price + ' ' + product.currency;
           if (navigator.share) {
-            navigator.share(shareData).catch(function() {});
+            navigator.share({
+              title: title,
+              text: title + ' - ' + price,
+              url: shareUrl
+            }).catch(function() {});
           } else {
-            navigator.clipboard.writeText(shareUrl).then(function() {
+            var msg = title + '\n' + price + '\n' + shareUrl;
+            navigator.clipboard.writeText(msg).then(function() {
               shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 15 17 10 12"/><polyline points="4 12 9 17 14 12"/></svg>';
               setTimeout(function() {
                 shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
