@@ -1098,15 +1098,12 @@
         shareBtn.onclick = function(e) {
           e.preventDefault();
           e.stopPropagation();
-          var shareUrl = location.href.split('?')[0] + '?id=' + product.id;
+          var shareUrl = location.origin + '/product.html?id=' + product.id;
           var shareData = {
             title: product.name[lang],
-            text: product.name[lang] + ' - ' + product.price + ' ' + product.currency,
+            text: product.name[lang] + ' - ' + product.price + ' ' + product.currency + '\n' + shareUrl,
             url: shareUrl
           };
-          if (product.images && product.images[0]) {
-            shareData.image = product.images[0];
-          }
           if (navigator.share) {
             navigator.share(shareData).catch(function() {});
           } else {
