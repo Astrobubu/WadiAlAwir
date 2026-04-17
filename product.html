@@ -959,7 +959,7 @@
       /* ---- Main Image ---- */
       var mainImg = document.getElementById('pp-main-img');
       if (mainImg) {
-        mainImg.src = product.images[0];
+        mainImg.src = typeof getThumb === 'function' ? getThumb(product.images[0]) : product.images[0];
         mainImg.alt = product.name[lang];
       }
 
@@ -968,7 +968,8 @@
       if (thumbsWrap) {
         thumbsWrap.innerHTML = product.images.map(function(img, idx) {
           var cls = idx === 0 ? ' product-page__thumb--active' : '';
-          return '<img class="product-page__thumb' + cls + '" src="' + img + '" alt="' + product.name[lang] + ' ' + (idx + 1) + '" width="80" height="80" loading="lazy" data-full-src="' + img + '">';
+          var thumbSrc = typeof getThumb === 'function' ? getThumb(img) : img;
+          return '<img class="product-page__thumb' + cls + '" src="' + thumbSrc + '" alt="' + product.name[lang] + ' ' + (idx + 1) + '" width="80" height="80" loading="lazy" data-full-src="' + img + '">';
         }).join('');
       }
 
@@ -1042,7 +1043,7 @@
             var imgIdx = parseInt(btn.getAttribute('data-image-index'), 10);
             var mainImg = document.getElementById('pp-main-img');
             if (mainImg && product.images[imgIdx]) {
-              mainImg.src = product.images[imgIdx];
+              mainImg.src = typeof getThumb === 'function' ? getThumb(product.images[imgIdx]) : product.images[imgIdx];
               mainImg.alt = product.name[lang];
             }
             var thumbs = document.querySelectorAll('.product-page__thumb');
@@ -1216,7 +1217,10 @@
             t.classList.remove('product-page__thumb--active');
           });
           thumb.classList.add('product-page__thumb--active');
-          if (mainImg) mainImg.src = thumb.getAttribute('data-full-src');
+          if (mainImg) {
+            var fullSrc = thumb.getAttribute('data-full-src');
+            mainImg.src = typeof getThumb === 'function' ? getThumb(fullSrc) : fullSrc;
+          }
         });
       }
 
