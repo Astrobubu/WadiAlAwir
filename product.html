@@ -204,6 +204,29 @@
     }
     .product-page__zoom-close:hover { background: rgba(255,255,255,0.2); }
 
+    /* Share button */
+    .product-page__share {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: rgba(7,11,20,0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+    }
+    [dir="rtl"] .product-page__share { right: auto; left: 0.75rem; }
+    .product-page__share:hover { background: var(--accent); color: #070B14; border-color: var(--accent); }
+    .product-page__share svg { pointer-events: none; }
+
     /* Variant selector */
     .product-page__variants {
       margin-bottom: 1.25rem;
@@ -388,6 +411,9 @@
         <div class="product-page__gallery">
           <div class="product-page__main-img-wrap" id="pp-main-img-wrap">
             <img class="product-page__main-img" id="pp-main-img" src="" alt="">
+            <button class="product-page__share" id="pp-share-btn" aria-label="Share product">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </button>
           </div>
           <div class="product-page__thumbs" id="pp-thumbs"></div>
         </div>
@@ -1051,6 +1077,32 @@
         orderBtn.href = '#';
         orderBtn._waMessage = window.getProductWhatsAppURL(product, lang);
         orderBtn.onclick = function(e) { e.preventDefault(); window.openWhatsApp(orderBtn._waMessage, 'product', product.id); };
+      }
+
+      /* ---- Share button ---- */
+      var shareBtn = document.getElementById('pp-share-btn');
+      if (shareBtn) {
+        shareBtn.onclick = function(e) {
+          e.preventDefault();
+          var shareData = {
+            title: product.name[lang],
+            text: product.name[lang] + ' - ' + product.price + ' ' + product.currency,
+            url: location.href.split('?')[0] + '?id=' + product.id
+          };
+          if (navigator.share) {
+            navigator.share(shareData).catch(function() {});
+          } else {
+            navigator.clipboard.writeText(shareData.url).then(function() {
+              shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 15 17 10 12"/><polyline points="4 12 9 17 14 12"/></svg>';
+              setTimeout(function() {
+                shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
+              }, 2000);
+            });
+          }
+          if (typeof gtag === 'function') {
+            gtag('event', 'share', { event_category: 'engagement', event_label: 'product_page', method: 'share_button' });
+          }
+        };
       }
 
       /* ---- Footer ---- */
