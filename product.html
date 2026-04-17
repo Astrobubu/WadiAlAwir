@@ -208,11 +208,11 @@
       position: absolute;
       top: 0.75rem;
       right: 0.75rem;
-      background: rgba(7,11,20,0.7);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(7,11,20,0.85);
+      border: 1px solid rgba(255,255,255,0.2);
       color: var(--text-primary);
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
@@ -220,11 +220,23 @@
       justify-content: center;
       transition: all 0.2s;
       backdrop-filter: blur(8px);
-      z-index: 5;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     [dir="rtl"] .product-page__share { right: auto; left: 0.75rem; }
-    .product-page__share:hover { background: var(--accent); color: #070B14; border-color: var(--accent); }
+    .product-page__share:hover,
+    .product-page__share:active { background: var(--accent); color: #070B14; border-color: var(--accent); }
     .product-page__share svg { pointer-events: none; }
+
+    @media (max-width: 768px) {
+      .product-page__share {
+        width: 48px;
+        height: 48px;
+        top: 1rem;
+        right: 1rem;
+      }
+      [dir="rtl"] .product-page__share { right: auto; left: 1rem; }
+    }
 
     /* Variant selector */
     .product-page__variants {
@@ -1086,15 +1098,19 @@
         shareBtn.onclick = function(e) {
           e.preventDefault();
           e.stopPropagation();
+          var shareUrl = location.href.split('?')[0] + '?id=' + product.id;
           var shareData = {
             title: product.name[lang],
             text: product.name[lang] + ' - ' + product.price + ' ' + product.currency,
-            url: location.href.split('?')[0] + '?id=' + product.id
+            url: shareUrl
           };
+          if (product.images && product.images[0]) {
+            shareData.image = product.images[0];
+          }
           if (navigator.share) {
             navigator.share(shareData).catch(function() {});
           } else {
-            navigator.clipboard.writeText(shareData.url).then(function() {
+            navigator.clipboard.writeText(shareUrl).then(function() {
               shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 15 17 10 12"/><polyline points="4 12 9 17 14 12"/></svg>';
               setTimeout(function() {
                 shareBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>';
