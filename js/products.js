@@ -23,12 +23,12 @@ const PRODUCTS = [
     },
     images: [
       "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/71kuuco8CqL._AC_SL1500_.jpg",
-      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61+VE37EBeL._AC_SL1000_.jpg",
+      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61VE37EBeL.jpg",
       "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/615s2rJBdzL._AC_SL1000_.jpg",
       "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61ukrptug9L._AC_SL1000_.jpg",
-      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61+OvlyCCTL._AC_SL1000_.jpg",
-      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61u0vcRXq1L._AC_SL1000_.jpg",
-      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/518X0B+5HyL._AC_.jpg"
+      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61OvlyCCTL.jpg",
+      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/61u0vcRXq1L.jpg",
+      "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/518X0B5HyL.jpg"
     ],
     thumbnail: "4Pcs Mud guard Fit for JETOUR T2 Front and Rear Splash Guards/71kuuco8CqL._AC_SL1500_.jpg",
     badge: null
