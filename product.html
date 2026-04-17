@@ -199,7 +199,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       transition: background 0.2s;
     }
     .product-page__zoom-close:hover { background: rgba(255,255,255,0.2); }
@@ -490,7 +489,9 @@
 
   <!-- ======================== IMAGE ZOOM OVERLAY ======================== -->
   <div class="product-page__zoom-overlay" id="zoom-overlay">
-    <button class="product-page__zoom-close" id="zoom-close" aria-label="Close">&times;</button>
+    <button class="product-page__zoom-close" id="zoom-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
     <img id="zoom-img" src="" alt="">
   </div>
 
@@ -1084,6 +1085,7 @@
       if (shareBtn) {
         shareBtn.onclick = function(e) {
           e.preventDefault();
+          e.stopPropagation();
           var shareData = {
             title: product.name[lang],
             text: product.name[lang] + ' - ' + product.price + ' ' + product.currency,
