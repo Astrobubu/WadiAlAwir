@@ -1321,7 +1321,7 @@ function renderServices(lang) {
       '<h3 class="service-card__name">' + service.name[lang] + '</h3>' +
       '<p class="service-card__desc">' + service.description[lang] + '</p>' +
       packagesHTML +
-      '<a href="#" onclick="event.preventDefault(); window.openWhatsApp(\'' + waMsg.replace(/'/g, "\\'") + '\');" class="btn btn--outline btn--sm service-card__cta">' + inquireLabel + '</a>' +
+      '<a href="#" onclick="event.preventDefault(); window.openWhatsApp(\'' + waMsg.replace(/'/g, "\\'") + '\',\'service\');" class="btn btn--outline btn--sm service-card__cta">' + inquireLabel + '</a>' +
     '</div>';
   }).join('');
 }

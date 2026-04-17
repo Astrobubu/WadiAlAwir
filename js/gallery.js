@@ -51,6 +51,7 @@ function openLightbox(productId) {
         thumb.classList.add('lightbox__thumb--active');
         if (mainImg) {
           mainImg.src = thumb.getAttribute('data-full-src');
+          mainImg.alt = thumb.getAttribute('alt');
         }
       });
     });
@@ -97,7 +98,7 @@ function openLightbox(productId) {
     orderBtn.textContent = lang === 'ar' ? 'اطلب عبر واتساب' : 'Order via WhatsApp';
     orderBtn.onclick = function(e) {
       e.preventDefault();
-      window.openWhatsApp(orderBtn._waMessage);
+      window.openWhatsApp(orderBtn._waMessage, 'lightbox', product.id);
     };
   }
 

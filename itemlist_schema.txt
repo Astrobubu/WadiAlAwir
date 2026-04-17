@@ -1,0 +1,300 @@
+  <!-- Schema.org JSON-LD: ItemList (Products) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "numberOfItems": 58,
+    "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "url": "https://wadialawir.com/product.html?id=mud-guard"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "url": "https://wadialawir.com/product.html?id=ambient-lighting"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "url": "https://wadialawir.com/product.html?id=brake-caliper"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://wadialawir.com/product.html?id=door-handle-protector"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "url": "https://wadialawir.com/product.html?id=mud-flaps"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "url": "https://wadialawir.com/product.html?id=tow-bar"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "url": "https://wadialawir.com/product.html?id=crystal-gear-lever"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "url": "https://wadialawir.com/product.html?id=fog-light"
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "url": "https://wadialawir.com/product.html?id=spare-tire-cover"
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "url": "https://wadialawir.com/product.html?id=under-seats-cover"
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "url": "https://wadialawir.com/product.html?id=hr-wheel-spacer"
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "url": "https://wadialawir.com/product.html?id=phone-holder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "url": "https://wadialawir.com/product.html?id=screen-protector"
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "url": "https://wadialawir.com/product.html?id=central-control-pad"
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "url": "https://wadialawir.com/product.html?id=white"
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "url": "https://wadialawir.com/product.html?id=orange"
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "url": "https://wadialawir.com/product.html?id=black"
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "url": "https://wadialawir.com/product.html?id=rox-01-spoiler"
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "url": "https://wadialawir.com/product.html?id=rox-01-mud-flaps"
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "url": "https://wadialawir.com/product.html?id=rox-01-hr-wheel-spacer"
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "url": "https://wadialawir.com/product.html?id=rox-01-brake-caliper"
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "url": "https://wadialawir.com/product.html?id=rox-01-phone-holder"
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "url": "https://wadialawir.com/product.html?id=rox-01-screen-protector"
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "url": "https://wadialawir.com/product.html?id=car-mat-2ply-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "url": "https://wadialawir.com/product.html?id=car-mat-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "url": "https://wadialawir.com/product.html?id=rox-01-car-mat"
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "url": "https://wadialawir.com/product.html?id=white"
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "url": "https://wadialawir.com/product.html?id=black"
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "url": "https://wadialawir.com/product.html?id=red"
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "url": "https://wadialawir.com/product.html?id=dubai-ambient-panel"
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "url": "https://wadialawir.com/product.html?id=original-spare-tire-cover"
+    },
+    {
+      "@type": "ListItem",
+      "position": 32,
+      "url": "https://wadialawir.com/product.html?id=key-cover-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 33,
+      "url": "https://wadialawir.com/product.html?id=dashcam-mirror-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 34,
+      "url": "https://wadialawir.com/product.html?id=defender-headlights-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 35,
+      "url": "https://wadialawir.com/product.html?id=defender-tail-lights-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 36,
+      "url": "https://wadialawir.com/product.html?id=rox-01-rear-fender-liner"
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "url": "https://wadialawir.com/product.html?id=rox-01-badge-emblem"
+    },
+    {
+      "@type": "ListItem",
+      "position": 38,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-2112"
+    },
+    {
+      "@type": "ListItem",
+      "position": 39,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-zs019"
+    },
+    {
+      "@type": "ListItem",
+      "position": 40,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-3134"
+    },
+    {
+      "@type": "ListItem",
+      "position": 41,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-0376"
+    },
+    {
+      "@type": "ListItem",
+      "position": 42,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-0319"
+    },
+    {
+      "@type": "ListItem",
+      "position": 43,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-xf015"
+    },
+    {
+      "@type": "ListItem",
+      "position": 44,
+      "url": "https://wadialawir.com/product.html?id=rim-t2-fc030"
+    },
+    {
+      "@type": "ListItem",
+      "position": 45,
+      "url": "https://wadialawir.com/product.html?id=rim-rox01-yf5705"
+    },
+    {
+      "@type": "ListItem",
+      "position": 46,
+      "url": "https://wadialawir.com/product.html?id=rim-rox01-536"
+    },
+    {
+      "@type": "ListItem",
+      "position": 47,
+      "url": "https://wadialawir.com/product.html?id=rim-rox01-m121"
+    },
+    {
+      "@type": "ListItem",
+      "position": 48,
+      "url": "https://wadialawir.com/product.html?id=rim-rox01-m122"
+    },
+    {
+      "@type": "ListItem",
+      "position": 49,
+      "url": "https://wadialawir.com/product.html?id=rim-rox01-0389"
+    },
+    {
+      "@type": "ListItem",
+      "position": 50,
+      "url": "https://wadialawir.com/product.html?id=rox-01-number-plate-cover"
+    },
+    {
+      "@type": "ListItem",
+      "position": 51,
+      "url": "https://wadialawir.com/product.html?id=original-brake-pad-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 52,
+      "url": "https://wadialawir.com/product.html?id=jetour-t2"
+    },
+    {
+      "@type": "ListItem",
+      "position": 53,
+      "url": "https://wadialawir.com/product.html?id=jetour-rox-01"
+    },
+    {
+      "@type": "ListItem",
+      "position": 54,
+      "url": "https://wadialawir.com/product.html?id=window-tinting"
+    },
+    {
+      "@type": "ListItem",
+      "position": 55,
+      "url": "https://wadialawir.com/product.html?id=ppf"
+    },
+    {
+      "@type": "ListItem",
+      "position": 56,
+      "url": "https://wadialawir.com/product.html?id=ceramic-coating"
+    },
+    {
+      "@type": "ListItem",
+      "position": 57,
+      "url": "https://wadialawir.com/product.html?id=detailing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 58,
+      "url": "https://wadialawir.com/product.html?id=accessories"
+    }
+    ]
+  }
+  </script>
