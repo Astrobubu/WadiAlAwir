@@ -59,10 +59,10 @@ var THUMB_MAP = {
   "Rear Fender Liner Jetour ROX 01/rox-fender-1.jpg": "assets/thumbs/rf1.jpg",
   "Rear Fender Liner Jetour ROX 01/rox-fender-2.jpg": "assets/thumbs/rf2.jpg",
   "Rear Number Plate Cover Jetour ROX 01/number-plate-cover-1.jpg": "assets/thumbs/npc1.jpg",
-  "Rear Spoiler for Jetour Traveler T2 2023-2024/spoiler-t2-1.jpg": "assets/thumbs/sp1.jpg",
-  "Rear Spoiler for Jetour Traveler T2 2023-2024/spoiler-t2-2.jpg": "assets/thumbs/sp2.jpg",
-  "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/spoiler-2-1.jpg": "assets/thumbs/sp3.jpg",
-  "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/spoiler-2-2.jpg": "assets/thumbs/sp4.jpg",
+  "Rear Spoiler for Jetour Traveler T2 2023-2024/967471387868532737__80373-Photoroom.webp": "assets/thumbs/sp1.jpg",
+  "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp": "assets/thumbs/sp2.jpg",
+  "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/31bRkGv6fcL._AC_SL1132_.jpg": "assets/thumbs/sp3.jpg",
+  "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51G4kEdgTL.jpg": "assets/thumbs/sp4.jpg",
   "Rims Jetour ROX 01/rim-rox-1.jpg": "assets/thumbs/rr1.jpg",
   "Rims Jetour ROX 01/rim-rox-2.jpg": "assets/thumbs/rr2.jpg",
   "Rims Jetour T2/rim-t2-1.jpg": "assets/thumbs/rt1.jpg",
@@ -75,8 +75,8 @@ var THUMB_MAP = {
   "Screen Protector Jetour T2/screen-protector-t2-2.jpg": "assets/thumbs/spt2.jpg",
   "Side Ambient Light Panel Dubai Edition Jetour T2/dubai-panel-1.jpg": "assets/thumbs/dp1.jpg",
   "Side Ambient Light Panel Dubai Edition Jetour T2/dubai-panel-2.jpg": "assets/thumbs/dp2.jpg",
-  "Side Ladder for Jetour Traveler T2 2023-2024/ladder-1.jpg": "assets/thumbs/ld1.jpg",
-  "Side Ladder for Jetour Traveler T2 2023-2024/ladder-2.jpg": "assets/thumbs/ld2.jpg",
+  "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp": "assets/thumbs/ld1.jpg",
+  "Side Ladder for Jetour Traveler T2 2023-2024/U111-Photoroom.webp": "assets/thumbs/ld2.jpg",
   "Spare Tire Cover Jetour T2/spare-cover-1.jpg": "assets/thumbs/sc1.jpg",
   "Spare Tire Cover Jetour T2/spare-cover-2.jpg": "assets/thumbs/sc2.jpg",
   "Spoiler Jetour ROX 01/spoiler-rox-1.jpg": "assets/thumbs/sr1.jpg",
@@ -93,8 +93,15 @@ var THUMB_MAP = {
   "Original Brake Pad Jetour T2/brake-pad-2.jpg": "assets/thumbs/bp2.jpg",
   "Original Spare Tire Cover Jetour T2/orig-spare-cover-1.jpg": "assets/thumbs/osc1.jpg",
   "Original Spare Tire Cover Jetour T2/orig-spare-cover-2.jpg": "assets/thumbs/osc2.jpg",
-  "Side Storage Box for Jetour Traveler T2 2023-2024/storage-box-1.jpg": "assets/thumbs/sb1.jpg",
-  "Side Storage Box for Jetour Traveler T2 2023-2024/storage-box-2.jpg": "assets/thumbs/sb2.jpg"
+  "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png": "assets/thumbs/sb1.jpg",
+  "Side Storage Box for Jetour Traveler T2 2023-2024/U1221-Photoroom.png": "assets/thumbs/sb2.jpg",
+  "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H297b061ce2b04f1dafaa7ab01ac1ab43r.jpg": "assets/thumbs/rl1.jpg",
+  "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H396c257020e74adfb87b7376ebdaac29U.jpg": "assets/thumbs/rl2.jpg",
+  "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg": "assets/thumbs/rl3.jpg",
+  "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg": "assets/thumbs/sp5.jpg",
+  "Defender Style Grill Jetour T2/jetour-t2-defender-grill.jpg": "assets/thumbs/dg1.jpg",
+  "Side Step Cover Jetour T2/jetour-t2-side-step-cover.jpg": "assets/thumbs/ss1.jpg",
+  "Rims Jetour T2/jetour-t2-rim-iv539.jpg": "assets/thumbs/rd1.jpg"
 };
 
 function getThumb(path) {
