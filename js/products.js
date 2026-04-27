@@ -1282,7 +1282,7 @@ const PRODUCTS = [
     name: { en: "20\" Alloy Rim - IV539 Full Matt Black (4 Pcs)", ar: "جنط 20 بوصة - IV539 أسود مطفي كامل (4 قطع)" },
     carModel: "jetour-t2",
     carYear: "2023-2024",
-    price: 3500,
+    price: 3200,
     currency: "AED",
     warranty: null,
     category: "exterior",
@@ -1299,6 +1299,75 @@ const PRODUCTS = [
     ],
     thumbnail: "Rims Jetour T2/jetour-t2-rim-iv539.jpg",
     badge: null
+  },
+  {
+    id: "rox-01-grill-protector",
+    name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 650,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Honeycomb mesh front grill protector for Jetour ROX 01. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
+      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس 01. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
+    },
+    features: {
+      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX 01", "Easy bolt-on installation", "Preserves factory look"],
+      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس 01", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
+    },
+    images: [
+      "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg"
+    ],
+    thumbnail: "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg",
+    badge: null
+  },
+  {
+    id: "air-filter-t2",
+    name: { en: "Original Air Filter", ar: "فلتر هواء أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 150,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Genuine Jetour air filter for Jetour T2. OEM replacement panel filter for clean engine airflow and optimal performance.",
+      ar: "فلتر هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي للتدفق الهوائي النظيف للمحرك وأفضل أداء"
+    },
+    features: {
+      en: ["Genuine Jetour OEM part", "Clean engine airflow", "Direct fit for Jetour T2", "Optimal engine performance", "Easy replacement"],
+      ar: ["قطعة أصلية من جيتور", "تدفق هوائي نظيف للمحرك", "مقاس مباشر لجيتور T2", "أداء محرك مثالي", "استبدال سهل"]
+    },
+    images: [
+      "Air Filter Jetour T2/jetour-t2-air-filter.jpg"
+    ],
+    thumbnail: "Air Filter Jetour T2/jetour-t2-air-filter.jpg",
+    badge: null
+  },
+  {
+    id: "ac-filter-t2",
+    name: { en: "Original AC Cabin Filter", ar: "فلتر مكيف هواء أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 135,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Genuine Jetour cabin AC filter for Jetour T2. OEM replacement filter for clean fresh air inside the cabin, blocking dust and allergens.",
+      ar: "فلتر مكيف هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي لهواء نظيف ومنعش داخل المقصورة، يمنع الغبار والمسببات الحساسية"
+    },
+    features: {
+      en: ["Genuine Jetour OEM part", "Clean cabin air", "Blocks dust and allergens", "Direct fit for Jetour T2", "Easy replacement"],
+      ar: ["قطعة أصلية من جيتور", "هواء نظيف داخل المقصورة", "يمنع الغبار والمسببات الحساسية", "مقاس مباشر لجيتور T2", "استبدال سهل"]
+    },
+    images: [
+      "AC Filter Jetour T2/jetour-t2-ac-filter.jpg"
+    ],
+    thumbnail: "AC Filter Jetour T2/jetour-t2-ac-filter.jpg",
+    badge: null
   }
 ];
 
@@ -1308,14 +1377,14 @@ const CAR_MODELS = [
     name: { en: "Jetour T2", ar: "جيتور T2" },
     years: "2023-2024",
     heroImage: "assets/cars/jetour-t2.jpg",
-    productCount: 37
+    productCount: 39
   },
   {
     id: "jetour-rox-01",
     name: { en: "ROX 01", ar: "روكس 01" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 16
+    productCount: 17
   }
 ];
 
