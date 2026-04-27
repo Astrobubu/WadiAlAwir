@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# env files with secrets
+.env
+.env.local
+.env*.local
+
+# Sanity & IDE
+.sanity/
+*.tsbuildinfo
+.DS_Store
+
+# MCP
+mcp.json

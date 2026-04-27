@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "lang": "عربي"
+  },
+  "hero": {
+    "badge": {
+      "tabby": "Tabby Installments",
+      "hours": "Open until 11 PM"
+    },
+    "subtitle": "Car Accessories",
+    "tagline": "Premium auto accessories & window tinting in Al Awir, Dubai",
+    "browse": "Browse Products",
+    "services": "See Services",
+    "whatsapp": "Order via WhatsApp"
+  },
+  "cars": {
+    "label": "VEHICLE CATALOG",
+    "title": "Shop by Vehicle",
+    "subtitle": "Select your car model to find compatible accessories"
+  },
+  "products": {
+    "label": "OUR PRODUCTS",
+    "title": "Accessories & Parts",
+    "subtitle": "Premium accessories for your vehicle",
+    "viewAll": "View All Products"
+  },
+  "filter": {
+    "all": "All",
+    "exterior": "Exterior",
+    "interior": "Interior",
+    "lighting": "Lighting",
+    "utility": "Utility"
+  },
+  "services": {
+    "label": "WHAT WE DO",
+    "title": "Our Services",
+    "subtitle": "Professional auto care services in Al Awir, Dubai"
+  },
+  "reviews": {
+    "label": "TESTIMONIALS",
+    "title": "What Our Customers Say",
+    "subtitle": "4.4 ★ on Google (33 reviews)"
+  },
+  "review": {
+    "1": "\"Excellent place for JETOUR accessories. Wide range of products and very helpful staff.\"",
+    "2": "\"The majority of the accessories are in stock, the team is fantastic and very knowledgeable.\"",
+    "3": "\"Best shop for Jetour T2 accessories in Dubai. Professional installation and fair prices.\"",
+    "4": "\"Great selection of car accessories. Good quality products and reasonable prices. Recommended!\"",
+    "source": "Google Review"
+  },
+  "location": {
+    "label": "FIND US",
+    "title": "Visit Our Shop",
+    "address": {
+      "label": "Address"
+    },
+    "phone": {
+      "label": "Phone"
+    },
+    "hours": {
+      "label": "Hours",
+      "value": "Open daily until 11 PM"
+    },
+    "directions": "Get Directions"
+  },
+  "footer": {
+    "tagline": "Car Accessories & Window Tinting",
+    "rights": "All rights reserved.",
+    "copyright": "© 2026 Wadi Al Awir Car Accessories.",
+    "powered": "Built by"
+  },
+  "product": {
+    "order": "Order via WhatsApp",
+    "details": "Details",
+    "inquire": "Inquire"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know",
+    "q1": "Do you offer installation for all accessories?",
+    "a1": "Yes, all our accessories come with free professional installation at our Al Awir workshop.",
+    "q2": "What payment methods do you accept?",
+    "a2": "We accept cash, credit/debit cards, and Tabby (split your payment into 4 interest-free installments).",
+    "q3": "Do your accessories come with a warranty?",
+    "a3": "Select products include a manufacturer warranty. Check each product listing for warranty details.",
+    "q4": "Which car models do you support?",
+    "a4": "We specialize in Jetour T2 (2023-2024) and Jetour ROX 01 (2024-2025) accessories.",
+    "q5": "How can I place an order?",
+    "a5": "Browse our products, then order directly via WhatsApp. We'll confirm availability and arrange installation.",
+    "q6": "Where are you located?",
+    "a6": "We're in Al Awir 1, Dubai (near Dubai Safari Park). Open daily from 9 AM to 11 PM."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Send Order via WhatsApp",
+    "total": "Total",
+    "remove": "Remove",
+    "add": "Add to Cart"
+  },
+  "wa": {
+    "title": "Choose a WhatsApp line",
+    "hint": "If one line doesn't reply, try the other",
+    "line1": "Line 1",
+    "line2": "Line 2"
+  }
+}
