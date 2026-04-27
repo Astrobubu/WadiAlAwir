@@ -14,11 +14,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config, { webpack, nextRuntime }) => {
+  webpack: (config, { nextRuntime }) => {
     if (nextRuntime === 'edge') {
-      config.plugins.push(
-        new webpack.DefinePlugin({ __dirname: JSON.stringify('/') })
-      );
+      config.node = { ...config.node, __dirname: true }
     }
     return config;
   },
