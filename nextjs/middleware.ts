@@ -1,4 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+// Import NextResponse directly to avoid next/server.js eagerly loading ua-parser-js
+// (ua-parser-js uses __dirname which doesn't exist in Vercel Edge Runtime)
+import { NextResponse } from 'next/dist/server/web/spec-extension/response'
+import type { NextRequest } from 'next/dist/server/web/spec-extension/request'
 
 const locales = ['en', 'ar'] as const
 type Locale = typeof locales[number]
