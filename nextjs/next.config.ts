@@ -14,6 +14,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config, { webpack, nextRuntime }) => {
+    if (nextRuntime === 'edge') {
+      config.plugins.push(
+        new webpack.DefinePlugin({ __dirname: JSON.stringify('/') })
+      );
+    }
+    return config;
+  },
 };
 
 export default withNextIntl(nextConfig);
