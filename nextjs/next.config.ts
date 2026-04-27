@@ -14,12 +14,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  webpack: (config, { nextRuntime }) => {
-    if (nextRuntime === 'edge') {
-      config.node = { ...config.node, __dirname: true }
-    }
-    return config;
-  },
 };
 
 export default withNextIntl(nextConfig);
