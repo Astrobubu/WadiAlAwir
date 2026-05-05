@@ -779,6 +779,298 @@ const PRODUCTS = [
     badge: null
   },
   {
+    id: "rox-01-number-plate-cover",
+    name: { en: "Rear Number Plate Cover", ar: "غطاء لوحة أرقام خلفي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 300,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Rear number plate cover for Jetour ROX 01 with ROX branding. Smoked black finish for a clean, premium look.",
+      ar: "غطاء لوحة أرقام خلفي لجيتور روكس 01 مع شعار ROX. تشطيب أسود مدخن لمظهر أنيق وفاخر"
+    },
+    features: {
+      en: ["ROX branded design", "Smoked black finish", "Direct-fit for ROX 01", "Premium clean look", "Easy installation"],
+      ar: ["تصميم بشعار ROX", "تشطيب أسود مدخن", "مقاس مباشر لروكس 01", "مظهر أنيق وفاخر", "تركيب سهل"]
+    },
+    images: [
+      "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg"
+    ],
+    thumbnail: "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg",
+    badge: null
+  },
+  {
+    id: "original-brake-pad-t2",
+    name: { en: "Original Brake Pad Set", ar: "طقم فحمات فرامل أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 1000,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Original brake pad set for Jetour T2. OEM-spec ceramic brake pads for reliable stopping power and long pad life.",
+      ar: "طقم فحمات فرامل أصلي لجيتور T2. فحمات سيراميك بمواصفات المصنع لقوة فرملة موثوقة وعمر طويل"
+    },
+    features: {
+      en: ["OEM original specification", "Ceramic compound", "Reliable stopping power", "Long pad life", "Direct fit for Jetour T2"],
+      ar: ["مواصفات المصنع الأصلية", "مركب سيراميك", "قوة فرملة موثوقة", "عمر طويل للفحمات", "مقاس مباشر لجيتور T2"]
+    },
+    images: [
+      "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png"
+    ],
+    thumbnail: "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png",
+    badge: null
+  },
+  {
+    id: "t2-spoiler",
+    name: { en: "Urban Rear Spoiler for Jetour T2", ar: "سبويلر خلفي أربان لجيتور T2" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 500,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Urban rear spoiler for Jetour T2. Enhances the sporty look and improves aerodynamics with a clean factory-style fit.",
+      ar: "سبويلر خلفي أربان لجيتور T2. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية بتركيب أنيق يشبه المصنع"
+    },
+    features: {
+      en: ["Custom fit for Jetour T2", "Improved aerodynamics", "Sporty exterior upgrade", "Easy bolt-on installation"],
+      ar: ["مقاس مخصص لجيتور T2", "ديناميكا هوائية محسّنة", "ترقية خارجية رياضية", "تركيب سهل بمسامير"]
+    },
+    images: [
+      "Rear Spoiler for Jetour Traveler T2 2023-2024/967471387868532737__80373-Photoroom.webp",
+      "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp",
+      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_2_-Photoroom.webp",
+      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_3_-Photoroom.webp"
+    ],
+    thumbnail: "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp",
+    badge: null
+  },
+  {
+    id: "t2-spoiler-wing",
+    name: { en: "Small Rear Spoiler for Jetour T2", ar: "سبويلر خلفي صغير لجيتور T2" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 300,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Small rear spoiler for Jetour T2. Subtle upgrade that adds a sporty touch without overpowering the stock look.",
+      ar: "سبويلر خلفي صغير لجيتور T2. ترقية خفية تضيف لمسة رياضية دون المبالغة"
+    },
+    features: {
+      en: ["Subtle sporty design", "Custom fit for Jetour T2", "Lightweight construction", "Bolt-on installation"],
+      ar: ["تصميم رياضي خفيف", "مقاس مخصص لجيتور T2", "بناء خفيف الوزن", "تركيب بالمسامير"]
+    },
+    images: [
+      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/31bRkGv6fcL._AC_SL1132_.jpg",
+      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51G4kEdgTL.jpg",
+      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg",
+      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/718Nwv51AgL._AC_SL1500_.jpg"
+    ],
+    thumbnail: "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg",
+    badge: null
+  },
+  {
+    id: "side-ladder-t2",
+    name: { en: "Side Ladder for Jetour T2", ar: "سلم جانبي لجيتور T2" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 650,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Side entry ladder for Jetour T2. Makes entry and exit easier, especially with a lifted suspension. Durable construction with secure mount.",
+      ar: "سلم جانبي لجيتور T2. يسهل الصعود والنزول خاصة مع تعليق مرتفع. بناء متين مع تثبيت آمن"
+    },
+    features: {
+      en: ["Easy entry and exit", "Compatible with Jetour T2", "Durable construction", "Secure side mount", "Non-slip step surface"],
+      ar: ["صعود ونزول سهل", "متوافق مع جيتور T2", "بناء متين", "تثبيت جانبي آمن", "سطح درج مانع للانزلاق"]
+    },
+    images: [
+      "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
+      "Side Ladder for Jetour Traveler T2 2023-2024/U111-Photoroom.webp",
+      "Side Ladder for Jetour Traveler T2 2023-2024/U12-Photoroom.webp",
+      "Side Ladder for Jetour Traveler T2 2023-2024/U121-Photoroom.webp"
+    ],
+    thumbnail: "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
+    badge: null
+  },
+  {
+    id: "side-storage-box-t2",
+    name: { en: "Side Storage Box for Jetour T2", ar: "صندوق تخزين جانبي لجيتور T2" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 650,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Side storage box for Jetour T2. Adds practical storage space to the exterior of your vehicle. Durable weatherproof construction.",
+      ar: "صندوق تخزين جانبي لجيتور T2. يضيف مساحة تخزين عملية لخارج سيارتك. بناء متين مقاوم للطقس"
+    },
+    features: {
+      en: ["Practical exterior storage", "Custom fit for Jetour T2", "Weatherproof construction", "Easy access design", "Secure locking"],
+      ar: ["تخزين خارجي عملي", "مقاس مخصص لجيتور T2", "بناء مقاوم للطقس", "تصميم سهل الوصول", "قفل آمن"]
+    },
+    images: [
+      "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
+      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221-Photoroom.png",
+      "Side Storage Box for Jetour Traveler T2 2023-2024/U122111.jpg",
+      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221111.jpg"
+    ],
+    thumbnail: "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
+    badge: null
+  },
+  {
+    id: "roof-light-t2",
+    name: { en: "Defender Style LED Roof Light Spotlight", ar: "مصابيح سقف LED بتصميم ديفندر" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 900,
+    currency: "AED",
+    warranty: null,
+    category: "lighting",
+    description: {
+      en: "Defender-style LED roof light spotlight retrofit for Jetour T2. High-output searchlights mounted on the roof bar for maximum visibility off-road and on-road.",
+      ar: "مصابيح سقف LED بتصميم ديفندر لجيتور T2. مصابيح بحث عالية الإخراج مثبتة على بار السقف لأقصى رؤية في الطرق الوعرة والعادية"
+    },
+    features: {
+      en: ["Defender-style design", "High-output LED spotlight", "Roof bar mounted", "Off-road & on-road use", "Direct retrofit for Jetour T2"],
+      ar: ["تصميم بأسلوب ديفندر", "مصباح LED عالي الإخراج", "تثبيت على بار السقف", "للطرق الوعرة والعادية", "تركيب مباشر لجيتور T2"]
+    },
+    images: [
+      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H297b061ce2b04f1dafaa7ab01ac1ab43r.jpg",
+      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H396c257020e74adfb87b7376ebdaac29U.jpg",
+      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg",
+      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hc7405ac90e1b4cb280ef94c3f6b3546d1.jpg",
+      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hea00dc8f543a4940a03ed91b6c9746a1U.jpg"
+    ],
+    thumbnail: "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg",
+    badge: null
+  },
+  {
+    id: "defender-grill-t2",
+    name: { en: "Defender Style Front Grille Kit", ar: "كيت شبك أمامي بتصميم ديفندر" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 900,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Full Defender-style front grille and bumper kit for Jetour T2. Transforms the front fascia into an aggressive, rugged Defender-inspired look. Includes grille, lower bumper trim, and corner pieces.",
+      ar: "كيت شبك أمامي ومصد بتصميم ديفندر لجيتور T2. يحوّل مقدمة السيارة إلى مظهر ديفندر متين وعدواني. يشمل الشبك والمصد السفلي وقطع الزوايا"
+    },
+    features: {
+      en: ["Defender-style aggressive design", "Full front kit: grille + bumper trim + corners", "Gloss black finish", "Custom fit for Jetour T2", "Bolt-on installation"],
+      ar: ["تصميم عدواني بأسلوب ديفندر", "كيت أمامي كامل: شبك + مصد + زوايا", "تشطيب أسود لامع", "مقاس مخصص لجيتور T2", "تركيب بالمسامير"]
+    },
+    images: [
+      "Defender Style Grill Jetour T2/jetour-t2-defender-grill.jpg"
+    ],
+    thumbnail: "Defender Style Grill Jetour T2/jetour-t2-defender-grill.jpg",
+    badge: null
+  },
+  {
+    id: "side-step-cover-t2",
+    name: { en: "Side Step Cover (Running Board)", ar: "غطاء درجة جانبية (ستيب)" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 300,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Jetour-branded side step cover / running board for Jetour T2. Sleek black design with reflective strips for easy entry and a premium side profile.",
+      ar: "غطاء درجة جانبية بشعار جيتور لجيتور T2. تصميم أسود أنيق مع شرائط عاكسة للصعود السهل ومظهر جانبي فاخر"
+    },
+    features: {
+      en: ["Jetour branded design", "Reflective non-slip strips", "Sleek black finish", "Easy door entry", "Custom fit for Jetour T2"],
+      ar: ["تصميم بشعار جيتور", "شرائط مانعة للانزلاق عاكسة", "تشطيب أسود أنيق", "صعود سهل للأبواب", "مقاس مخصص لجيتور T2"]
+    },
+    images: [
+      "Side Step Cover Jetour T2/jetour-t2-side-step-cover.jpg"
+    ],
+    thumbnail: "Side Step Cover Jetour T2/jetour-t2-side-step-cover.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-grill-protector",
+    name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 650,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Honeycomb mesh front grill protector for Jetour ROX 01. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
+      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس 01. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
+    },
+    features: {
+      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX 01", "Easy bolt-on installation", "Preserves factory look"],
+      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس 01", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
+    },
+    images: [
+      "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg"
+    ],
+    thumbnail: "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg",
+    badge: null
+  },
+  {
+    id: "air-filter-t2",
+    name: { en: "Original Air Filter", ar: "فلتر هواء أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 150,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Genuine Jetour air filter for Jetour T2. OEM replacement panel filter for clean engine airflow and optimal performance.",
+      ar: "فلتر هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي للتدفق الهوائي النظيف للمحرك وأفضل أداء"
+    },
+    features: {
+      en: ["Genuine Jetour OEM part", "Clean engine airflow", "Direct fit for Jetour T2", "Optimal engine performance", "Easy replacement"],
+      ar: ["قطعة أصلية من جيتور", "تدفق هوائي نظيف للمحرك", "مقاس مباشر لجيتور T2", "أداء محرك مثالي", "استبدال سهل"]
+    },
+    images: [
+      "Air Filter Jetour T2/jetour-t2-air-filter.jpg"
+    ],
+    thumbnail: "Air Filter Jetour T2/jetour-t2-air-filter.jpg",
+    badge: null
+  },
+  {
+    id: "ac-filter-t2",
+    name: { en: "Original AC Cabin Filter", ar: "فلتر مكيف هواء أصلي" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 135,
+    currency: "AED",
+    warranty: null,
+    category: "utility",
+    description: {
+      en: "Genuine Jetour cabin AC filter for Jetour T2. OEM replacement filter for clean fresh air inside the cabin, blocking dust and allergens.",
+      ar: "فلتر مكيف هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي لهواء نظيف ومنعش داخل المقصورة، يمنع الغبار والمسببات الحساسية"
+    },
+    features: {
+      en: ["Genuine Jetour OEM part", "Clean cabin air", "Blocks dust and allergens", "Direct fit for Jetour T2", "Easy replacement"],
+      ar: ["قطعة أصلية من جيتور", "هواء نظيف داخل المقصورة", "يمنع الغبار والمسببات الحساسية", "مقاس مباشر لجيتور T2", "استبدال سهل"]
+    },
+    images: [
+      "AC Filter Jetour T2/jetour-t2-ac-filter.jpg"
+    ],
+    thumbnail: "AC Filter Jetour T2/jetour-t2-ac-filter.jpg",
+    badge: null
+  },
+  {
     id: "rim-t2-2112",
     name: { en: "20\" Alloy Rim - 2112 Gloss Black Milling (4 Pcs)", ar: "جنط 20 بوصة - 2112 أسود لامع (4 قطع)" },
     carModel: "jetour-t2",
@@ -1055,229 +1347,6 @@ const PRODUCTS = [
     badge: null
   },
   {
-    id: "rox-01-number-plate-cover",
-    name: { en: "Rear Number Plate Cover", ar: "غطاء لوحة أرقام خلفي" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 300,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Rear number plate cover for Jetour ROX 01 with ROX branding. Smoked black finish for a clean, premium look.",
-      ar: "غطاء لوحة أرقام خلفي لجيتور روكس 01 مع شعار ROX. تشطيب أسود مدخن لمظهر أنيق وفاخر"
-    },
-    features: {
-      en: ["ROX branded design", "Smoked black finish", "Direct-fit for ROX 01", "Premium clean look", "Easy installation"],
-      ar: ["تصميم بشعار ROX", "تشطيب أسود مدخن", "مقاس مباشر لروكس 01", "مظهر أنيق وفاخر", "تركيب سهل"]
-    },
-    images: [
-      "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg"
-    ],
-    thumbnail: "Rear Number Plate Cover Jetour ROX 01/jetour-rox-01-rear-number-plate-cover.jpg",
-    badge: null
-  },
-  {
-    id: "original-brake-pad-t2",
-    name: { en: "Original Brake Pad Set", ar: "طقم فحمات فرامل أصلي" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 1000,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Original brake pad set for Jetour T2. OEM-spec ceramic brake pads for reliable stopping power and long pad life.",
-      ar: "طقم فحمات فرامل أصلي لجيتور T2. فحمات سيراميك بمواصفات المصنع لقوة فرملة موثوقة وعمر طويل"
-    },
-    features: {
-      en: ["OEM original specification", "Ceramic compound", "Reliable stopping power", "Long pad life", "Direct fit for Jetour T2"],
-      ar: ["مواصفات المصنع الأصلية", "مركب سيراميك", "قوة فرملة موثوقة", "عمر طويل للفحمات", "مقاس مباشر لجيتور T2"]
-    },
-    images: [
-      "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png"
-    ],
-    thumbnail: "Original Brake Pad Jetour T2/jetour-t2-original-brake-pad.png",
-    badge: null
-  },
-  {
-    id: "t2-spoiler",
-    name: { en: "Urban Rear Spoiler for Jetour T2", ar: "سبويلر خلفي أربان لجيتور T2" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 500,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Urban rear spoiler for Jetour T2. Enhances the sporty look and improves aerodynamics with a clean factory-style fit.",
-      ar: "سبويلر خلفي أربان لجيتور T2. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية بتركيب أنيق يشبه المصنع"
-    },
-    features: {
-      en: ["Custom fit for Jetour T2", "Improved aerodynamics", "Sporty exterior upgrade", "Easy bolt-on installation"],
-      ar: ["مقاس مخصص لجيتور T2", "ديناميكا هوائية محسّنة", "ترقية خارجية رياضية", "تركيب سهل بمسامير"]
-    },
-    images: [
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/967471387868532737__80373-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_2_-Photoroom.webp",
-      "Rear Spoiler for Jetour Traveler T2 2023-2024/wmremove-transformed_3_-Photoroom.webp"
-    ],
-    thumbnail: "Rear Spoiler for Jetour Traveler T2 2023-2024/Untitled311-Photoroom.webp",
-    badge: null
-  },
-  {
-    id: "t2-spoiler-wing",
-    name: { en: "Small Rear Spoiler for Jetour T2", ar: "سبويلر خلفي صغير لجيتور T2" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 300,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Small rear spoiler for Jetour T2. Subtle upgrade that adds a sporty touch without overpowering the stock look.",
-      ar: "سبويلر خلفي صغير لجيتور T2. ترقية خفية تضيف لمسة رياضية دون المبالغة"
-    },
-    features: {
-      en: ["Subtle sporty design", "Custom fit for Jetour T2", "Lightweight construction", "Bolt-on installation"],
-      ar: ["تصميم رياضي خفيف", "مقاس مخصص لجيتور T2", "بناء خفيف الوزن", "تركيب بالمسامير"]
-    },
-    images: [
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/31bRkGv6fcL._AC_SL1132_.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51G4kEdgTL.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg",
-      "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/718Nwv51AgL._AC_SL1500_.jpg"
-    ],
-    thumbnail: "Rear Spoiler Wing Fit For Jetour T2 Traveller 2023 2024/51Q8BI4Ef8L._AC_SX679_.jpg",
-    badge: null
-  },
-  {
-    id: "side-ladder-t2",
-    name: { en: "Side Ladder for Jetour T2", ar: "سلم جانبي لجيتور T2" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 650,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Side entry ladder for Jetour T2. Makes entry and exit easier, especially with a lifted suspension. Durable construction with secure mount.",
-      ar: "سلم جانبي لجيتور T2. يسهل الصعود والنزول خاصة مع تعليق مرتفع. بناء متين مع تثبيت آمن"
-    },
-    features: {
-      en: ["Easy entry and exit", "Compatible with Jetour T2", "Durable construction", "Secure side mount", "Non-slip step surface"],
-      ar: ["صعود ونزول سهل", "متوافق مع جيتور T2", "بناء متين", "تثبيت جانبي آمن", "سطح درج مانع للانزلاق"]
-    },
-    images: [
-      "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U111-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U12-Photoroom.webp",
-      "Side Ladder for Jetour Traveler T2 2023-2024/U121-Photoroom.webp"
-    ],
-    thumbnail: "Side Ladder for Jetour Traveler T2 2023-2024/U11-Photoroom.webp",
-    badge: null
-  },
-  {
-    id: "side-storage-box-t2",
-    name: { en: "Side Storage Box for Jetour T2", ar: "صندوق تخزين جانبي لجيتور T2" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 650,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Side storage box for Jetour T2. Adds practical storage space to the exterior of your vehicle. Durable weatherproof construction.",
-      ar: "صندوق تخزين جانبي لجيتور T2. يضيف مساحة تخزين عملية لخارج سيارتك. بناء متين مقاوم للطقس"
-    },
-    features: {
-      en: ["Practical exterior storage", "Custom fit for Jetour T2", "Weatherproof construction", "Easy access design", "Secure locking"],
-      ar: ["تخزين خارجي عملي", "مقاس مخصص لجيتور T2", "بناء مقاوم للطقس", "تصميم سهل الوصول", "قفل آمن"]
-    },
-    images: [
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221-Photoroom.png",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U122111.jpg",
-      "Side Storage Box for Jetour Traveler T2 2023-2024/U1221111.jpg"
-    ],
-    thumbnail: "Side Storage Box for Jetour Traveler T2 2023-2024/U122-Photoroom.png",
-    badge: null
-  },
-  {
-    id: "roof-light-t2",
-    name: { en: "Defender Style LED Roof Light Spotlight", ar: "مصابيح سقف LED بتصميم ديفندر" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 900,
-    currency: "AED",
-    warranty: null,
-    category: "lighting",
-    description: {
-      en: "Defender-style LED roof light spotlight retrofit for Jetour T2. High-output searchlights mounted on the roof bar for maximum visibility off-road and on-road.",
-      ar: "مصابيح سقف LED بتصميم ديفندر لجيتور T2. مصابيح بحث عالية الإخراج مثبتة على بار السقف لأقصى رؤية في الطرق الوعرة والعادية"
-    },
-    features: {
-      en: ["Defender-style design", "High-output LED spotlight", "Roof bar mounted", "Off-road & on-road use", "Direct retrofit for Jetour T2"],
-      ar: ["تصميم بأسلوب ديفندر", "مصباح LED عالي الإخراج", "تثبيت على بار السقف", "للطرق الوعرة والعادية", "تركيب مباشر لجيتور T2"]
-    },
-    images: [
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H297b061ce2b04f1dafaa7ab01ac1ab43r.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H396c257020e74adfb87b7376ebdaac29U.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hc7405ac90e1b4cb280ef94c3f6b3546d1.jpg",
-      "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/Hea00dc8f543a4940a03ed91b6c9746a1U.jpg"
-    ],
-    thumbnail: "High Quality Defender Style LED Roof Light Spotlight Retrofit Searchlight for Jetour Traveler T2 Car Light Accessories/H9a1679e3c2764f4ab2318a2338ad933eC.jpg",
-    badge: null
-  },
-  {
-    id: "defender-grill-t2",
-    name: { en: "Defender Style Front Grille Kit", ar: "كيت شبك أمامي بتصميم ديفندر" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 900,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Full Defender-style front grille and bumper kit for Jetour T2. Transforms the front fascia into an aggressive, rugged Defender-inspired look. Includes grille, lower bumper trim, and corner pieces.",
-      ar: "كيت شبك أمامي ومصد بتصميم ديفندر لجيتور T2. يحوّل مقدمة السيارة إلى مظهر ديفندر متين وعدواني. يشمل الشبك والمصد السفلي وقطع الزوايا"
-    },
-    features: {
-      en: ["Defender-style aggressive design", "Full front kit: grille + bumper trim + corners", "Gloss black finish", "Custom fit for Jetour T2", "Bolt-on installation"],
-      ar: ["تصميم عدواني بأسلوب ديفندر", "كيت أمامي كامل: شبك + مصد + زوايا", "تشطيب أسود لامع", "مقاس مخصص لجيتور T2", "تركيب بالمسامير"]
-    },
-    images: [
-      "Defender Style Grill Jetour T2/jetour-t2-defender-grill.jpg"
-    ],
-    thumbnail: "Defender Style Grill Jetour T2/jetour-t2-defender-grill.jpg",
-    badge: null
-  },
-  {
-    id: "side-step-cover-t2",
-    name: { en: "Side Step Cover (Running Board)", ar: "غطاء درجة جانبية (ستيب)" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 300,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Jetour-branded side step cover / running board for Jetour T2. Sleek black design with reflective strips for easy entry and a premium side profile.",
-      ar: "غطاء درجة جانبية بشعار جيتور لجيتور T2. تصميم أسود أنيق مع شرائط عاكسة للصعود السهل ومظهر جانبي فاخر"
-    },
-    features: {
-      en: ["Jetour branded design", "Reflective non-slip strips", "Sleek black finish", "Easy door entry", "Custom fit for Jetour T2"],
-      ar: ["تصميم بشعار جيتور", "شرائط مانعة للانزلاق عاكسة", "تشطيب أسود أنيق", "صعود سهل للأبواب", "مقاس مخصص لجيتور T2"]
-    },
-    images: [
-      "Side Step Cover Jetour T2/jetour-t2-side-step-cover.jpg"
-    ],
-    thumbnail: "Side Step Cover Jetour T2/jetour-t2-side-step-cover.jpg",
-    badge: null
-  },
-  {
     id: "rim-t2-iv539",
     name: { en: "20\" Alloy Rim - IV539 Full Matt Black (4 Pcs)", ar: "جنط 20 بوصة - IV539 أسود مطفي كامل (4 قطع)" },
     carModel: "jetour-t2",
@@ -1298,75 +1367,6 @@ const PRODUCTS = [
       "Rims Jetour T2/jetour-t2-rim-iv539.jpg"
     ],
     thumbnail: "Rims Jetour T2/jetour-t2-rim-iv539.jpg",
-    badge: null
-  },
-  {
-    id: "rox-01-grill-protector",
-    name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 650,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Honeycomb mesh front grill protector for Jetour ROX 01. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
-      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس 01. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
-    },
-    features: {
-      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX 01", "Easy bolt-on installation", "Preserves factory look"],
-      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس 01", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
-    },
-    images: [
-      "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg"
-    ],
-    thumbnail: "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg",
-    badge: null
-  },
-  {
-    id: "air-filter-t2",
-    name: { en: "Original Air Filter", ar: "فلتر هواء أصلي" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 150,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Genuine Jetour air filter for Jetour T2. OEM replacement panel filter for clean engine airflow and optimal performance.",
-      ar: "فلتر هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي للتدفق الهوائي النظيف للمحرك وأفضل أداء"
-    },
-    features: {
-      en: ["Genuine Jetour OEM part", "Clean engine airflow", "Direct fit for Jetour T2", "Optimal engine performance", "Easy replacement"],
-      ar: ["قطعة أصلية من جيتور", "تدفق هوائي نظيف للمحرك", "مقاس مباشر لجيتور T2", "أداء محرك مثالي", "استبدال سهل"]
-    },
-    images: [
-      "Air Filter Jetour T2/jetour-t2-air-filter.jpg"
-    ],
-    thumbnail: "Air Filter Jetour T2/jetour-t2-air-filter.jpg",
-    badge: null
-  },
-  {
-    id: "ac-filter-t2",
-    name: { en: "Original AC Cabin Filter", ar: "فلتر مكيف هواء أصلي" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 135,
-    currency: "AED",
-    warranty: null,
-    category: "utility",
-    description: {
-      en: "Genuine Jetour cabin AC filter for Jetour T2. OEM replacement filter for clean fresh air inside the cabin, blocking dust and allergens.",
-      ar: "فلتر مكيف هواء أصلي جيتور لجيتور T2. فلتر استبدال أصلي لهواء نظيف ومنعش داخل المقصورة، يمنع الغبار والمسببات الحساسية"
-    },
-    features: {
-      en: ["Genuine Jetour OEM part", "Clean cabin air", "Blocks dust and allergens", "Direct fit for Jetour T2", "Easy replacement"],
-      ar: ["قطعة أصلية من جيتور", "هواء نظيف داخل المقصورة", "يمنع الغبار والمسببات الحساسية", "مقاس مباشر لجيتور T2", "استبدال سهل"]
-    },
-    images: [
-      "AC Filter Jetour T2/jetour-t2-ac-filter.jpg"
-    ],
-    thumbnail: "AC Filter Jetour T2/jetour-t2-ac-filter.jpg",
     badge: null
   }
 ];
