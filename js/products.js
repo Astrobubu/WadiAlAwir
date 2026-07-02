@@ -1071,6 +1071,109 @@ const PRODUCTS = [
     badge: null
   },
   {
+    id: "antenna-t2",
+    name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
+    carModel: "jetour-t2",
+    carYear: "2023-2024",
+    price: 150,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Short aftermarket whip antenna replacement with roof-rail mounting bracket. Improves signal reception while giving a cleaner, lower-profile look than the factory antenna.",
+      ar: "هوائي بديل قصير مع حامل تركيب على سكة السقف. يحسّن استقبال الإشارة ويعطي مظهراً أنيقاً وأقل ارتفاعاً من الهوائي الأصلي"
+    },
+    features: {
+      en: ["Universal fit for Jetour T2 & ROX 01", "Roof-rail mounting bracket included", "Low-profile design", "Improves radio signal reception", "Easy bolt-on installation"],
+      ar: ["مقاس عام لجيتور T2 وروكس 01", "حامل تركيب على سكة السقف مرفق", "تصميم منخفض الارتفاع", "يحسّن استقبال إشارة الراديو", "تركيب سهل بالمسامير"]
+    },
+    images: [
+      "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png"
+    ],
+    thumbnail: "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png",
+    badge: null
+  },
+  {
+    id: "rox-01-antenna",
+    name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 150,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Short aftermarket whip antenna replacement with roof-rail mounting bracket. Improves signal reception while giving a cleaner, lower-profile look than the factory antenna.",
+      ar: "هوائي بديل قصير مع حامل تركيب على سكة السقف. يحسّن استقبال الإشارة ويعطي مظهراً أنيقاً وأقل ارتفاعاً من الهوائي الأصلي"
+    },
+    features: {
+      en: ["Universal fit for Jetour T2 & ROX 01", "Roof-rail mounting bracket included", "Low-profile design", "Improves radio signal reception", "Easy bolt-on installation"],
+      ar: ["مقاس عام لجيتور T2 وروكس 01", "حامل تركيب على سكة السقف مرفق", "تصميم منخفض الارتفاع", "يحسّن استقبال إشارة الراديو", "تركيب سهل بالمسامير"]
+    },
+    images: [
+      "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png"
+    ],
+    thumbnail: "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png",
+    badge: null
+  },
+  {
+    id: "rox-01-roof-heat-rejection",
+    name: { en: "Sunroof Heat Insulation Mat Set", ar: "طقم عزل حراري لفتحة السقف" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 450,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Suede-fabric anti-UV sunroof sunshade set for ROX 01 Adamas. Mounts by electrostatic adsorption — no glue, no drilling. Blocks heat and UV while keeping the sunroof fully operational.",
+      ar: "طقم مظلات فتحة سقف من قماش سويدي مضاد للأشعة فوق البنفسجية لروكس 01 أداماس. يثبت بالالتصاق الكهروستاتيكي بدون غراء أو حفر. يحجب الحرارة والأشعة فوق البنفسجية مع إبقاء فتحة السقف تعمل بكامل طاقتها"
+    },
+    features: {
+      en: ["Suede fabric, anti-UV", "Electrostatic adsorption — no glue or drilling", "Blocks heat and UV rays", "Doesn't affect sunroof opening/closing", "Precise fit for ROX 01 Adamas"],
+      ar: ["قماش سويدي مضاد للأشعة فوق البنفسجية", "تثبيت كهروستاتيكي بدون غراء أو حفر", "يحجب الحرارة والأشعة فوق البنفسجية", "لا يؤثر على فتح وإغلاق فتحة السقف", "مقاس دقيق لروكس 01 أداماس"]
+    },
+    images: [
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-installed.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-color-options.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat-grey.jpg"
+    ],
+    thumbnail: "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
+    badge: null
+  },
+  {
+    id: "rox-01-adamas-spare-tire-cover",
+    name: { en: "Adamas Spare Tyre Cover", ar: "غطاء الإطار الاحتياطي أداماس" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 850,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Premium glossy hard-shell spare tyre cover for ROX Adamas. Protects the spare wheel from dust, dirt, UV rays, and harsh weather with a factory-matching finish. Available in Black, Gold, and White.",
+      ar: "غطاء إطار احتياطي فاخر بقشرة صلبة لامعة لروكس أداماس. يحمي الإطار الاحتياطي من الغبار والأتربة والأشعة فوق البنفسجية والعوامل الجوية القاسية بتشطيب يطابق مصنع السيارة. متوفر بالأسود والذهبي والأبيض"
+    },
+    features: {
+      en: ["Glossy hard-shell ABS construction", "Perfect fit for ROX Adamas spare tyre", "UV, dust, and weather protection", "Factory-matching finish", "Available in Black, Gold, White"],
+      ar: ["هيكل ABS صلب لامع", "مقاس مثالي للإطار الاحتياطي لروكس أداماس", "حماية من الأشعة فوق البنفسجية والغبار والعوامل الجوية", "تشطيب يطابق مصنع السيارة", "متوفر بالأسود والذهبي والأبيض"]
+    },
+    images: [
+      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-2.jpg",
+      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-1.jpg",
+      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-3.jpg",
+      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-colors.jpg"
+    ],
+    thumbnail: "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-2.jpg",
+    badge: null,
+    variants: [
+      { id: "black", name: { en: "Black", ar: "أسود" }, color: "#161616", imageIndex: 0 },
+      { id: "gold", name: { en: "Gold", ar: "ذهبي" }, color: "#C9A66B", imageIndex: 3 },
+      { id: "white", name: { en: "White", ar: "أبيض" }, color: "#F2F2F2", imageIndex: 3 }
+    ]
+  },
+  {
     id: "rim-t2-2112",
     name: { en: "20\" Alloy Rim - 2112 Gloss Black Milling (4 Pcs)", ar: "جنط 20 بوصة - 2112 أسود لامع (4 قطع)" },
     carModel: "jetour-t2",
@@ -1368,109 +1471,6 @@ const PRODUCTS = [
     ],
     thumbnail: "Rims Jetour T2/jetour-t2-rim-iv539.jpg",
     badge: null
-  },
-  {
-    id: "antenna-t2",
-    name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
-    carModel: "jetour-t2",
-    carYear: "2023-2024",
-    price: 150,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Short aftermarket whip antenna replacement with roof-rail mounting bracket. Improves signal reception while giving a cleaner, lower-profile look than the factory antenna.",
-      ar: "هوائي بديل قصير مع حامل تركيب على سكة السقف. يحسّن استقبال الإشارة ويعطي مظهراً أنيقاً وأقل ارتفاعاً من الهوائي الأصلي"
-    },
-    features: {
-      en: ["Universal fit for Jetour T2 & ROX 01", "Roof-rail mounting bracket included", "Low-profile design", "Improves radio signal reception", "Easy bolt-on installation"],
-      ar: ["مقاس عام لجيتور T2 وروكس 01", "حامل تركيب على سكة السقف مرفق", "تصميم منخفض الارتفاع", "يحسّن استقبال إشارة الراديو", "تركيب سهل بالمسامير"]
-    },
-    images: [
-      "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png"
-    ],
-    thumbnail: "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png",
-    badge: null
-  },
-  {
-    id: "rox-01-antenna",
-    name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 150,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Short aftermarket whip antenna replacement with roof-rail mounting bracket. Improves signal reception while giving a cleaner, lower-profile look than the factory antenna.",
-      ar: "هوائي بديل قصير مع حامل تركيب على سكة السقف. يحسّن استقبال الإشارة ويعطي مظهراً أنيقاً وأقل ارتفاعاً من الهوائي الأصلي"
-    },
-    features: {
-      en: ["Universal fit for Jetour T2 & ROX 01", "Roof-rail mounting bracket included", "Low-profile design", "Improves radio signal reception", "Easy bolt-on installation"],
-      ar: ["مقاس عام لجيتور T2 وروكس 01", "حامل تركيب على سكة السقف مرفق", "تصميم منخفض الارتفاع", "يحسّن استقبال إشارة الراديو", "تركيب سهل بالمسامير"]
-    },
-    images: [
-      "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png"
-    ],
-    thumbnail: "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png",
-    badge: null
-  },
-  {
-    id: "rox-01-roof-heat-rejection",
-    name: { en: "Sunroof Heat Insulation Mat Set", ar: "طقم عزل حراري لفتحة السقف" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 450,
-    currency: "AED",
-    warranty: null,
-    category: "interior",
-    description: {
-      en: "Suede-fabric anti-UV sunroof sunshade set for ROX 01 Adamas. Mounts by electrostatic adsorption — no glue, no drilling. Blocks heat and UV while keeping the sunroof fully operational.",
-      ar: "طقم مظلات فتحة سقف من قماش سويدي مضاد للأشعة فوق البنفسجية لروكس 01 أداماس. يثبت بالالتصاق الكهروستاتيكي بدون غراء أو حفر. يحجب الحرارة والأشعة فوق البنفسجية مع إبقاء فتحة السقف تعمل بكامل طاقتها"
-    },
-    features: {
-      en: ["Suede fabric, anti-UV", "Electrostatic adsorption — no glue or drilling", "Blocks heat and UV rays", "Doesn't affect sunroof opening/closing", "Precise fit for ROX 01 Adamas"],
-      ar: ["قماش سويدي مضاد للأشعة فوق البنفسجية", "تثبيت كهروستاتيكي بدون غراء أو حفر", "يحجب الحرارة والأشعة فوق البنفسجية", "لا يؤثر على فتح وإغلاق فتحة السقف", "مقاس دقيق لروكس 01 أداماس"]
-    },
-    images: [
-      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
-      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-installed.jpg",
-      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-color-options.jpg",
-      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat-grey.jpg"
-    ],
-    thumbnail: "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
-    badge: null
-  },
-  {
-    id: "rox-01-adamas-spare-tire-cover",
-    name: { en: "Adamas Spare Tyre Cover", ar: "غطاء الإطار الاحتياطي أداماس" },
-    carModel: "jetour-rox-01",
-    carYear: "2024-2025",
-    price: 850,
-    currency: "AED",
-    warranty: null,
-    category: "exterior",
-    description: {
-      en: "Premium glossy hard-shell spare tyre cover for ROX Adamas. Protects the spare wheel from dust, dirt, UV rays, and harsh weather with a factory-matching finish. Available in Black, Gold, and White.",
-      ar: "غطاء إطار احتياطي فاخر بقشرة صلبة لامعة لروكس أداماس. يحمي الإطار الاحتياطي من الغبار والأتربة والأشعة فوق البنفسجية والعوامل الجوية القاسية بتشطيب يطابق مصنع السيارة. متوفر بالأسود والذهبي والأبيض"
-    },
-    features: {
-      en: ["Glossy hard-shell ABS construction", "Perfect fit for ROX Adamas spare tyre", "UV, dust, and weather protection", "Factory-matching finish", "Available in Black, Gold, White"],
-      ar: ["هيكل ABS صلب لامع", "مقاس مثالي للإطار الاحتياطي لروكس أداماس", "حماية من الأشعة فوق البنفسجية والغبار والعوامل الجوية", "تشطيب يطابق مصنع السيارة", "متوفر بالأسود والذهبي والأبيض"]
-    },
-    images: [
-      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-2.jpg",
-      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-1.jpg",
-      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-3.jpg",
-      "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-colors.jpg"
-    ],
-    thumbnail: "Spare Tire Cover Jetour ROX Adamas/rox-adamas-spare-tire-cover-black-2.jpg",
-    badge: null,
-    variants: [
-      { id: "black", name: { en: "Black", ar: "أسود" }, color: "#161616", imageIndex: 0 },
-      { id: "gold", name: { en: "Gold", ar: "ذهبي" }, color: "#C9A66B", imageIndex: 3 },
-      { id: "white", name: { en: "White", ar: "أبيض" }, color: "#F2F2F2", imageIndex: 3 }
-    ]
   }
 ];
 
