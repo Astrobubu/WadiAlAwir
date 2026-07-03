@@ -1019,7 +1019,8 @@ const PRODUCTS = [
       ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس أداماس", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
     },
     images: [
-      "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg"
+      "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg",
+      "Grill Protector Jetour ROX 01/jetour-rox-adamas-grill-protector-parts.png"
     ],
     thumbnail: "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg",
     badge: null
@@ -1097,6 +1098,29 @@ const PRODUCTS = [
     id: "rox-01-antenna",
     name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
     carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 150,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Short aftermarket whip antenna replacement with roof-rail mounting bracket. Improves signal reception while giving a cleaner, lower-profile look than the factory antenna.",
+      ar: "هوائي بديل قصير مع حامل تركيب على سكة السقف. يحسّن استقبال الإشارة ويعطي مظهراً أنيقاً وأقل ارتفاعاً من الهوائي الأصلي"
+    },
+    features: {
+      en: ["Universal fit for Jetour T2 & ROX 01", "Roof-rail mounting bracket included", "Low-profile design", "Improves radio signal reception", "Easy bolt-on installation"],
+      ar: ["مقاس عام لجيتور T2 وروكس 01", "حامل تركيب على سكة السقف مرفق", "تصميم منخفض الارتفاع", "يحسّن استقبال إشارة الراديو", "تركيب سهل بالمسامير"]
+    },
+    images: [
+      "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png"
+    ],
+    thumbnail: "Antenna Jetour T2 and ROX 01/jetour-antenna-installed.png",
+    badge: null
+  },
+  {
+    id: "rox-adamas-antenna",
+    name: { en: "Roof-Mount Antenna Replacement", ar: "هوائي سقف بديل" },
+    carModel: "jetour-rox-adamas",
     carYear: "2024-2025",
     price: 150,
     currency: "AED",
@@ -1520,7 +1544,7 @@ const CAR_MODELS = [
     name: { en: "ROX Adamas", ar: "روكس أداماس" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 4
+    productCount: 5
   }
 ];
 
