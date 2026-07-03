@@ -369,19 +369,19 @@ const PRODUCTS = [
   {
     id: "rox-01-spoiler",
     name: { en: "Rear Spoiler Wing (Glossy Black)", ar: "جناح سبويلر خلفي (أسود لامع)" },
-    carModel: "jetour-rox-01",
+    carModel: "jetour-rox-adamas",
     carYear: "2024-2025",
     price: 500,
     currency: "AED",
     warranty: null,
     category: "exterior",
     description: {
-      en: "Glossy black rear spoiler wing for ROX 01. Enhances the sporty look and improves aerodynamics.",
-      ar: "جناح سبويلر خلفي أسود لامع لروكس 01. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية"
+      en: "Glossy black rear spoiler wing for ROX Adamas. Enhances the sporty look and improves aerodynamics.",
+      ar: "جناح سبويلر خلفي أسود لامع لروكس أداماس. يعزز المظهر الرياضي ويحسن الديناميكا الهوائية"
     },
     features: {
-      en: ["Glossy black finish", "Custom fit for ROX 01", "Improved aerodynamics", "Easy bolt-on installation"],
-      ar: ["لون أسود لامع", "مقاس مخصص لروكس 01", "ديناميكا هوائية محسّنة", "تركيب سهل بمسامير"]
+      en: ["Glossy black finish", "Custom fit for ROX Adamas", "Improved aerodynamics", "Easy bolt-on installation"],
+      ar: ["لون أسود لامع", "مقاس مخصص لروكس أداماس", "ديناميكا هوائية محسّنة", "تركيب سهل بمسامير"]
     },
     images: [
       "Spoiler Jetour ROX 01/jetour-rox-01-spoiler-side-view.webp",
@@ -1004,19 +1004,19 @@ const PRODUCTS = [
   {
     id: "rox-01-grill-protector",
     name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
-    carModel: "jetour-rox-01",
+    carModel: "jetour-rox-adamas",
     carYear: "2024-2025",
     price: 650,
     currency: "AED",
     warranty: null,
     category: "exterior",
     description: {
-      en: "Honeycomb mesh front grill protector for Jetour ROX 01. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
-      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس 01. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
+      en: "Honeycomb mesh front grill protector for Jetour ROX Adamas. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
+      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس أداماس. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
     },
     features: {
-      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX 01", "Easy bolt-on installation", "Preserves factory look"],
-      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس 01", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
+      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX Adamas", "Easy bolt-on installation", "Preserves factory look"],
+      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس أداماس", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
     },
     images: [
       "Grill Protector Jetour ROX 01/jetour-rox-01-grill-protector.jpg"
@@ -1143,9 +1143,35 @@ const PRODUCTS = [
     badge: null
   },
   {
+    id: "rox-adamas-roof-heat-rejection",
+    name: { en: "Sunroof Heat Insulation Mat Set", ar: "طقم عزل حراري لفتحة السقف" },
+    carModel: "jetour-rox-adamas",
+    carYear: "2024-2025",
+    price: 450,
+    currency: "AED",
+    warranty: null,
+    category: "interior",
+    description: {
+      en: "Suede-fabric anti-UV sunroof sunshade set for ROX 01 Adamas. Mounts by electrostatic adsorption — no glue, no drilling. Blocks heat and UV while keeping the sunroof fully operational.",
+      ar: "طقم مظلات فتحة سقف من قماش سويدي مضاد للأشعة فوق البنفسجية لروكس 01 أداماس. يثبت بالالتصاق الكهروستاتيكي بدون غراء أو حفر. يحجب الحرارة والأشعة فوق البنفسجية مع إبقاء فتحة السقف تعمل بكامل طاقتها"
+    },
+    features: {
+      en: ["Suede fabric, anti-UV", "Electrostatic adsorption — no glue or drilling", "Blocks heat and UV rays", "Doesn't affect sunroof opening/closing", "Precise fit for ROX 01 Adamas"],
+      ar: ["قماش سويدي مضاد للأشعة فوق البنفسجية", "تثبيت كهروستاتيكي بدون غراء أو حفر", "يحجب الحرارة والأشعة فوق البنفسجية", "لا يؤثر على فتح وإغلاق فتحة السقف", "مقاس دقيق لروكس 01 أداماس"]
+    },
+    images: [
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-installed.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-color-options.jpg",
+      "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat-grey.jpg"
+    ],
+    thumbnail: "Roof Heat Rejection Jetour ROX 01 Adamas/rox01-adamas-roof-heat-mats-flat.jpg",
+    badge: null
+  },
+  {
     id: "rox-01-adamas-spare-tire-cover",
     name: { en: "Adamas Spare Tyre Cover", ar: "غطاء الإطار الاحتياطي أداماس" },
-    carModel: "jetour-rox-01",
+    carModel: "jetour-rox-adamas",
     carYear: "2024-2025",
     price: 850,
     currency: "AED",
@@ -1487,7 +1513,14 @@ const CAR_MODELS = [
     name: { en: "ROX 01", ar: "روكس 01" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 20
+    productCount: 17
+  },
+  {
+    id: "jetour-rox-adamas",
+    name: { en: "ROX Adamas", ar: "روكس أداماس" },
+    years: "2024-2025",
+    heroImage: "assets/cars/rox-01.jpg",
+    productCount: 4
   }
 ];
 
