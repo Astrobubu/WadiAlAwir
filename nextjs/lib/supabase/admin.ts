@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { redirect } from 'next/navigation'
 import { createServerSupabaseClient } from './server'
 import { isSupabaseConfigured } from './config'
@@ -33,9 +34,10 @@ export async function getCurrentStaff(): Promise<StaffProfile | null> {
   }
 }
 
-export async function requireStaff(
-  allowedRoles?: readonly StaffRole[]
-): Promise<{ profile: StaffProfile; supabase: Awaited<ReturnType<typeof createServerSupabaseClient>> }> {
+const loadRequiredStaff = cache(async (): Promise<{
+  profile: StaffProfile
+  supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>
+}> => {
   if (!isSupabaseConfigured) redirect('/admin/login?setup=required')
 
   const supabase = await createServerSupabaseClient()
@@ -55,9 +57,17 @@ export async function requireStaff(
     email: typeof claimsData?.claims?.email === 'string' ? claimsData.claims.email : null,
   }
 
-  if (allowedRoles && !allowedRoles.includes(profile.role)) {
+  return { profile, supabase }
+})
+
+export async function requireStaff(
+  allowedRoles?: readonly StaffRole[]
+): Promise<{ profile: StaffProfile; supabase: Awaited<ReturnType<typeof createServerSupabaseClient>> }> {
+  const staff = await loadRequiredStaff()
+
+  if (allowedRoles && !allowedRoles.includes(staff.profile.role)) {
     redirect('/admin?access=denied')
   }
 
-  return { profile, supabase }
+  return staff
 }

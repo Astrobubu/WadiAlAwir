@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from './AdminLink'
 import { usePathname, useRouter } from 'next/navigation'
 import AdminIcon, { type AdminIconName } from './AdminIcon'
 
@@ -8,7 +8,6 @@ const navigation: Array<{ href: string; label: string; icon: AdminIconName }> = 
   { href: '/admin', label: 'Overview', icon: 'dashboard' },
   { href: '/admin/products', label: 'Products', icon: 'package' },
   { href: '/admin/articles', label: 'Articles', icon: 'article' },
-  { href: '/admin/media', label: 'Media', icon: 'media' },
   { href: '/admin/stock', label: 'Stock', icon: 'package' },
   { href: '/admin/customers', label: 'Customers', icon: 'users' },
   { href: '/admin/invoices', label: 'Invoices', icon: 'invoice' },
@@ -42,7 +41,7 @@ export function AdminSidebarNavigation() {
 export function AdminBackButton() {
   const pathname = usePathname()
   const router = useRouter()
-  if (pathname === '/admin') return <span />
+  if (pathname === '/admin') return null
 
   function goBack() {
     if (window.history.length > 1) router.back()
