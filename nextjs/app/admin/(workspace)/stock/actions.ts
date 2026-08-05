@@ -30,9 +30,8 @@ export async function saveStockItemAction(_state: StockActionState, formData: Fo
 
   revalidateTag('wadi-catalogue')
   revalidatePath('/admin')
-  revalidatePath('/admin/stock')
   revalidatePath('/admin/products')
-  redirect('/admin/stock?saved=1')
+  redirect('/admin/products?saved=inventory')
 }
 
 export async function deleteStockItemAction(formData: FormData) {
@@ -43,8 +42,8 @@ export async function deleteStockItemAction(formData: FormData) {
     supabase.from('catalog_products').select('*', { count: 'exact', head: true }).eq('item_id', id),
     supabase.from('invoice_items').select('*', { count: 'exact', head: true }).eq('item_id', id),
   ])
-  if ((catalogue.count ?? 0) > 0 || (invoiceLines.count ?? 0) > 0) redirect('/admin/stock?error=protected')
+  if ((catalogue.count ?? 0) > 0 || (invoiceLines.count ?? 0) > 0) redirect('/admin/products?error=protected')
   await supabase.from('items').delete().eq('id', id)
-  revalidatePath('/admin/stock')
-  redirect('/admin/stock?saved=deleted')
+  revalidatePath('/admin/products')
+  redirect('/admin/products?saved=deleted')
 }

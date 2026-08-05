@@ -10,7 +10,7 @@ export default async function NewAdminProductPage() {
 
   return (
     <>
-      <div className="admin-page-heading"><div><p className="admin-eyebrow">Catalogue</p><h1>New product</h1><p>Create the stock item and bilingual storefront record together.</p></div></div>
+      <div className="admin-page-heading"><div><p className="admin-eyebrow">Products &amp; inventory</p><h1>New product</h1><p>Create its inventory, pricing and bilingual storefront content together.</p></div></div>
       {error ? <div className="admin-banner admin-banner--warning">{error.message}</div> : <AdminProductForm vehicles={vehicles ?? []} />}
     </>
   )

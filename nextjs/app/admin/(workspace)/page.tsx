@@ -42,9 +42,9 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/invoices/new" className="admin-button admin-button--primary"><AdminIcon name="plus" /> New invoice</Link>
         </div>
         <div className="admin-dashboard-hero__stats" aria-label="Shop overview">
-          <HeroStat label="Items in stock" value={String(items.length)} />
+          <HeroStat label="Products tracked" value={String(items.length)} />
           <HeroStat label="Low stock" value={String(lowStockItems.length)} />
-          <HeroStat label="Stock value" value={money(stockValue)} />
+          <HeroStat label="Inventory value" value={money(stockValue)} />
           <HeroStat label="Recent revenue" value={money(recentRevenue)} />
         </div>
       </section>
@@ -60,7 +60,7 @@ export default async function AdminDashboardPage() {
         </div>
         <div className="admin-profit-card admin-profit-card--potential">
           <span className="admin-profit-card__arrow">↗</span>
-          <p>Potential profit in stock</p>
+          <p>Potential product profit</p>
           <strong>{money(potentialProfit)}</strong>
           <small>if all items sell at current prices</small>
         </div>
@@ -69,7 +69,7 @@ export default async function AdminDashboardPage() {
       <div className={`admin-dashboard-lower${lowStockItems.length === 0 ? ' admin-dashboard-lower--single' : ''}`}>
         {lowStockItems.length > 0 && (
           <section className="admin-dashboard-card admin-attention-card">
-            <div className="admin-dashboard-card__header"><h2>Attention</h2><Link href="/admin/stock">View stock →</Link></div>
+            <div className="admin-dashboard-card__header"><h2>Attention</h2><Link href="/admin/products?status=low">View products →</Link></div>
             <div className="admin-attention-card__alert">
               <span className="admin-attention-card__icon"><AdminIcon name="package" /></span>
               <div>

@@ -68,7 +68,7 @@ export default function AdminProductForm({
       <section className="admin-editor__section">
         <div className="admin-editor__section-heading">
           <span>01</span>
-          <div><h2>Identity</h2><p>Shared public and stock identifiers.</p></div>
+          <div><h2>Identity</h2><p>Shared storefront and inventory identifiers.</p></div>
         </div>
         <div className="admin-form-grid admin-form-grid--3">
           <GeneratedField label="Slug" htmlFor="admin-product-slug" onGenerate={() => setSlug(generateSlug(nameEn))} required>
@@ -126,7 +126,7 @@ export default function AdminProductForm({
       <section className="admin-editor__section">
         <div className="admin-editor__section-heading">
           <span>03</span>
-          <div><h2>Stock and pricing</h2><p>The public price stays synchronized with the invoice item.</p></div>
+          <div><h2>Inventory and pricing</h2><p>The storefront price and invoice price stay synchronized.</p></div>
         </div>
         <div className="admin-form-grid admin-form-grid--3">
           <Field label="Selling price (AED)" required><input name="price" type="number" step="0.01" min="0" defaultValue={item.selling_price ?? 0} required /></Field>

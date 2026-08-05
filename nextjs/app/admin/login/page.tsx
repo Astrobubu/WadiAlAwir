@@ -20,7 +20,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
         <p className="admin-eyebrow">Commerce workspace</p>
         <h1>Manage the catalogue and invoices</h1>
         <p className="admin-login__intro">
-          Products, Arabic and English content, stock, customers and invoices share one secured workspace.
+          Products, inventory, bilingual content, customers and invoices share one secured workspace.
         </p>
 
         {!isSupabaseConfigured ? (

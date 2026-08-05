@@ -30,7 +30,7 @@ export default async function EditAdminProductPage({ params }: EditProductPagePr
 
   return (
     <>
-      <div className="admin-page-heading"><div><p className="admin-eyebrow">Catalogue</p><h1>Edit product</h1><p>Changes update the public pages and linked invoice stock record.</p></div></div>
+      <div className="admin-page-heading"><div><p className="admin-eyebrow">Products &amp; inventory</p><h1>Edit product</h1><p>Update storefront content, inventory, pricing and invoice availability together.</p></div></div>
       <AdminProductForm
         vehicles={vehiclesResult.data ?? []}
         product={product}

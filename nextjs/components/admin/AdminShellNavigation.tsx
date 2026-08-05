@@ -8,7 +8,6 @@ const navigation: Array<{ href: string; label: string; icon: AdminIconName }> = 
   { href: '/admin', label: 'Overview', icon: 'dashboard' },
   { href: '/admin/products', label: 'Products', icon: 'package' },
   { href: '/admin/articles', label: 'Articles', icon: 'article' },
-  { href: '/admin/stock', label: 'Stock', icon: 'package' },
   { href: '/admin/customers', label: 'Customers', icon: 'users' },
   { href: '/admin/invoices', label: 'Invoices', icon: 'invoice' },
   { href: '/admin/settings', label: 'Settings', icon: 'settings' },
