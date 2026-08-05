@@ -1059,15 +1059,21 @@ button {
   right: max(2rem, calc((100vw - 1280px) / 2 + 1.5rem));
   left: auto;
   font-family: var(--font-ar-body);
-  font-size: .78rem;
-  letter-spacing: .12em;
+  font-size: clamp(1rem, 1.45vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.5;
 }
 
 [dir="rtl"] .hero__philosophy {
   right: auto;
   left: max(2rem, calc((100vw - 1280px) / 2 + 1.5rem));
+  min-width: 190px;
   font-family: var(--font-ar-body);
-  letter-spacing: .08em;
+  font-size: clamp(1.1rem, 1.65vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.5;
 }
 
 .hero__content {
@@ -3268,6 +3274,11 @@ button {
     width: calc(100% - 2rem);
     transform: translateX(-50%);
     text-align: center;
+  }
+
+  [dir="rtl"] .hero__eyebrow {
+    font-size: clamp(.95rem, 3.5vw, 1.15rem);
+    letter-spacing: .03em;
   }
 
   .hero__content {
