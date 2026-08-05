@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import FaqAccordion from '@/components/FaqAccordion'
 import ProductCard from '@/components/ProductCard'
-import OfferBundles from '@/components/OfferBundles'
+import ServicesShowcase from '@/components/ServicesShowcase'
 import { getAllArticles } from '@/lib/articles'
 import {
   absoluteUrl,
@@ -140,8 +140,8 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* ── OFFERS & BUNDLES ── */}
-      <OfferBundles lang={lang} />
+      {/* ── FEATURED OFFER & SERVICES ── */}
+      <ServicesShowcase lang={lang} />
 
       {/* ── CAR MODELS ── */}
       <section className="section" id="car-models">
