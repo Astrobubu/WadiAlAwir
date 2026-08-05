@@ -113,9 +113,27 @@ export default async function AdminProductsPage({ searchParams }: ProductsPagePr
       {query.error === 'protected' && <div className="admin-banner admin-banner--warning">This item is linked to a storefront product or invoice history and cannot be deleted.</div>}
 
       <section className="admin-products-summary" aria-label="Product inventory summary">
-        <div><span>Total products</span><strong>{items.length}</strong><small>{internalCount} invoice only</small></div>
-        <div><span>Storefront live</span><strong>{liveCount}</strong><small>{draftCount} drafts</small></div>
-        <div><span>Low stock</span><strong>{lowCount}</strong><small>At or below alert level</small></div>
+        <Link
+          href="/admin/products"
+          className={`admin-products-summary__filter${status === 'all' ? ' is-active' : ''}`}
+          aria-current={status === 'all' ? 'page' : undefined}
+        >
+          <span>Total products</span><strong>{items.length}</strong><small>{internalCount} invoice only</small>
+        </Link>
+        <Link
+          href="/admin/products?status=published"
+          className={`admin-products-summary__filter${status === 'published' ? ' is-active' : ''}`}
+          aria-current={status === 'published' ? 'page' : undefined}
+        >
+          <span>Storefront live</span><strong>{liveCount}</strong><small>{draftCount} drafts</small>
+        </Link>
+        <Link
+          href="/admin/products?status=low"
+          className={`admin-products-summary__filter${status === 'low' ? ' is-active' : ''}`}
+          aria-current={status === 'low' ? 'page' : undefined}
+        >
+          <span>Low stock</span><strong>{lowCount}</strong><small>At or below alert level</small>
+        </Link>
         <div><span>Inventory cost</span><strong>{money(inventoryCost)}</strong><small>Quantity at cost</small></div>
       </section>
 
