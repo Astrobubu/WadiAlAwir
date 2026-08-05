@@ -2374,6 +2374,7 @@ button {
 .services-showcase {
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 84px;
   background: #050a13;
 }
 
