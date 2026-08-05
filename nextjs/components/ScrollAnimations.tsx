@@ -6,6 +6,7 @@ const SELECTORS = [
   '.section-header',
   '.product-card',
   '.service-card',
+  '.offer-card',
   '.car-card',
   '.review-card',
   '.location__item',
