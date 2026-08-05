@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/admin/AdminLink'
 import { redirect } from 'next/navigation'
 import AdminLoginForm from '@/components/admin/AdminLoginForm'
 import { getCurrentStaff } from '@/lib/supabase/admin'

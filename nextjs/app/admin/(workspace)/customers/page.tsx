@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/admin/AdminLink'
 import AdminIcon from '@/components/admin/AdminIcon'
 import { requireStaff } from '@/lib/supabase/admin'
 

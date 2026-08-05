@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/admin/AdminLink'
 import { requireStaff } from '@/lib/supabase/admin'
 
 interface ArticlesPageProps { searchParams: Promise<{ saved?: string }> }

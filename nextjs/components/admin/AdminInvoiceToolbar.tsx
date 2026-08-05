@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from './AdminLink'
 import { useState } from 'react'
 import AdminIcon from './AdminIcon'
 
