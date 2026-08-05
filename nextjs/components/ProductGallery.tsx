@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 export interface GalleryImage {
   url: string
@@ -84,7 +85,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
         </div>
       )}
 
-      {lightboxOpen && (
+      {lightboxOpen && createPortal(
         <div
           className="product-page__zoom-overlay product-page__zoom-overlay--open"
           role="dialog"
@@ -112,7 +113,8 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
             loading="eager"
             decoding="async"
           />
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )
