@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import type { Product } from '../lib/sanity'
-import { urlFor } from '../lib/sanity'
+import Image from 'next/image'
+import type { ProductCardProduct } from '../lib/sanity'
 import AddToCartButton from './AddToCartButton'
 
 interface ProductCardProps {
-  product: Product
+  product: ProductCardProduct
   lang: 'en' | 'ar'
 }
 
@@ -12,11 +12,7 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
   const name = product.name[lang] ?? product.name.en
   const carName = product.carModel?.name?.[lang] ?? ''
 
-  const thumbSrc = product.thumbnail
-    ? urlFor(product.thumbnail).width(480).height(360).format('webp').quality(80).url()
-    : product.images?.[0]
-      ? urlFor(product.images[0]).width(480).height(360).format('webp').quality(80).url()
-      : null
+  const thumbSrc = product.thumbnailUrl
 
   const detailHref = `/${lang}/products/${product.slug.current}`
 
@@ -30,14 +26,13 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
           </span>
         )}
         {thumbSrc ? (
-          <img
+          <Image
             src={thumbSrc}
             alt={name}
             width={480}
             height={360}
             className="product-card__image"
-            loading="lazy"
-            decoding="async"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         ) : (
           <div className="product-card__image" style={{ background: 'var(--bg-elevated)' }} />
@@ -58,7 +53,16 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
         </div>
 
         <div className="product-card__actions">
-          <AddToCartButton product={product} locale={lang} />
+          <AddToCartButton
+            product={{
+              id: product._id,
+              slug: product.slug.current,
+              name: product.name,
+              price: product.price,
+              thumbnailUrl: product.thumbnailUrl,
+            }}
+            locale={lang}
+          />
         </div>
       </div>
     </article>

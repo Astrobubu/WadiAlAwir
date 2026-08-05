@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { useRouter } from '@/i18n/navigation'
+import Link from 'next/link'
+import { usePathname, useRouter } from '@/i18n/navigation'
 import { useCart } from './CartContext'
 import CartDrawer from './CartDrawer'
 
@@ -10,6 +11,7 @@ export default function Navbar() {
   const t = useTranslations('nav')
   const locale = useLocale()
   const router = useRouter()
+  const pathname = usePathname()
   const { items } = useCart()
 
   const [scrolled, setScrolled] = useState(false)
@@ -52,24 +54,19 @@ export default function Navbar() {
 
     if (typeof document.startViewTransition === 'function') {
       document.startViewTransition(() => {
-        router.replace('/', { locale: nextLocale })
+        router.replace(pathname, { locale: nextLocale })
       })
     } else {
-      router.replace('/', { locale: nextLocale })
+      router.replace(pathname, { locale: nextLocale })
     }
   }
 
-  function scrollToSection(id: string) {
-    setMenuOpen(false)
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const navLinks = [
-    { label: t('products'), id: 'products' },
-    { label: t('services'), id: 'services' },
-    { label: t('reviews'), id: 'reviews' },
-    { label: t('contact'), id: 'location' },
+    { label: t('products'), href: `/${locale}/products` },
+    { label: t('services'), href: `/${locale}/#services` },
+    { label: t('blog'), href: `/${locale}/blog` },
+    { label: t('reviews'), href: `/${locale}/#reviews` },
+    { label: t('contact'), href: `/${locale}/#location` },
   ]
 
   return (
@@ -82,22 +79,21 @@ export default function Navbar() {
       >
         <div className="navbar__inner container">
           {/* Brand */}
-          <a href={`/${locale}`} className="navbar__brand" aria-label="Wadi Al Awir Home">
+          <Link href={`/${locale}`} className="navbar__brand" aria-label="Wadi Al Awir Home">
             <span className="navbar__brand-ar">وادي العوير</span>
             <span className="navbar__brand-en">WADI AL AWIR</span>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="navbar__links" role="list">
             {navLinks.map((link) => (
-              <li key={link.id}>
-                <button
+              <li key={link.href}>
+                <Link
                   className="navbar__link"
-                  onClick={() => scrollToSection(link.id)}
-                  type="button"
+                  href={link.href}
                 >
                   {link.label}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
@@ -153,14 +149,14 @@ export default function Navbar() {
       >
         <ul className="mobile-menu__links" role="list">
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <button
+            <li key={link.href}>
+              <Link
                 className="mobile-menu__link"
-                onClick={() => scrollToSection(link.id)}
-                type="button"
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>

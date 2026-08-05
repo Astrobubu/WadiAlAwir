@@ -1,10 +1,24 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import './globals.css'
+import { SITE_NAME, SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Wadi Al Awir Car Accessories',
-  description: 'Premium car accessories & window tinting in Al Awir, Dubai',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: 'Jetour and ROX car accessories, window tinting and installation support in Al Awir, Dubai.',
+  applicationName: SITE_NAME,
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

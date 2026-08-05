@@ -2,10 +2,18 @@
 
 import { useState } from 'react'
 import { useCart } from './CartContext'
-import type { Product } from '../lib/sanity'
+import type { LocaleString } from '../lib/sanity'
+
+interface CartProduct {
+  id: string
+  slug: string
+  name: LocaleString
+  price: number
+  thumbnailUrl: string | null
+}
 
 interface AddToCartButtonProps {
-  product: Product
+  product: CartProduct
   locale: 'en' | 'ar'
 }
 
@@ -18,11 +26,11 @@ export default function AddToCartButton({ product, locale }: AddToCartButtonProp
 
   function handleClick() {
     addItem({
-      id: product._id,
-      slug: product.slug.current,
+      id: product.id,
+      slug: product.slug,
       name: product.name,
       price: product.price,
-      thumbnail: product.thumbnail ?? null,
+      thumbnailUrl: product.thumbnailUrl,
       qty: 1,
     })
     setAdded(true)

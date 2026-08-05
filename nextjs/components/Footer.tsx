@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import WAPickerModal from './WAPickerModal'
 
 interface FooterProps {
@@ -48,8 +49,10 @@ export default function Footer({ lang }: FooterProps) {
           </div>
 
           <div className="footer__links">
-            <a href="/privacy">{isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}</a>
-            <a href="/returns">{isRTL ? 'سياسة الإرجاع' : 'Return Policy'}</a>
+            <Link href={`/${lang}/products`}>{isRTL ? 'المنتجات' : 'Products'}</Link>
+            <Link href={`/${lang}/blog`}>{isRTL ? 'الدليل' : 'Guides'}</Link>
+            <Link href={`/${lang}/privacy`}>{isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}</Link>
+            <Link href={`/${lang}/returns`}>{isRTL ? 'سياسة الإرجاع' : 'Return Policy'}</Link>
           </div>
 
           <p className="footer__copyright">

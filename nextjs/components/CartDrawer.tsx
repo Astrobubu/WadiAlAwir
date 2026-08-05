@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { urlFor } from '../lib/sanity'
+import Image from 'next/image'
 import { useCart } from './CartContext'
 import WAPickerModal from './WAPickerModal'
 import { getCartWhatsAppMessage } from '../lib/whatsapp'
@@ -110,22 +110,16 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
           ) : (
             <ul className="cart-drawer__list" role="list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {items.map((item) => {
-                const thumbSrc = item.thumbnail
-                  ? urlFor(item.thumbnail).width(96).height(72).format('webp').quality(75).url()
-                  : null
                 const itemName = item.name[lang] ?? item.name.en
 
                 return (
                   <li key={item.id} className="cart-item">
-                    {thumbSrc && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={thumbSrc}
+                    {item.thumbnailUrl && (
+                      <Image
+                        src={item.thumbnailUrl}
                         alt={itemName}
                         width={60}
                         height={60}
-                        loading="lazy"
-                        decoding="async"
                         className="cart-item__img"
                       />
                     )}
