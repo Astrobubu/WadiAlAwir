@@ -70,7 +70,7 @@ export async function saveProductAction(
       .insert(itemPayload)
       .select('id')
       .single()
-    if (error || !data) return { error: error?.message ?? 'Could not create stock item.' }
+    if (error || !data) return { error: error?.message ?? 'Could not create inventory item.' }
     itemId = data.id as string
     createdItem = true
   }

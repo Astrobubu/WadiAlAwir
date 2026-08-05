@@ -155,10 +155,10 @@ export default function AdminInvoiceForm({
         </section>
 
         <section className="admin-editor__section">
-          <div className="admin-editor__section-heading"><span>02</span><div><h2>Parts and services</h2><p>Search by product name or SKU. Stock updates only after the invoice succeeds.</p></div></div>
+          <div className="admin-editor__section-heading"><span>02</span><div><h2>Parts and services</h2><p>Search by product name or SKU. Inventory updates only after the invoice succeeds.</p></div></div>
           <div className="admin-stock-picker">
             <AdminIcon name="search" />
-            <input value={picker} onChange={(event) => setPicker(event.target.value)} placeholder="Search stock to add…" role="combobox" aria-expanded={filteredItems.length > 0} aria-controls="admin-stock-results" />
+            <input value={picker} onChange={(event) => setPicker(event.target.value)} placeholder="Search products to add…" role="combobox" aria-expanded={filteredItems.length > 0} aria-controls="admin-stock-results" />
             {filteredItems.length > 0 && <div id="admin-stock-results" className="admin-stock-picker__results" role="listbox">{filteredItems.map((item) => <button type="button" role="option" aria-selected="false" key={item.id} onClick={() => addItem(item)}><span><strong>{item.name}</strong><small>{item.sku || 'No SKU'} · {item.quantity} {item.unit} available</small></span><span>{money(Number(item.selling_price))}</span></button>)}</div>}
           </div>
           <button type="button" className="admin-button admin-button--quiet" onClick={addService}><AdminIcon name="plus" /> Add service line</button>
@@ -175,7 +175,7 @@ export default function AdminInvoiceForm({
                 <button type="button" onClick={() => setLines((current) => current.filter((entry) => entry.key !== line.key))} aria-label={`Remove ${line.description}`}>×</button>
               </article>
             })}
-            {!lines.length && <div className="admin-empty admin-empty--compact"><p>No lines yet. Search stock above or add a service.</p></div>}
+            {!lines.length && <div className="admin-empty admin-empty--compact"><p>No lines yet. Search products above or add a service.</p></div>}
           </div>
         </section>
         <section className="admin-editor__section"><label className="admin-field"><span>Notes printed on invoice</span><textarea rows={4} value={notes} onChange={(event) => setNotes(event.target.value)} /></label></section>
