@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const totalItems = items.reduce((sum, item) => sum + item.qty, 0)
   const isRTL = locale === 'ar'
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
@@ -73,7 +74,7 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}
+        className={`navbar${isHome ? ' navbar--home' : ''}${scrolled ? ' navbar--scrolled' : ''}`}
         id="navbar"
         dir={isRTL ? 'rtl' : 'ltr'}
       >

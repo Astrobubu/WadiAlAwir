@@ -13,9 +13,16 @@
       "hours": "Open until 11 PM"
     },
     "subtitle": "Car Accessories",
+    "eyebrow": "Premium Auto Accessories",
+    "motto": "Equip · Protect · Drive Further",
     "tagline": "Premium auto accessories & window tinting in Al Awir, Dubai",
     "browse": "Browse Products",
     "services": "See Services",
+    "mantra": {
+      "car": "Your car",
+      "style": "Your style",
+      "expertise": "Our expertise"
+    },
     "whatsapp": "Order via WhatsApp"
   },
   "cars": {

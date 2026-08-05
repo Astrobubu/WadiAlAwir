@@ -96,12 +96,6 @@ export default async function HomePage({ params }: HomePageProps) {
     { q: t('faq.q6'), a: t('faq.a6') },
   ]
 
-  const heroWaMsg = encodeURIComponent(
-    lang === 'ar'
-      ? 'السلام عليكم، أود الاستفسار عن منتجاتكم'
-      : "Hello, I'd like to inquire about your products"
-  )
-
   const reviewAuthors = ['Nazim Malik', 'Saeed Al Emad', 'Ahmed K.', 'Mohammad R.']
   const reviewStars = [5, 5, 5, 4]
 
@@ -137,49 +131,39 @@ export default async function HomePage({ params }: HomePageProps) {
       />
       {/* ── HERO ── */}
       <section className="hero" id="hero">
-        <div className="hero__particles" aria-hidden="true" />
         <div className="hero__overlay" />
-        <div className="hero__content container">
-          <div className="hero__badge-row">
-            <span className="hero__badge">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-              4.4 Rating
-            </span>
-            <span className="hero__badge">{t('hero.badge.hours')}</span>
-          </div>
+        <p className="hero__eyebrow">{t('hero.eyebrow')}</p>
 
+        <div className="hero__index" aria-hidden="true">
+          <span className="hero__index-line" />
+          <span className="hero__index-current">01</span>
+          <span>02</span>
+          <span>03</span>
+        </div>
+
+        <p className="hero__philosophy">
+          <span>{t('hero.mantra.car')}</span>
+          <span>{t('hero.mantra.style')}</span>
+          <span>{t('hero.mantra.expertise')}</span>
+        </p>
+
+        <div className="hero__content container">
           <h1 className="hero__title">
             <span className="hero__title-ar">وادي العوير</span>
             <span className="hero__title-en">WADI AL AWIR</span>
-            <span className="hero__title-sub">{t('hero.subtitle')}</span>
           </h1>
 
+          <p className="hero__title-sub">{t('hero.motto')}</p>
           <p className="hero__tagline">{t('hero.tagline')}</p>
 
           <div className="hero__actions">
             <Link href={`/${locale}/products`} className="btn btn--primary btn--lg">
-              {t('hero.browse')}
+              {t('hero.browse')} <span aria-hidden="true">→</span>
             </Link>
-            <a
-              href={`https://wa.me/${primaryWaNumber}?text=${heroWaMsg}`}
-              className="btn btn--whatsapp btn--lg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.853L.057 23.571a.5.5 0 0 0 .614.614l5.718-1.475A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 0 1-5.015-1.377l-.36-.213-3.716.959.979-3.605-.234-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
-              </svg>
-              {t('hero.whatsapp')}
-            </a>
+            <Link href={`/${locale}/#services`} className="btn btn--hero-outline btn--lg">
+              {t('hero.services')}
+            </Link>
           </div>
-        </div>
-        <div className="hero__scroll-hint" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 5v14M19 12l-7 7-7-7"/>
-          </svg>
         </div>
       </section>
 
