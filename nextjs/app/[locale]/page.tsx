@@ -146,7 +146,6 @@ export default async function HomePage({ params }: HomePageProps) {
             <span className="hero__title-en">WADI AL AWIR</span>
           </h1>
 
-          <p className="hero__title-sub">{t('hero.motto')}</p>
           <p className="hero__tagline">{t('hero.tagline')}</p>
 
           <div className="hero__actions">
