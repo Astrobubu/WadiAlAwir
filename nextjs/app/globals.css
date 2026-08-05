@@ -618,13 +618,18 @@
 .admin-dashboard-card__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .admin-dashboard-card__header h2 { margin: 0; font-size: 1rem; }
 .admin-dashboard-card__header a { color: #4d44e3; font-size: .72rem; font-weight: 700; }
-.admin-attention-card__alert { display: flex; align-items: center; gap: 14px; padding: 18px; border-radius: 24px; background: #ffdf9b; color: #261a00; }
-.admin-attention-card__icon { display: grid; place-items: center; width: 46px; height: 46px; flex: 0 0 auto; border-radius: 18px; background: #9a6f00; color: #fff; }
-.admin-attention-card__icon svg { width: 20px; height: 20px; }
-.admin-attention-card__alert > div { min-width: 0; }
-.admin-attention-card__alert strong { display: block; font-size: 2rem; line-height: 1; }
-.admin-attention-card__alert small { display: block; margin-top: 3px; color: #69521e; }
-.admin-attention-card__alert p { margin: 10px 0 0; font-size: .78rem; font-weight: 700; line-height: 1.55; }
+.admin-attention-card { background: #ffdf9b; color: #261a00; }
+.admin-attention-card .admin-dashboard-card__header { align-items: flex-start; }
+.admin-attention-card .admin-dashboard-card__header p { margin: 4px 0 0; color: #69521e; font-size: .72rem; }
+.admin-attention-card .admin-dashboard-card__header a { color: #6f5100; }
+.admin-attention-list { display: grid; gap: 9px; }
+.admin-attention-list__item { display: flex; align-items: center; gap: 12px; padding: 13px; border-radius: 16px; background: rgba(255,255,255,.58); }
+.admin-attention-card__icon { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 auto; border-radius: 13px; background: #9a6f00; color: #fff; }
+.admin-attention-card__icon svg { width: 18px; height: 18px; }
+.admin-attention-list__item > div { display: grid; min-width: 0; gap: 4px; }
+.admin-attention-list__item strong { overflow: hidden; font-size: .78rem; text-overflow: ellipsis; white-space: nowrap; }
+.admin-attention-list__item small { color: #69521e; font-size: .68rem; }
+.admin-attention-list__more { justify-self: start; color: #6f5100; font-size: .7rem; font-weight: 800; }
 .admin-recent-card .admin-recent-list { margin-top: 0; }
 .admin-recent-card .admin-recent-list > a { padding: 10px 6px; border-top: 0; border-radius: 14px; }
 .admin-recent-card .admin-recent-list > a:hover { background: rgba(255,255,255,.55); }
@@ -2577,7 +2582,7 @@ button {
 .services-showcase__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -2589,8 +2594,8 @@ button {
   min-width: 0;
   overflow: hidden;
   border: 0;
-  border-radius: 0;
-  background: transparent;
+  border-radius: 22px;
+  background: #101827;
   box-shadow: none;
   filter: none;
 }
@@ -2607,7 +2612,7 @@ button {
   min-width: 0;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1rem, 2vw, 1.6rem) 0 clamp(1.5rem, 2.5vw, 2.25rem);
+  padding: clamp(1.1rem, 2vw, 1.55rem);
 }
 
 .service-showcase-card h3 {
@@ -2629,10 +2634,10 @@ button {
 
 .service-showcase-card__bottom {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.35rem;
 }
 
 .service-showcase-card__price span {
@@ -2653,6 +2658,19 @@ button {
 
 .service-showcase-card__price small {
   margin-inline-start: 0.25rem;
+}
+
+.service-showcase-card .service-cta {
+  min-height: 40px;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  background: #d6a54e;
+  color: #080c14;
+}
+
+.service-showcase-card .service-cta:hover {
+  background: #e2b65f;
+  color: #080c14;
 }
 
 [dir="rtl"] .tint-offer__content h2,
@@ -2756,7 +2774,7 @@ button {
 
   .service-showcase-card__content {
     justify-content: flex-start;
-    padding: 0.85rem 0 1.15rem;
+    padding: 0.85rem;
   }
 
   .service-showcase-card h3 {

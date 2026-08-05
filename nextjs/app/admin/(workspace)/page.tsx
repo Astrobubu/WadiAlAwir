@@ -10,7 +10,7 @@ const money = (value: number) => `AED ${Number(value).toLocaleString('en-AE', {
 export default async function AdminDashboardPage() {
   const { supabase } = await requireStaff()
   const [itemsResult, invoicesResult, productsResult, articlesResult, customersResult] = await Promise.all([
-    supabase.from('items').select('id, name, quantity, low_stock_threshold, cost_price, selling_price'),
+    supabase.from('items').select('id, name, unit, quantity, low_stock_threshold, cost_price, selling_price'),
     supabase.from('invoices').select('id, invoice_number, customer_name, total, total_profit, created_at').order('created_at', { ascending: false }).limit(5),
     supabase.from('catalog_products').select('id, is_published'),
     supabase.from('articles').select('id, is_published'),
@@ -69,14 +69,10 @@ export default async function AdminDashboardPage() {
       <div className={`admin-dashboard-lower${lowStockItems.length === 0 ? ' admin-dashboard-lower--single' : ''}`}>
         {lowStockItems.length > 0 && (
           <section className="admin-dashboard-card admin-attention-card">
-            <div className="admin-dashboard-card__header"><h2>Attention</h2><Link href="/admin/products?status=low">View products →</Link></div>
-            <div className="admin-attention-card__alert">
-              <span className="admin-attention-card__icon"><AdminIcon name="package" /></span>
-              <div>
-                <strong>{lowStockItems.length}</strong>
-                <small>items are at or below low-stock alert</small>
-                <p>{lowStockItems.slice(0, 4).map((item) => item.name).join(' · ')}{lowStockItems.length > 4 ? ` +${lowStockItems.length - 4}` : ''}</p>
-              </div>
+            <div className="admin-dashboard-card__header"><div><h2>Low stock</h2><p>{lowStockItems.length} {lowStockItems.length === 1 ? 'product needs' : 'products need'} restocking</p></div><Link href="/admin/products?status=low">Review stock →</Link></div>
+            <div className="admin-attention-list">
+              {lowStockItems.slice(0, 3).map((item) => <div className="admin-attention-list__item" key={item.id}><span className="admin-attention-card__icon"><AdminIcon name="package" /></span><div><strong>{item.name}</strong><small>{Number(item.quantity).toLocaleString('en-AE')} {item.unit} left · alert at {Number(item.low_stock_threshold).toLocaleString('en-AE')} {item.unit}</small></div></div>)}
+              {lowStockItems.length > 3 && <Link className="admin-attention-list__more" href="/admin/products?status=low">+{lowStockItems.length - 3} more low-stock products</Link>}
             </div>
           </section>
         )}

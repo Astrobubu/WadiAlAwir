@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useReducer,
+  useState,
   type ReactNode,
 } from 'react'
 import type { LocaleString } from '../lib/sanity'
@@ -36,7 +37,10 @@ type CartAction =
   | { type: 'HYDRATE'; payload: CartItem[] }
 
 interface CartContextValue extends CartState {
+  isCartOpen: boolean
   addItem: (item: Omit<CartItem, 'qty'> & { qty?: number }) => void
+  openCart: () => void
+  closeCart: () => void
   removeItem: (id: string) => void
   updateQty: (id: string, qty: number) => void
   clearCart: () => void
@@ -96,6 +100,7 @@ const STORAGE_KEY = 'wadi-cart-v2'
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [] })
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   // Hydrate from localStorage on mount
   useEffect(() => {
@@ -124,9 +129,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const addItem = useCallback(
     (item: Omit<CartItem, 'qty'> & { qty?: number }) => {
       dispatch({ type: 'ADD_ITEM', payload: { ...item, qty: item.qty ?? 1 } })
+      setIsCartOpen(true)
     },
     []
   )
+
+  const openCart = useCallback(() => setIsCartOpen(true), [])
+  const closeCart = useCallback(() => setIsCartOpen(false), [])
 
   const removeItem = useCallback((id: string) => {
     dispatch({ type: 'REMOVE_ITEM', payload: { id } })
@@ -141,7 +150,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <CartContext.Provider value={{ ...state, addItem, removeItem, updateQty, clearCart }}>
+    <CartContext.Provider value={{ ...state, isCartOpen, addItem, openCart, closeCart, removeItem, updateQty, clearCart }}>
       {children}
     </CartContext.Provider>
   )

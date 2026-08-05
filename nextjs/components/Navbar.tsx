@@ -12,11 +12,10 @@ export default function Navbar() {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-  const { items } = useCart()
+  const { items, isCartOpen, openCart, closeCart } = useCart()
 
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
 
   const totalItems = items.reduce((sum, item) => sum + item.qty, 0)
@@ -42,11 +41,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setMenuOpen(false); setCartOpen(false) }
+      if (e.key === 'Escape') { setMenuOpen(false); closeCart() }
     }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
-  }, [])
+  }, [closeCart])
 
   function switchLanguage() {
     const nextLocale = locale === 'en' ? 'ar' : 'en'
@@ -112,7 +111,7 @@ export default function Navbar() {
 
             <button
               className={`cart-btn${totalItems > 0 ? ' cart-btn--bounce' : ''}`}
-              onClick={() => setCartOpen(true)}
+              onClick={openCart}
               type="button"
               aria-label={`Cart (${totalItems} items)`}
             >
@@ -166,8 +165,8 @@ export default function Navbar() {
       {/* Cart drawer — always in DOM so CSS transition plays */}
       <CartDrawer
         lang={locale as 'en' | 'ar'}
-        isOpen={cartOpen}
-        onClose={() => setCartOpen(false)}
+        isOpen={isCartOpen}
+        onClose={closeCart}
       />
     </>
   )
