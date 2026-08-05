@@ -31,6 +31,7 @@ if (mediaBaseUrl) {
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [75, 95],
     remotePatterns,
   },
 };

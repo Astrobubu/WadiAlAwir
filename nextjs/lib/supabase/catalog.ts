@@ -13,6 +13,10 @@ import { getSupabaseConfig, isSupabaseConfigured } from './config'
 
 type JsonObject = Record<string, unknown>
 
+const VEHICLE_HERO_OVERRIDES: Record<string, string> = {
+  'jetour-rox-adamas': '/assets/vehicles/rox-adamas-card-v3.png',
+}
+
 interface VehicleRow {
   id: string
   slug: string
@@ -96,6 +100,8 @@ function externalImage(
 }
 
 function mapVehicle(row: VehicleRow, productCount: number): CarModel {
+  const heroUrl = VEHICLE_HERO_OVERRIDES[row.slug] ?? row.hero_url
+
   return {
     _id: `supabase.vehicle.${row.id}`,
     _type: 'carModel',
@@ -103,8 +109,8 @@ function mapVehicle(row: VehicleRow, productCount: number): CarModel {
     slug: { current: row.slug },
     name: { en: row.name_en, ar: row.name_ar },
     years: row.years,
-    heroImage: row.hero_url
-      ? externalImage(row.hero_url, row.name_en)
+    heroImage: heroUrl
+      ? externalImage(heroUrl, row.name_en)
       : externalImage('/assets/hero-wallpaper-4.jpg', row.name_en),
     productCount,
   }
@@ -287,7 +293,7 @@ async function loadSupabaseCatalogue(): Promise<{
 
 const getCachedSupabaseCatalogue = unstable_cache(
   loadSupabaseCatalogue,
-  ['wadi-public-catalogue-v2'],
+  ['wadi-public-catalogue-v4'],
   { revalidate: 300, tags: ['wadi-catalogue'] }
 )
 
