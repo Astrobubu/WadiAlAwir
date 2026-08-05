@@ -25,6 +25,16 @@ const tintPrices: PriceOption[] = [
   { label: { en: 'SUV / 4x4', ar: 'دفع رباعي' }, amount: 700 },
 ]
 
+const roxPackageItems: Localized[] = [
+  { en: 'Caliper covers', ar: 'أغطية كليبر' },
+  { en: 'German wheel spacers', ar: 'سبيسر ألماني' },
+  { en: 'Mud guards', ar: 'رفارف' },
+  { en: 'Mud flaps', ar: 'نسافات' },
+  { en: 'Rear spoiler', ar: 'جناح خلفي' },
+  { en: 'Insect net', ar: 'شبك حشرات' },
+  { en: 'Number plate base', ar: 'قاعدة لوحة الأرقام' },
+]
+
 const services: ServiceItem[] = [
   {
     id: 'paint-protection-film',
@@ -84,6 +94,13 @@ const copy = {
     offerProof: '99% UV rejection · 10-year warranty',
     offerCta: 'Book Tinting',
     offerNote: 'Sunroofs and oversized glass quoted separately.',
+    roxLabel: 'ROX Package',
+    roxTitle: 'Seven upgrades. One price.',
+    roxBody: 'ROX 01 accessories, installed at your location.',
+    roxIncluded: 'Package includes',
+    roxWarranty: '5-year warranty on German spacers',
+    roxService: 'Home installation',
+    roxCta: 'Order ROX Package',
     servicesLabel: 'Our Services',
     servicesTitle: 'Choose what your car needs.',
     from: 'From',
@@ -96,6 +113,13 @@ const copy = {
     offerProof: 'حجب 99% من الأشعة فوق البنفسجية · ضمان 10 سنوات',
     offerCta: 'احجز التظليل',
     offerNote: 'تُسعّر فتحات السقف والزجاج الكبير بشكل منفصل.',
+    roxLabel: 'باقة روكس',
+    roxTitle: 'سبع إضافات. سعر واحد.',
+    roxBody: 'إكسسوارات ROX 01 مع التركيب في موقعك.',
+    roxIncluded: 'تشمل الباقة',
+    roxWarranty: 'ضمان 5 سنوات على السبيسر الألماني',
+    roxService: 'تركيب في موقعك',
+    roxCta: 'اطلب باقة روكس',
     servicesLabel: 'خدماتنا',
     servicesTitle: 'اختر ما تحتاجه سيارتك.',
     from: 'ابتداءً من',
@@ -160,6 +184,43 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
                 sizes="(max-width: 760px) 100vw, 50vw"
                 className="tint-offer__image"
               />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="section rox-offer" id="rox-offer" aria-labelledby="rox-offer-title">
+        <div className="container">
+          <article className="rox-offer__card">
+            <div className="rox-offer__media">
+              <Image
+                src="/assets/offers/rox-package-3999.png"
+                alt={lang === 'ar' ? 'باقة إكسسوارات روكس 01' : 'ROX 01 accessories package'}
+                fill
+                quality={95}
+                sizes="(max-width: 680px) 100vw, 42vw"
+                className="rox-offer__image"
+              />
+            </div>
+            <div className="rox-offer__content">
+              <span className="rox-offer__label">{t.roxLabel}</span>
+              <h2 id="rox-offer-title">{t.roxTitle}</h2>
+              <p>{t.roxBody}</p>
+              <div className="rox-offer__price">
+                <strong>{(3999).toLocaleString(lang === 'ar' ? 'ar-AE' : 'en-AE')}</strong>
+                <span>{t.currency}</span>
+              </div>
+              <strong className="rox-offer__included">{t.roxIncluded}</strong>
+              <div className="rox-offer__items">
+                {roxPackageItems.map((item) => <span key={item.en}>{item[lang]}</span>)}
+              </div>
+              <div className="rox-offer__proofs">
+                <span>{t.roxService}</span>
+                <span>{t.roxWarranty}</span>
+              </div>
+              <a className="rox-offer__cta" href={whatsappHref(t.roxLabel, lang)} target="_blank" rel="noopener noreferrer">
+                <span>{t.roxCta}</span><span aria-hidden="true">{arrow}</span>
+              </a>
             </div>
           </article>
         </div>

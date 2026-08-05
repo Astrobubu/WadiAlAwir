@@ -2570,6 +2570,138 @@ button {
   color: #080c14;
 }
 
+.rox-offer {
+  padding-block: 0 clamp(3.5rem, 6vw, 5rem);
+  background: #070b14;
+}
+
+.rox-offer__card {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.78fr) minmax(0, 1.22fr);
+  overflow: hidden;
+  border: 0;
+  border-radius: 22px;
+  background: #d6a54e;
+  box-shadow: none;
+}
+
+.rox-offer__media {
+  position: relative;
+  min-height: 610px;
+  background: #050608;
+}
+
+.rox-offer__image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.rox-offer__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  color: #090d15;
+}
+
+.rox-offer__label,
+.rox-offer__included {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rox-offer__content h2 {
+  max-width: 560px;
+  margin: 0.55rem 0 0;
+  color: #090d15;
+  font-family: var(--font-en-display);
+  font-size: clamp(2rem, 3.7vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+}
+
+.rox-offer__content > p {
+  margin: 0.75rem 0 0;
+  color: rgba(9, 13, 21, 0.72);
+  font-size: 0.9rem;
+}
+
+.rox-offer__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 1.3rem;
+}
+
+.rox-offer__price strong {
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.rox-offer__price span {
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.rox-offer__included {
+  margin-top: 1.5rem;
+}
+
+.rox-offer__items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.rox-offer__items span,
+.rox-offer__proofs span {
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.34);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.rox-offer__proofs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.rox-offer__proofs span {
+  background: rgba(9, 13, 21, 0.1);
+}
+
+.rox-offer__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  align-self: flex-start;
+  min-width: 220px;
+  min-height: 46px;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: #090d15;
+  color: #f5f2ea;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rox-offer__cta:hover {
+  background: #172033;
+}
+
 .services-showcase {
   padding-block: clamp(3.5rem, 7vw, 6rem) clamp(5rem, 9vw, 8rem);
 }
@@ -2680,6 +2812,7 @@ button {
 }
 
 [dir="rtl"] .tint-offer__content h2,
+[dir="rtl"] .rox-offer__content h2,
 [dir="rtl"] .services-showcase__header h2,
 [dir="rtl"] .service-showcase-card h3 {
   font-family: var(--font-ar-body);
@@ -2689,6 +2822,9 @@ button {
 }
 
 [dir="rtl"] .service-price > span,
+[dir="rtl"] .rox-offer__label,
+[dir="rtl"] .rox-offer__included,
+[dir="rtl"] .rox-offer__cta,
 [dir="rtl"] .service-showcase-card__price span,
 [dir="rtl"] .service-cta {
   text-transform: none;
@@ -2705,6 +2841,14 @@ button {
 
   .service-showcase-card__media {
     min-height: 0;
+  }
+
+  .rox-offer__card {
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .rox-offer__media {
+    min-height: 560px;
   }
 }
 
@@ -2763,6 +2907,49 @@ button {
   }
 
   .service-cta--gold {
+    width: 100%;
+  }
+
+  .rox-offer {
+    padding-bottom: 3.25rem;
+  }
+
+  .rox-offer__card {
+    grid-template-columns: 1fr;
+  }
+
+  .rox-offer__media {
+    min-height: 0;
+    aspect-ratio: 2 / 3;
+  }
+
+  .rox-offer__content {
+    padding: 1.35rem 1.25rem 1.5rem;
+  }
+
+  .rox-offer__content h2 {
+    font-size: clamp(1.85rem, 10vw, 2.65rem);
+  }
+
+  .rox-offer__price {
+    margin-top: 1rem;
+  }
+
+  .rox-offer__price strong {
+    font-size: 3rem;
+  }
+
+  .rox-offer__items {
+    gap: 0.4rem;
+  }
+
+  .rox-offer__items span,
+  .rox-offer__proofs span {
+    padding: 0.6rem;
+    font-size: 0.68rem;
+  }
+
+  .rox-offer__cta {
     width: 100%;
   }
 
