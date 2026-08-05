@@ -1,13 +1,13 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllCarModels, getAllProducts, getAllServices, toProductCardProduct, urlFor } from '@/lib/sanity'
-import type { CarModel, Service } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts, toProductCardProduct, urlFor } from '@/lib/sanity'
+import type { CarModel } from '@/lib/sanity'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import FaqAccordion from '@/components/FaqAccordion'
-import { WA_NUMBERS, getServiceWhatsAppMessage } from '@/lib/whatsapp'
 import ProductCard from '@/components/ProductCard'
+import OfferBundles from '@/components/OfferBundles'
 import { getAllArticles } from '@/lib/articles'
 import {
   absoluteUrl,
@@ -53,39 +53,20 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   }
 }
 
-function ServiceIcon({ icon }: { icon: Service['icon'] }) {
-  switch (icon) {
-    case 'tint':
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C12 2 5 10 5 14.5C5 18.09 8.13 21 12 21C15.87 21 19 18.09 19 14.5C19 10 12 2 12 2Z"/><line x1="8" y1="14" x2="16" y2="14" opacity="0.5"/><line x1="9" y1="17" x2="15" y2="17" opacity="0.5"/></svg>
-    case 'shield':
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2L3 7V12C3 17.25 6.75 21.5 12 22.5C17.25 21.5 21 17.25 21 12V7L12 2Z"/><polyline points="9 12 11 14 15 10"/></svg>
-    case 'droplets':
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C12 2 7 8.5 7 12.5C7 15.26 9.24 17.5 12 17.5C14.76 17.5 17 15.26 17 12.5C17 8.5 12 2 12 2Z"/></svg>
-    case 'sparkles':
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2L14 8L20 10L14 12L12 18L10 12L4 10L10 8L12 2Z"/></svg>
-    case 'wrench':
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-    default:
-      return null
-  }
-}
-
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   const lang = locale
   const t = await getTranslations()
 
-  const [carModels, products, services, articles] = await Promise.all([
+  const [carModels, products, articles] = await Promise.all([
     getAllCarModels(),
     getAllProducts(),
-    getAllServices(),
     getAllArticles(),
   ])
 
   const featuredProducts = products.slice(0, 8)
   const featuredArticle = articles[0]
-  const primaryWaNumber = WA_NUMBERS[0].id
 
   const faqItems = [
     { q: t('faq.q1'), a: t('faq.a1') },
@@ -159,61 +140,8 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
-      <section className="section section--alt" id="services">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-header__label">{t('services.label')}</span>
-            <h2 className="section-title">{t('services.title')}</h2>
-            <p className="section-subtitle">{t('services.subtitle')}</p>
-          </div>
-          <div className="services-grid">
-            {services.map((service: Service) => {
-              const waMsg = getServiceWhatsAppMessage(service.name, lang)
-              const hasPackages = service.packages && service.packages.length > 0
-              return (
-                <div
-                  key={service._id}
-                  className={`service-card${hasPackages ? ' service-card--has-packages' : ''}`}
-                >
-                  <div className="service-card__icon">
-                    <ServiceIcon icon={service.icon} />
-                  </div>
-                  <h3 className="service-card__name">{service.name[lang]}</h3>
-                  <p className="service-card__desc">{service.description[lang]}</p>
-                  {hasPackages && (
-                    <div className="service-card__packages">
-                      {service.packages!.map((pkg, i) => (
-                        <div key={i} className="service-package">
-                          <div className="service-package__header">
-                            <span className="service-package__name">{pkg.name[lang]}</span>
-                            <span className="service-package__price">
-                              {pkg.price} <small>{pkg.currency}</small>
-                            </span>
-                          </div>
-                          <ul className="service-package__features">
-                            {pkg.features[lang].map((f, j) => (
-                              <li key={j}>{f}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <a
-                    href={`https://wa.me/${primaryWaNumber}?text=${waMsg}`}
-                    className="btn btn--outline btn--sm service-card__cta"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t('product.inquire')}
-                  </a>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      {/* ── OFFERS & BUNDLES ── */}
+      <OfferBundles lang={lang} />
 
       {/* ── CAR MODELS ── */}
       <section className="section" id="car-models">
