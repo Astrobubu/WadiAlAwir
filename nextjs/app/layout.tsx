@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const dir = locale === 'ar' ? 'rtl' : 'ltr'
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale} dir={dir} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   )

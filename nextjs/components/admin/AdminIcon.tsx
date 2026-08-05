@@ -1,6 +1,7 @@
 export type AdminIconName =
   | 'arrow-left'
   | 'article'
+  | 'check'
   | 'chevron-down'
   | 'dashboard'
   | 'external-link'
@@ -19,10 +20,12 @@ export type AdminIconName =
   | 'share'
   | 'trash'
   | 'users'
+  | 'x'
 
 const paths: Record<AdminIconName, React.ReactNode> = {
   'arrow-left': <><path d="m15 18-6-6 6-6" /><path d="M9 12h10" /></>,
   article: <><path d="M5 3h10l4 4v14H5z" /><path d="M14 3v5h5M8 12h8M8 16h8" /></>,
+  check: <path d="m5 12 4 4L19 6" />,
   'chevron-down': <path d="m6 9 6 6 6-6" />,
   dashboard: <><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></>,
   'external-link': <><path d="M14 3h7v7M10 14 21 3" /><path d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" /></>,
@@ -41,6 +44,7 @@ const paths: Record<AdminIconName, React.ReactNode> = {
   share: <><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4" /></>,
   trash: <><path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6M10 11v5M14 11v5" /></>,
   users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" /></>,
+  x: <path d="m7 7 10 10M17 7 7 17" />,
 }
 
 export default function AdminIcon({ name, className = '' }: { name: AdminIconName; className?: string }) {

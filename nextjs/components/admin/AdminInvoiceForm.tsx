@@ -46,6 +46,7 @@ export interface InvoiceValue {
   discount: number
   notes: string | null
   show_costs: boolean
+  tax_rate?: number
   lines: InvoiceLineValue[]
 }
 
@@ -68,8 +69,14 @@ export default function AdminInvoiceForm({
   invoice?: InvoiceValue
 }) {
   const router = useRouter()
+  const effectiveTaxRate = Number(invoice?.tax_rate ?? taxRate)
+  const taxMultiplier = 1 + effectiveTaxRate / 100
   const startingCustomer = customers.find((entry) => entry.id === (invoice?.customer_id || defaultCustomerId))
-  const [lines, setLines] = useState<Line[]>(() => (invoice?.lines ?? []).map((line, index) => ({ ...line, key: line.id ?? `invoice-line-${index}` })))
+  const [lines, setLines] = useState<Line[]>(() => (invoice?.lines ?? []).map((line, index) => ({
+    ...line,
+    unit_price: effectiveTaxRate > 0 ? line.unit_price * taxMultiplier : line.unit_price,
+    key: line.id ?? `invoice-line-${index}`,
+  })))
   const [picker, setPicker] = useState('')
   const [selectedCustomerId, setSelectedCustomerId] = useState(invoice?.customer_id || startingCustomer?.id || '')
   const [customer, setCustomer] = useState({
@@ -80,9 +87,10 @@ export default function AdminInvoiceForm({
     vehicle: invoice?.customer_vehicle ?? startingCustomer?.vehicle ?? '',
     plate: invoice?.customer_plate ?? startingCustomer?.plate ?? '',
   })
-  const [discount, setDiscount] = useState(Number(invoice?.discount ?? 0))
+  const [discount, setDiscount] = useState(Number(invoice?.discount ?? 0) * (invoice && effectiveTaxRate > 0 ? taxMultiplier : 1))
   const [notes, setNotes] = useState(invoice?.notes ?? '')
   const [showCosts, setShowCosts] = useState(Boolean(invoice?.show_costs))
+  const [pricesIncludeTax, setPricesIncludeTax] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
@@ -93,12 +101,17 @@ export default function AdminInvoiceForm({
   }, [items, picker])
 
   const totals = useMemo(() => {
-    const subtotal = lines.reduce((sum, line) => sum + line.quantity * line.unit_price, 0)
+    const enteredSubtotal = lines.reduce((sum, line) => sum + line.quantity * line.unit_price, 0)
     const totalCost = lines.reduce((sum, line) => sum + line.quantity * line.unit_cost, 0)
-    const afterDiscount = Math.max(0, subtotal - discount)
-    const tax = afterDiscount * taxRate / 100
-    return { subtotal, totalCost, tax, total: afterDiscount + tax, profit: afterDiscount - totalCost }
-  }, [lines, discount, taxRate])
+    const enteredAfterDiscount = Math.max(0, enteredSubtotal - discount)
+    const inclusive = pricesIncludeTax && effectiveTaxRate > 0
+    const subtotal = inclusive ? enteredSubtotal / taxMultiplier : enteredSubtotal
+    const netDiscount = inclusive ? discount / taxMultiplier : discount
+    const taxableTotal = Math.max(0, subtotal - netDiscount)
+    const tax = inclusive ? enteredAfterDiscount - taxableTotal : taxableTotal * effectiveTaxRate / 100
+    const total = inclusive ? enteredAfterDiscount : taxableTotal + tax
+    return { subtotal, discount: netDiscount, totalCost, tax, total, profit: taxableTotal - totalCost }
+  }, [lines, discount, effectiveTaxRate, pricesIncludeTax, taxMultiplier])
 
   function chooseCustomer(id: string) {
     setSelectedCustomerId(id)
@@ -130,7 +143,22 @@ export default function AdminInvoiceForm({
       const response = await fetch(invoice ? `/api/admin/invoices/${invoice.id}` : '/api/admin/invoices', {
         method: invoice ? 'PATCH' : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ customer_id: selectedCustomerId || null, customer_name: customer.name, customer_phone: customer.phone, customer_email: customer.email, customer_trn: customer.trn, customer_vehicle: customer.vehicle, customer_plate: customer.plate, discount, notes, show_costs: showCosts, lines: lines.map(({ key: _key, id: _id, ...line }) => line) }),
+        body: JSON.stringify({
+          customer_id: selectedCustomerId || null,
+          customer_name: customer.name,
+          customer_phone: customer.phone,
+          customer_email: customer.email,
+          customer_trn: customer.trn,
+          customer_vehicle: customer.vehicle,
+          customer_plate: customer.plate,
+          discount: pricesIncludeTax && effectiveTaxRate > 0 ? discount / taxMultiplier : discount,
+          notes,
+          show_costs: showCosts,
+          lines: lines.map(({ key: _key, id: _id, ...line }) => ({
+            ...line,
+            unit_price: pricesIncludeTax && effectiveTaxRate > 0 ? line.unit_price / taxMultiplier : line.unit_price,
+          })),
+        }),
       })
       const result = await response.json()
       if (!response.ok) throw new Error(result.error || `Could not ${invoice ? 'update' : 'create'} invoice.`)
@@ -166,13 +194,13 @@ export default function AdminInvoiceForm({
             {lines.map((line) => {
               const lineTotal = line.quantity * line.unit_price
               const lineProfit = line.quantity * (line.unit_price - line.unit_cost)
-              return <article className="admin-invoice-line-card" key={line.key}>
-                <div className="admin-invoice-line-card__identity"><input aria-label="Description" value={line.description} onChange={(event) => updateLine(line.key, { description: event.target.value })} /><small>{line.item_id ? `${line.unit} · stock item` : 'service'}</small></div>
+              return <article className={`admin-invoice-line-card${line.item_id ? '' : ' admin-invoice-line-card--service'}`} key={line.key}>
+                <label className="admin-invoice-line-card__identity"><span>{line.item_id ? `${line.unit} · stock item` : 'Service'}</span><input aria-label="Description" value={line.description} onChange={(event) => updateLine(line.key, { description: event.target.value })} /></label>
                 <label><span>Quantity</span><input aria-label="Quantity" type="number" step="0.001" min="0.001" value={line.quantity} onChange={(event) => updateLine(line.key, { quantity: nonNegative(event.target.value) })} /></label>
                 <label><span>Unit price</span><input aria-label="Unit price" type="number" step="0.01" min="0" value={line.unit_price} onChange={(event) => updateLine(line.key, { unit_price: nonNegative(event.target.value) })} /></label>
                 {!line.item_id && <label><span>Internal cost</span><input aria-label="Internal cost" type="number" step="0.01" min="0" value={line.unit_cost} onChange={(event) => updateLine(line.key, { unit_cost: nonNegative(event.target.value) })} /></label>}
                 <div className="admin-invoice-line-card__total"><strong>{money(lineTotal)}</strong><small>{money(lineProfit)} profit</small></div>
-                <button type="button" onClick={() => setLines((current) => current.filter((entry) => entry.key !== line.key))} aria-label={`Remove ${line.description}`}>×</button>
+                <button type="button" onClick={() => setLines((current) => current.filter((entry) => entry.key !== line.key))} aria-label={`Remove ${line.description}`}><AdminIcon name="x" /></button>
               </article>
             })}
             {!lines.length && <div className="admin-empty admin-empty--compact"><p>No lines yet. Search products above or add a service.</p></div>}
@@ -183,7 +211,8 @@ export default function AdminInvoiceForm({
 
       <aside className="admin-invoice-summary-card">
         <p className="admin-eyebrow">Live summary</p><h2>{invoice ? 'Update invoice' : 'New invoice'}</h2>
-        <dl><div><dt>Subtotal</dt><dd>{money(totals.subtotal)}</dd></div><div className="admin-invoice-summary-card__discount"><dt>Discount</dt><dd><input aria-label="Discount" type="number" min="0" step="0.01" value={discount} onChange={(event) => setDiscount(nonNegative(event.target.value))} /></dd></div><div><dt>VAT ({taxRate}%)</dt><dd>{money(totals.tax)}</dd></div><div className="admin-invoice-summary-card__total"><dt>Total</dt><dd>{money(totals.total)}</dd></div></dl>
+        {effectiveTaxRate > 0 && <label className="admin-tax-mode"><input type="checkbox" checked={pricesIncludeTax} onChange={(event) => setPricesIncludeTax(event.target.checked)} /><span className="admin-tax-mode__check" aria-hidden="true"><AdminIcon name="check" /></span><span className="admin-tax-mode__copy"><strong>Prices include VAT</strong><small>{pricesIncludeTax ? 'Checked — entered prices are the final total' : 'VAT is added on top of entered prices'}</small></span></label>}
+        <dl><div><dt>Subtotal before VAT</dt><dd>{money(totals.subtotal)}</dd></div><div className="admin-invoice-summary-card__discount"><dt>Discount</dt><dd><input aria-label="Discount" type="number" min="0" step="0.01" value={discount} onChange={(event) => setDiscount(nonNegative(event.target.value))} /></dd></div><div><dt>VAT ({effectiveTaxRate}%)</dt><dd>{money(totals.tax)}</dd></div><div className="admin-invoice-summary-card__total"><dt>Total</dt><dd>{money(totals.total)}</dd></div></dl>
         <div className="admin-invoice-cost-summary"><span>Internal cost <strong>{money(totals.totalCost)}</strong></span><span>Estimated profit <strong>{money(totals.profit)}</strong></span></div>
         <label className="admin-publish-toggle"><input type="checkbox" checked={showCosts} onChange={(event) => setShowCosts(event.target.checked)} /><span><strong>Show internal costs</strong><small>Include costs on the printed copy</small></span></label>
         <button type="button" className="admin-button admin-button--primary" onClick={save} disabled={saving}>{saving ? 'Saving…' : invoice ? 'Update invoice' : 'Create invoice'}</button>
