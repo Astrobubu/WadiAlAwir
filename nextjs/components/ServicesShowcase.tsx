@@ -176,17 +176,18 @@ function PackageIcon({ name }: { name: PackageIconName }) {
   return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>
 }
 
-export default function ServicesShowcase({ lang, roxImageSrc }: { lang: ServiceLang; roxImageSrc?: string }) {
+export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
   const t = copy[lang]
   const arrow = lang === 'ar' ? '←' : '→'
   const roxOfferUrl = `${absoluteUrl(lang)}#rox-offer`
+  const roxImageSrc = '/assets/vehicles/rox-adamas-card-v3.png'
   const roxOfferSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: t.roxLabel,
     description: `${t.roxBody} ${t.roxIncluded}: ${roxPackageItems.map((item) => item.label[lang]).join(', ')}.`,
     sku: 'ROX-PACKAGE-3999',
-    ...(roxImageSrc ? { image: roxImageSrc } : {}),
+    image: 'https://wadialawir.com/assets/vehicles/rox-adamas-card-v3.png',
     offers: {
       '@type': 'Offer',
       price: 3999,
@@ -201,7 +202,7 @@ export default function ServicesShowcase({ lang, roxImageSrc }: { lang: ServiceL
         <div className="container">
           <article className="tint-offer__card">
             <div className="tint-offer__content">
-              <span className="section-header__label">{t.offerLabel}</span>
+              <span className="tint-offer__label">{t.offerLabel}</span>
               <h2 id="tint-offer-title">{t.offerTitle}</h2>
               <p>{t.offerBody}</p>
               <strong className="tint-offer__proof">{t.offerProof}</strong>
@@ -234,16 +235,14 @@ export default function ServicesShowcase({ lang, roxImageSrc }: { lang: ServiceL
             <div className="rox-offer__visual" aria-hidden="true">
               <div className="rox-offer__visual-title"><strong>ROX</strong><span>PACKAGE</span></div>
               <span className="rox-offer__visual-service">{t.roxService}</span>
-              {roxImageSrc && (
-                <Image
-                  src={roxImageSrc}
-                  alt=""
-                  fill
-                  quality={95}
-                  sizes="(max-width: 680px) 100vw, 42vw"
-                  className="rox-offer__vehicle"
-                />
-              )}
+              <Image
+                src={roxImageSrc}
+                alt=""
+                fill
+                quality={95}
+                sizes="(max-width: 680px) 100vw, 42vw"
+                className="rox-offer__vehicle"
+              />
             </div>
             <div className="rox-offer__content">
               <span className="rox-offer__label">{t.roxLabel}</span>

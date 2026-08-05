@@ -2437,6 +2437,30 @@ button {
   padding: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+.tint-offer__label {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  background: transparent;
+  color: #d6a54e;
+  font-family: var(--font-en-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+.tint-offer__label::before,
+.tint-offer__label::after {
+  width: auto;
+  height: 1px;
+  flex: 1 1 auto;
+  background: #d6a54e;
+  content: '';
+}
+
 .tint-offer__content h2,
 .services-showcase__header h2 {
   color: #f5f2ea;
