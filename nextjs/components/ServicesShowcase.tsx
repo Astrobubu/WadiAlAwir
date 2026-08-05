@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import type { ReactNode } from 'react'
 import { WA_NUMBERS } from '@/lib/whatsapp'
+import { absoluteUrl, safeJsonLd } from '@/lib/seo'
 
 type ServiceLang = 'en' | 'ar'
 type Localized = Record<ServiceLang, string>
@@ -19,20 +21,27 @@ interface ServiceItem {
   cta: Localized
 }
 
+type PackageIconName = 'caliper' | 'spacer' | 'guard' | 'flap' | 'spoiler' | 'net' | 'plate'
+
+interface RoxPackageItem {
+  label: Localized
+  icon: PackageIconName
+}
+
 const tintPrices: PriceOption[] = [
   { label: { en: 'Windshield', ar: 'الزجاج الأمامي' }, amount: 200 },
   { label: { en: 'Saloon', ar: 'صالون' }, amount: 600 },
   { label: { en: 'SUV / 4x4', ar: 'دفع رباعي' }, amount: 700 },
 ]
 
-const roxPackageItems: Localized[] = [
-  { en: 'Caliper covers', ar: 'أغطية كليبر' },
-  { en: 'German wheel spacers', ar: 'سبيسر ألماني' },
-  { en: 'Mud guards', ar: 'رفارف' },
-  { en: 'Mud flaps', ar: 'نسافات' },
-  { en: 'Rear spoiler', ar: 'جناح خلفي' },
-  { en: 'Insect net', ar: 'شبك حشرات' },
-  { en: 'Number plate base', ar: 'قاعدة لوحة الأرقام' },
+const roxPackageItems: RoxPackageItem[] = [
+  { label: { en: 'Caliper covers', ar: 'أغطية كليبر' }, icon: 'caliper' },
+  { label: { en: 'German wheel spacers', ar: 'سبيسر ألماني' }, icon: 'spacer' },
+  { label: { en: 'Mud guards', ar: 'رفارف' }, icon: 'guard' },
+  { label: { en: 'Mud flaps', ar: 'نسافات' }, icon: 'flap' },
+  { label: { en: 'Rear spoiler', ar: 'جناح خلفي' }, icon: 'spoiler' },
+  { label: { en: 'Insect net', ar: 'شبك حشرات' }, icon: 'net' },
+  { label: { en: 'Number plate base', ar: 'قاعدة لوحة الأرقام' }, icon: 'plate' },
 ]
 
 const services: ServiceItem[] = [
@@ -153,9 +162,38 @@ function PriceTiles({ lang }: { lang: ServiceLang }) {
   )
 }
 
-export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
+function PackageIcon({ name }: { name: PackageIconName }) {
+  const paths: Record<PackageIconName, ReactNode> = {
+    caliper: <><circle cx="12" cy="12" r="7" /><circle cx="12" cy="12" r="3" /><path d="M17 7.5h3v9h-3" /></>,
+    spacer: <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 4v2M12 18v2M4 12h2M18 12h2" /></>,
+    guard: <path d="M4 19V12a8 8 0 0 1 16 0v7M8 19v-7a4 4 0 0 1 8 0v7" />,
+    flap: <path d="M7 4h10l1 16H9L7 4Zm2 4h8" />,
+    spoiler: <path d="M3 9h18l-2 4H5L3 9Zm4 4-1 6m11-6 1 6" />,
+    net: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m6 8 3 3-3 3 3 3m3-9 3 3-3 3 3 3m3-9 2 2m-2 4 2 2" /></>,
+    plate: <><rect x="3" y="7" width="18" height="10" rx="2" /><circle cx="6" cy="10" r=".5" /><circle cx="18" cy="10" r=".5" /></>,
+  }
+
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg>
+}
+
+export default function ServicesShowcase({ lang, roxImageSrc }: { lang: ServiceLang; roxImageSrc?: string }) {
   const t = copy[lang]
   const arrow = lang === 'ar' ? '←' : '→'
+  const roxOfferUrl = `${absoluteUrl(lang)}#rox-offer`
+  const roxOfferSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: t.roxLabel,
+    description: `${t.roxBody} ${t.roxIncluded}: ${roxPackageItems.map((item) => item.label[lang]).join(', ')}.`,
+    sku: 'ROX-PACKAGE-3999',
+    ...(roxImageSrc ? { image: roxImageSrc } : {}),
+    offers: {
+      '@type': 'Offer',
+      price: 3999,
+      priceCurrency: 'AED',
+      url: roxOfferUrl,
+    },
+  }
 
   return (
     <>
@@ -190,17 +228,22 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
       </section>
 
       <section className="section rox-offer" id="rox-offer" aria-labelledby="rox-offer-title">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(roxOfferSchema) }} />
         <div className="container">
           <article className="rox-offer__card">
-            <div className="rox-offer__media">
-              <Image
-                src="/assets/offers/rox-package-3999.png"
-                alt={lang === 'ar' ? 'باقة إكسسوارات روكس 01' : 'ROX 01 accessories package'}
-                fill
-                quality={95}
-                sizes="(max-width: 680px) 100vw, 42vw"
-                className="rox-offer__image"
-              />
+            <div className="rox-offer__visual" aria-hidden="true">
+              <div className="rox-offer__visual-title"><strong>ROX</strong><span>PACKAGE</span></div>
+              <span className="rox-offer__visual-service">{t.roxService}</span>
+              {roxImageSrc && (
+                <Image
+                  src={roxImageSrc}
+                  alt=""
+                  fill
+                  quality={95}
+                  sizes="(max-width: 680px) 100vw, 42vw"
+                  className="rox-offer__vehicle"
+                />
+              )}
             </div>
             <div className="rox-offer__content">
               <span className="rox-offer__label">{t.roxLabel}</span>
@@ -210,10 +253,10 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
                 <strong>{(3999).toLocaleString(lang === 'ar' ? 'ar-AE' : 'en-AE')}</strong>
                 <span>{t.currency}</span>
               </div>
-              <strong className="rox-offer__included">{t.roxIncluded}</strong>
-              <div className="rox-offer__items">
-                {roxPackageItems.map((item) => <span key={item.en}>{item[lang]}</span>)}
-              </div>
+              <h3 className="rox-offer__included">{t.roxIncluded}</h3>
+              <ul className="rox-offer__items">
+                {roxPackageItems.map((item) => <li key={item.label.en}><PackageIcon name={item.icon} /><span>{item.label[lang]}</span></li>)}
+              </ul>
               <div className="rox-offer__proofs">
                 <span>{t.roxService}</span>
                 <span>{t.roxWarranty}</span>

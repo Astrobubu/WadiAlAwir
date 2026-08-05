@@ -67,6 +67,10 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const featuredProducts = products.slice(0, 8)
   const featuredArticle = articles[0]
+  const roxModel = carModels.find((car) => car.slug.current === 'jetour-rox-01')
+  const roxImageSrc = roxModel?.heroImage
+    ? urlFor(roxModel.heroImage).width(1000).height(700).quality(95).url()
+    : undefined
 
   const faqItems = [
     { q: t('faq.q1'), a: t('faq.a1') },
@@ -141,7 +145,7 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       {/* ── FEATURED OFFER & SERVICES ── */}
-      <ServicesShowcase lang={lang} />
+      <ServicesShowcase lang={lang} roxImageSrc={roxImageSrc} />
 
       {/* ── CAR MODELS ── */}
       <section className="section" id="car-models">

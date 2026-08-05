@@ -2585,15 +2585,61 @@ button {
   box-shadow: none;
 }
 
-.rox-offer__media {
+.rox-offer__visual {
   position: relative;
-  min-height: 610px;
+  min-height: 580px;
+  overflow: hidden;
   background: #050608;
 }
 
-.rox-offer__image {
-  object-fit: contain;
+.rox-offer__visual::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 6, 8, 0.12) 35%, rgba(5, 6, 8, 0.9) 100%);
+  content: '';
+  pointer-events: none;
+}
+
+.rox-offer__vehicle {
+  object-fit: cover;
   object-position: center;
+  filter: saturate(0.85) brightness(0.82);
+}
+
+.rox-offer__visual-title {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1.5rem, 4vw, 2.5rem);
+  inset-inline-start: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  color: #d6a54e;
+  line-height: 0.85;
+}
+
+.rox-offer__visual-title strong {
+  font-family: var(--font-en-display);
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  font-weight: 400;
+}
+
+.rox-offer__visual-title span {
+  margin-top: 0.75rem;
+  padding-inline-start: 0.2rem;
+  color: #f5f2ea;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.38em;
+}
+
+.rox-offer__visual-service {
+  position: absolute;
+  z-index: 2;
+  inset-inline: clamp(1.5rem, 4vw, 2.5rem);
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  color: #f5f2ea;
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .rox-offer__content {
@@ -2649,7 +2695,7 @@ button {
 }
 
 .rox-offer__included {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0;
 }
 
 .rox-offer__items {
@@ -2657,15 +2703,26 @@ button {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
   margin-top: 0.65rem;
+  padding: 0;
+  list-style: none;
 }
 
-.rox-offer__items span,
+.rox-offer__items li,
 .rox-offer__proofs span {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   padding: 0.65rem 0.75rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.34);
   font-size: 0.72rem;
   font-weight: 800;
+}
+
+.rox-offer__items svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
 }
 
 .rox-offer__proofs {
@@ -2847,8 +2904,8 @@ button {
     grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
   }
 
-  .rox-offer__media {
-    min-height: 560px;
+  .rox-offer__visual {
+    min-height: 520px;
   }
 }
 
@@ -2918,9 +2975,9 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .rox-offer__media {
+  .rox-offer__visual {
     min-height: 0;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 16 / 10;
   }
 
   .rox-offer__content {
@@ -2943,7 +3000,7 @@ button {
     gap: 0.4rem;
   }
 
-  .rox-offer__items span,
+  .rox-offer__items li,
   .rox-offer__proofs span {
     padding: 0.6rem;
     font-size: 0.68rem;
