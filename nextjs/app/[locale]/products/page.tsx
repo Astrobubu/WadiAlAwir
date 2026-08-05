@@ -1,7 +1,17 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllProducts } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts, toProductCardProduct } from '@/lib/sanity'
 import ProductGrid from '@/components/ProductGrid'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
+import { CATEGORIES, categoryContent, isProductCategory } from '@/lib/catalog'
+import {
+  absoluteUrl,
+  isLocale,
+  localizedAlternates,
+  safeJsonLd,
+  SITE_NAME,
+} from '@/lib/seo'
 
 interface ProductsPageProps {
   params: Promise<{ locale: string }>
@@ -12,30 +22,104 @@ export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ar' }]
 }
 
-export async function generateMetadata({ params }: ProductsPageProps) {
+export async function generateMetadata({ params, searchParams }: ProductsPageProps): Promise<Metadata> {
   const { locale } = await params
+  const filters = await searchParams
+  if (!isLocale(locale)) return {}
+
+  const title =
+    locale === 'ar'
+      ? 'إكسسوارات جيتور وروكس في دبي'
+      : 'Jetour & ROX Accessories in Dubai'
+  const description =
+    locale === 'ar'
+      ? 'تصفح إكسسوارات جيتور T2 وروكس 01 وروكس أداماس حسب السيارة والفئة، مع صور وأسعار وتفاصيل التركيب في وادي العوير، دبي.'
+      : 'Browse Jetour T2, ROX 01 and ROX Adamas accessories by vehicle and category, with product images, prices and installation details in Dubai.'
+
   return {
-    title:
-      locale === 'ar'
-        ? 'المنتجات | وادي العوير لزينة السيارات'
-        : 'Products | Wadi Al Awir Car Accessories',
-    description:
-      locale === 'ar'
-        ? 'تصفح جميع إكسسوارات السيارات المتوفرة في وادي العوير، دبي'
-        : 'Browse all car accessories available at Wadi Al Awir, Dubai',
+    title,
+    description,
+    alternates: localizedAlternates(locale, '/products'),
+    robots:
+      filters.carModel || filters.category
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
+    openGraph: {
+      type: 'website',
+      locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
+      title,
+      description,
+      url: absoluteUrl(locale, '/products'),
+      siteName: SITE_NAME,
+    },
   }
 }
 
 export default async function ProductsPage({ params, searchParams }: ProductsPageProps) {
   const { locale } = await params
   const { carModel: initialCarModel, category: initialCategory } = await searchParams
-  const lang = locale as 'en' | 'ar'
+  if (!isLocale(locale)) notFound()
+  const lang = locale
 
   const t = await getTranslations()
-  const products = await getAllProducts()
+  const [products, carModels] = await Promise.all([getAllProducts(), getAllCarModels()])
+  const gridProducts = products.map(toProductCardProduct)
+  const selectedCarModel = carModels.some((model) => model.slug.current === initialCarModel)
+    ? initialCarModel
+    : undefined
+  const selectedCategory = initialCategory && isProductCategory(initialCategory)
+    ? initialCategory
+    : undefined
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        name: lang === 'ar' ? 'منتجات وادي العوير' : 'Wadi Al Awir Products',
+        description:
+          lang === 'ar'
+            ? 'إكسسوارات سيارات مرتبة حسب السيارة والفئة.'
+            : 'Car accessories organised by vehicle and category.',
+        url: absoluteUrl(lang, '/products'),
+        inLanguage: lang,
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: products.length,
+          itemListElement: products.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: product.name[lang],
+            url: absoluteUrl(lang, `/products/${product.slug.current}`),
+          })),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: lang === 'ar' ? 'الرئيسية' : 'Home',
+            item: absoluteUrl(lang),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: lang === 'ar' ? 'المنتجات' : 'Products',
+            item: absoluteUrl(lang, '/products'),
+          },
+        ],
+      },
+    ],
+  }
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(schema) }}
+      />
       {/* Page header */}
       <section className="products-page-header">
         <div className="container">
@@ -57,11 +141,50 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
       {/* Products grid with filtering */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
+          <div className="catalog-directory">
+            <section>
+              <div className="catalog-directory__heading">
+                <h2>{lang === 'ar' ? 'تسوق حسب السيارة' : 'Shop by vehicle'}</h2>
+                <p>{lang === 'ar' ? 'افتح صفحة مخصصة لسيارتك.' : 'Open a dedicated catalogue for your vehicle.'}</p>
+              </div>
+              <nav className="catalog-hubs" aria-label={lang === 'ar' ? 'موديلات السيارات' : 'Vehicle models'}>
+                {carModels.map((model) => (
+                  <Link
+                    key={model._id}
+                    href={`/${lang}/products/vehicle/${model.slug.current}`}
+                    className="catalog-hub-link"
+                  >
+                    <span>{model.name[lang]}</span>
+                    {model.productCount > 0 && <small>{model.productCount}</small>}
+                  </Link>
+                ))}
+              </nav>
+            </section>
+
+            <section>
+              <div className="catalog-directory__heading">
+                <h2>{lang === 'ar' ? 'تسوق حسب الفئة' : 'Shop by category'}</h2>
+                <p>{lang === 'ar' ? 'قارن المنتجات المتشابهة في صفحة واحدة.' : 'Compare related products on a crawlable category page.'}</p>
+              </div>
+              <nav className="catalog-hubs" aria-label={lang === 'ar' ? 'فئات المنتجات' : 'Product categories'}>
+                {CATEGORIES.map((category) => (
+                  <Link
+                    key={category}
+                    href={`/${lang}/products/category/${category}`}
+                    className="catalog-hub-link"
+                  >
+                    {categoryContent[category].name[lang]}
+                  </Link>
+                ))}
+              </nav>
+            </section>
+          </div>
+
           <ProductGrid
-            products={products}
+            products={gridProducts}
             lang={lang}
-            initialCarModel={initialCarModel}
-            initialCategory={initialCategory}
+            initialCarModel={selectedCarModel}
+            initialCategory={selectedCategory}
           />
         </div>
       </section>

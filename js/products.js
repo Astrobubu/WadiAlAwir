@@ -1659,7 +1659,7 @@ const CAR_MODELS = [
     name: { en: "ROX Adamas", ar: "روكس أداماس" },
     years: "2024-2025",
     heroImage: "assets/cars/rox-01.jpg",
-    productCount: 5
+    productCount: 10
   }
 ];
 

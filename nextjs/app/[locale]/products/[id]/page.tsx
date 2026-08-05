@@ -1,11 +1,19 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllProducts, getProductById, getRelatedProducts, urlFor } from '@/lib/sanity'
+import { getAllProducts, getProductById, getRelatedProducts, toProductCardProduct, urlFor } from '@/lib/sanity'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ProductGallery from '@/components/ProductGallery'
 import ProductWhatsAppButton from '@/components/ProductWhatsAppButton'
 import ProductCard from '@/components/ProductCard'
+import { getCategoryContent } from '@/lib/catalog'
+import {
+  absoluteUrl,
+  isLocale,
+  localizedAlternates,
+  safeJsonLd,
+  SITE_NAME,
+} from '@/lib/seo'
 
 interface ProductDetailProps {
   params: Promise<{ locale: string; id: string }>
@@ -23,7 +31,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProductDetailProps): Promise<Metadata> {
   const { locale, id } = await params
-  const lang = locale as 'en' | 'ar'
+  if (!isLocale(locale)) return {}
+  const lang = locale
   const product = await getProductById(id)
 
   if (!product) {
@@ -37,13 +46,17 @@ export async function generateMetadata({ params }: ProductDetailProps): Promise<
     : undefined
 
   return {
-    title: `${name} | Wadi Al Awir`,
+    title: name,
     description,
+    alternates: localizedAlternates(lang, `/products/${id}`),
     openGraph: {
       title: name,
       description,
       images: imageUrl ? [{ url: imageUrl, width: 1200, height: 630, alt: name }] : [],
       type: 'website',
+      locale: lang === 'ar' ? 'ar_AE' : 'en_AE',
+      url: absoluteUrl(lang, `/products/${id}`),
+      siteName: SITE_NAME,
     },
     twitter: {
       card: 'summary_large_image',
@@ -56,7 +69,8 @@ export async function generateMetadata({ params }: ProductDetailProps): Promise<
 
 export default async function ProductDetailPage({ params }: ProductDetailProps) {
   const { locale, id } = await params
-  const lang = locale as 'en' | 'ar'
+  if (!isLocale(locale)) notFound()
+  const lang = locale
 
   const [product, t] = await Promise.all([
     getProductById(id),
@@ -73,6 +87,8 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
   const description = product.description[lang]
   const features = product.features?.[lang] ?? []
   const carModelName = product.carModel?.name?.[lang] ?? ''
+  const carModelSlug = product.carModel?.slug?.current ?? ''
+  const category = getCategoryContent(product.category)
 
   const galleryImages = (product.images ?? []).map((img) => ({
     url: urlFor(img).width(900).height(900).fit('max').url(),
@@ -88,24 +104,63 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
 
   const schemaProduct = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name,
-    description,
-    image: galleryImages.map((img) => img.url),
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: product.currency ?? 'AED',
-      price: product.price,
-      availability: 'https://schema.org/InStock',
-      seller: { '@type': 'AutoPartsStore', name: 'Wadi Al Awir Car Accessories' },
-    },
+    '@graph': [
+      {
+        '@type': 'Product',
+        '@id': absoluteUrl(lang, `/products/${id}`),
+        url: absoluteUrl(lang, `/products/${id}`),
+        sku: product.slug.current,
+        name,
+        description,
+        category: category?.name[lang],
+        image: galleryImages.map((img) => img.url),
+        offers: {
+          '@type': 'Offer',
+          url: absoluteUrl(lang, `/products/${id}`),
+          priceCurrency: product.currency ?? 'AED',
+          price: product.price,
+          seller: { '@type': 'AutoPartsStore', name: SITE_NAME },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: lang === 'ar' ? 'الرئيسية' : 'Home',
+            item: absoluteUrl(lang),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: lang === 'ar' ? 'المنتجات' : 'Products',
+            item: absoluteUrl(lang, '/products'),
+          },
+          ...(category
+            ? [{
+                '@type': 'ListItem',
+                position: 3,
+                name: category.name[lang],
+                item: absoluteUrl(lang, `/products/category/${category.slug}`),
+              }]
+            : []),
+          {
+            '@type': 'ListItem',
+            position: category ? 4 : 3,
+            name,
+            item: absoluteUrl(lang, `/products/${id}`),
+          },
+        ],
+      },
+    ],
   }
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaProduct) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(schemaProduct) }}
       />
 
       <section className="product-page">
@@ -120,6 +175,17 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
               {t('nav.products')}
             </Link>
             <span className="breadcrumb__sep">/</span>
+            {category && (
+              <>
+                <Link
+                  href={`/${locale}/products/category/${category.slug}`}
+                  className="breadcrumb__link"
+                >
+                  {category.name[lang]}
+                </Link>
+                <span className="breadcrumb__sep">/</span>
+              </>
+            )}
             <span className="breadcrumb__current">{name}</span>
           </nav>
 
@@ -134,14 +200,17 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
             <div className="product-page__info">
               {/* Car model badge */}
               {carModelName && (
-                <div className="product-page__car-badge">
+                <Link
+                  href={`/${locale}/products/vehicle/${carModelSlug}`}
+                  className="product-page__car-badge"
+                >
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                     <path d="M5 17h14M7 11l1.5-4h7L17 11M5 11h14v6H5z"/>
                     <circle cx="7.5" cy="17" r="1.5"/>
                     <circle cx="16.5" cy="17" r="1.5"/>
                   </svg>
                   <span>{carModelName}{product.carYear ? ` ${product.carYear}` : ''}</span>
-                </div>
+                </Link>
               )}
 
               <h1 className="product-page__title">{name}</h1>
@@ -191,7 +260,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
             </h2>
             <div className="related-grid">
               {relatedProducts.map((rp) => (
-                <ProductCard key={rp._id} product={rp} lang={lang} />
+                <ProductCard key={rp._id} product={toProductCardProduct(rp)} lang={lang} />
               ))}
             </div>
           </div>

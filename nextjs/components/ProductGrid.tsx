@@ -1,23 +1,17 @@
 'use client'
 
 import { useState, useMemo, useRef, useEffect } from 'react'
-import type { Product } from '../lib/sanity'
+import type { ProductCardProduct } from '../lib/sanity'
 import ProductCard from './ProductCard'
 
 interface ProductGridProps {
-  products: Product[]
+  products: ProductCardProduct[]
   lang: 'en' | 'ar'
   initialCarModel?: string
   initialCategory?: string
 }
 
 type CategoryFilter = 'all' | 'exterior' | 'interior' | 'lighting' | 'utility'
-
-const CAR_MODEL_OPTIONS = [
-  { id: 'all',           label: { en: 'All Vehicles', ar: 'كل السيارات' } },
-  { id: 'jetour-t2',    label: { en: 'Jetour T2',    ar: 'جيتور T2'   } },
-  { id: 'jetour-rox-01', label: { en: 'ROX 01',      ar: 'روكس 01'    } },
-]
 
 const CATEGORY_OPTIONS: Array<{ id: CategoryFilter; label: Record<'en' | 'ar', string> }> = [
   { id: 'all',      label: { en: 'All Categories', ar: 'كل الفئات'  } },
@@ -55,7 +49,21 @@ export default function ProductGrid({
 
   const isRTL = lang === 'ar'
 
-  const selectedCar = CAR_MODEL_OPTIONS.find((o) => o.id === carModel)!
+  const carModelOptions = useMemo(() => {
+    const uniqueModels = new Map<string, { en: string; ar: string }>()
+    for (const product of products) {
+      const slug = product.carModel?.slug?.current
+      const name = product.carModel?.name
+      if (slug && name && !uniqueModels.has(slug)) uniqueModels.set(slug, name)
+    }
+
+    return [
+      { id: 'all', label: { en: 'All Vehicles', ar: 'كل السيارات' } },
+      ...Array.from(uniqueModels, ([id, label]) => ({ id, label })),
+    ]
+  }, [products])
+
+  const selectedCar = carModelOptions.find((o) => o.id === carModel) ?? carModelOptions[0]
   const selectedCat = CATEGORY_OPTIONS.find((o) => o.id === category)!
 
   const filtered = useMemo(() => {
@@ -95,7 +103,7 @@ export default function ProductGrid({
           </button>
           {carDropdown.open && (
             <ul className="filter-dropdown__panel" role="listbox" aria-label={isRTL ? 'السيارة' : 'Vehicle'}>
-              {CAR_MODEL_OPTIONS.map((opt) => (
+              {carModelOptions.map((opt) => (
                 <li key={opt.id}>
                   <button
                     type="button"

@@ -20,7 +20,7 @@ export interface CartItem {
   name: LocaleString
   price: number
   qty: number
-  thumbnail: any
+  thumbnailUrl: string | null
   variant?: LocaleString
 }
 
@@ -92,7 +92,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 
 const CartContext = createContext<CartContextValue | null>(null)
 
-const STORAGE_KEY = 'wadi-cart'
+const STORAGE_KEY = 'wadi-cart-v2'
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [] })

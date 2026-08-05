@@ -1,12 +1,21 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllCarModels, getAllProducts, getAllServices, urlFor } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts, getAllServices, toProductCardProduct, urlFor } from '@/lib/sanity'
 import type { CarModel, Service } from '@/lib/sanity'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import ProductGrid from '@/components/ProductGrid'
+import { notFound } from 'next/navigation'
 import FaqAccordion from '@/components/FaqAccordion'
 import { WA_NUMBERS, getServiceWhatsAppMessage } from '@/lib/whatsapp'
 import ProductCard from '@/components/ProductCard'
+import { getAllArticles } from '@/lib/articles'
+import {
+  absoluteUrl,
+  isLocale,
+  localizedAlternates,
+  safeJsonLd,
+  SITE_NAME,
+} from '@/lib/seo'
 
 interface HomePageProps {
   params: Promise<{ locale: string }>
@@ -14,6 +23,34 @@ interface HomePageProps {
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ar' }]
+}
+
+export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
+  const { locale } = await params
+  if (!isLocale(locale)) return {}
+
+  const title =
+    locale === 'ar'
+      ? 'وادي العوير لزينة السيارات في دبي'
+      : 'Jetour & ROX Car Accessories in Dubai'
+  const description =
+    locale === 'ar'
+      ? 'إكسسوارات جيتور T2 وروكس 01 وروكس أداماس، مع تظليل الزجاج وخدمات العناية والتركيب في العوير، دبي. تصفح المنتجات واطلب عبر واتساب.'
+      : 'Shop Jetour T2, ROX 01 and ROX Adamas accessories, with window tinting, car care and installation support in Al Awir, Dubai.'
+
+  return {
+    title,
+    description,
+    alternates: localizedAlternates(locale),
+    openGraph: {
+      type: 'website',
+      locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
+      title,
+      description,
+      url: absoluteUrl(locale),
+      siteName: SITE_NAME,
+    },
+  }
 }
 
 function ServiceIcon({ icon }: { icon: Service['icon'] }) {
@@ -35,16 +72,19 @@ function ServiceIcon({ icon }: { icon: Service['icon'] }) {
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
-  const lang = locale as 'en' | 'ar'
+  if (!isLocale(locale)) notFound()
+  const lang = locale
   const t = await getTranslations()
 
-  const [carModels, products, services] = await Promise.all([
+  const [carModels, products, services, articles] = await Promise.all([
     getAllCarModels(),
     getAllProducts(),
     getAllServices(),
+    getAllArticles(),
   ])
 
   const featuredProducts = products.slice(0, 8)
+  const featuredArticle = articles[0]
   const primaryWaNumber = WA_NUMBERS[0].id
 
   const faqItems = [
@@ -65,8 +105,36 @@ export default async function HomePage({ params }: HomePageProps) {
   const reviewAuthors = ['Nazim Malik', 'Saeed Al Emad', 'Ahmed K.', 'Mohammad R.']
   const reviewStars = [5, 5, 5, 4]
 
+  const storeSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AutoPartsStore',
+    name: SITE_NAME,
+    alternateName: 'وادي العوير لزينة السيارات',
+    url: absoluteUrl(lang),
+    telephone: '+971553573156',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '5GHV+FR2, Al Awir 1',
+      addressLocality: 'Dubai',
+      addressRegion: 'Dubai',
+      addressCountry: 'AE',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 25.1786535,
+      longitude: 55.5445376,
+    },
+    openingHours: 'Mo-Su 09:00-23:00',
+    sameAs: ['https://www.instagram.com/wadi_alawir/'],
+    availableLanguage: ['en', 'ar'],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(storeSchema) }}
+      />
       {/* ── HERO ── */}
       <section className="hero" id="hero">
         <div className="hero__particles" aria-hidden="true" />
@@ -183,7 +251,7 @@ export default async function HomePage({ params }: HomePageProps) {
             {carModels.map((car: CarModel) => (
               <Link
                 key={car._id}
-                href={`/${locale}/products?carModel=${car.slug.current}`}
+                href={`/${locale}/products/vehicle/${car.slug.current}`}
                 className="car-card"
               >
                 <div className="car-card__image-wrap">
@@ -225,13 +293,39 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
           <div className="product-grid">
             {featuredProducts.map((product) => (
-              <ProductCard key={product._id} product={product} lang={lang} />
+              <ProductCard key={product._id} product={toProductCardProduct(product)} lang={lang} />
             ))}
           </div>
           <div className="section-cta">
             <Link href={`/${locale}/products`} className="btn btn--primary btn--lg">
               {t('products.viewAll')}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BUYING GUIDE ── */}
+      <section className="section section--alt home-guide" id="guide">
+        <div className="container home-guide__inner">
+          <div className="home-guide__copy">
+            <span className="section-header__label">
+              {lang === 'ar' ? 'دليل وادي العوير' : 'WADI AL AWIR GUIDE'}
+            </span>
+            <h2 className="section-title">{featuredArticle.title[lang]}</h2>
+            <p>{featuredArticle.excerpt[lang]}</p>
+            <div className="home-guide__actions">
+              <Link href={`/${lang}/blog/${featuredArticle.slug}`} className="btn btn--primary">
+                {lang === 'ar' ? 'اقرأ الدليل' : 'Read the guide'}
+              </Link>
+              <Link href={`/${lang}/blog`} className="btn btn--outline">
+                {lang === 'ar' ? 'جميع المقالات' : 'All guides'}
+              </Link>
+            </div>
+          </div>
+          <div className="home-guide__steps" aria-label={lang === 'ar' ? 'خطوات الاختيار' : 'Buying steps'}>
+            <div><span>01</span><p>{lang === 'ar' ? 'حدد ما تريد حمايته أو تحسينه.' : 'Define what you want to protect or improve.'}</p></div>
+            <div><span>02</span><p>{lang === 'ar' ? 'أكد الموديل والمقاس وطريقة التثبيت.' : 'Confirm the model, fit and mounting method.'}</p></div>
+            <div><span>03</span><p>{lang === 'ar' ? 'افحص النتيجة قبل استلام السيارة.' : 'Inspect the result before vehicle handover.'}</p></div>
           </div>
         </div>
       </section>
