@@ -134,13 +134,6 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="hero__overlay" />
         <p className="hero__eyebrow">{t('hero.eyebrow')}</p>
 
-        <div className="hero__index" aria-hidden="true">
-          <span className="hero__index-line" />
-          <span className="hero__index-current">01</span>
-          <span>02</span>
-          <span>03</span>
-        </div>
-
         <p className="hero__philosophy">
           <span>{t('hero.mantra.car')}</span>
           <span>{t('hero.mantra.style')}</span>
