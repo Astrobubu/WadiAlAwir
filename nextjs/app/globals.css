@@ -1337,9 +1337,15 @@ button {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
+.car-card__image-wrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
 .car-card__image {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
+  aspect-ratio: auto;
   object-fit: cover;
   background: var(--bg-elevated);
   image-rendering: auto;
@@ -3219,7 +3225,8 @@ button {
 }
 
 [dir="rtl"] .car-card__name {
-  font-family: var(--font-ar-display);
+  font-family: var(--font-ar-body);
+  font-weight: 700;
   letter-spacing: 0;
 }
 

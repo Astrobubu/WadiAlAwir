@@ -239,6 +239,8 @@ export default async function HomePage({ params }: HomePageProps) {
                       height={400}
                       className="car-card__image"
                       loading="lazy"
+                      quality={95}
+                      sizes="(min-width: 768px) 320px, 80vw"
                     />
                   ) : (
                     <div className="car-card__image" style={{ background: 'var(--bg-elevated)' }} />
