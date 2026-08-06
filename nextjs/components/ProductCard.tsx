@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { ProductCardProduct } from '../lib/sanity'
-import AddToCartButton from './AddToCartButton'
+import WAOrderButton from './WAOrderButton'
 
 interface ProductCardProps {
   product: ProductCardProduct
@@ -53,15 +53,10 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
         </div>
 
         <div className="product-card__actions">
-          <AddToCartButton
-            product={{
-              id: product._id,
-              slug: product.slug.current,
-              name: product.name,
-              price: product.price,
-              thumbnailUrl: product.thumbnailUrl,
-            }}
-            locale={lang}
+          <WAOrderButton
+            product={product}
+            lang={lang}
+            className="btn btn--whatsapp product-card__btn-order"
           />
         </div>
       </div>

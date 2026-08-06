@@ -1,7 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { CartProvider } from '@/components/CartContext'
 import Navbar from '@/components/Navbar'
 import FabWhatsApp from '@/components/FabWhatsApp'
 import Footer from '@/components/Footer'
@@ -31,13 +30,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <CartProvider>
-        <Navbar />
-        <main>{children}</main>
-        <Footer lang={lang} />
-        <FabWhatsApp lang={lang} />
-        <ScrollAnimations />
-      </CartProvider>
+      <Navbar />
+      <main>{children}</main>
+      <Footer lang={lang} />
+      <FabWhatsApp lang={lang} />
+      <ScrollAnimations />
     </NextIntlClientProvider>
   )
 }

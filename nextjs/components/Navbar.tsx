@@ -4,21 +4,16 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import { usePathname, useRouter } from '@/i18n/navigation'
-import { useCart } from './CartContext'
-import CartDrawer from './CartDrawer'
 
 export default function Navbar() {
   const t = useTranslations('nav')
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-  const { items, isCartOpen, openCart, closeCart } = useCart()
-
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
 
-  const totalItems = items.reduce((sum, item) => sum + item.qty, 0)
   const isRTL = locale === 'ar'
   const isHome = pathname === '/'
 
@@ -41,11 +36,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setMenuOpen(false); closeCart() }
+      if (e.key === 'Escape') setMenuOpen(false)
     }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
-  }, [closeCart])
+  }, [])
 
   function switchLanguage() {
     const nextLocale = locale === 'en' ? 'ar' : 'en'
@@ -110,22 +105,6 @@ export default function Navbar() {
             </button>
 
             <button
-              className={`cart-btn${totalItems > 0 ? ' cart-btn--bounce' : ''}`}
-              onClick={openCart}
-              type="button"
-              aria-label={`Cart (${totalItems} items)`}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-              {totalItems > 0 && (
-                <span className="cart-badge" aria-live="polite">{totalItems}</span>
-              )}
-            </button>
-
-            <button
               className="navbar__hamburger"
               onClick={() => setMenuOpen((v) => !v)}
               type="button"
@@ -161,13 +140,6 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-
-      {/* Cart drawer — always in DOM so CSS transition plays */}
-      <CartDrawer
-        lang={locale as 'en' | 'ar'}
-        isOpen={isCartOpen}
-        onClose={closeCart}
-      />
     </>
   )
 }

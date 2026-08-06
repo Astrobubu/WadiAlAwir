@@ -136,6 +136,7 @@ export interface ProductCardProduct {
     slug: { current: string }
     name: LocaleString
   }
+  carYear?: string
   price: number
   currency: string
   category: Product['category']
@@ -153,6 +154,7 @@ export function toProductCardProduct(product: Product): ProductCardProduct {
     carModel: product.carModel
       ? { slug: product.carModel.slug, name: product.carModel.name }
       : undefined,
+    carYear: product.carYear,
     price: product.price,
     currency: product.currency,
     category: product.category,

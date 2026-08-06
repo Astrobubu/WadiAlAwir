@@ -3,10 +3,18 @@
 import { useState } from 'react'
 import WAPickerModal from './WAPickerModal'
 import { getProductWhatsAppMessage } from '../lib/whatsapp'
-import type { Product } from '../lib/sanity'
+import type { LocaleString } from '../lib/sanity'
+
+interface WhatsAppOrderProduct {
+  _id: string
+  name: LocaleString
+  price: number
+  carModel?: { name: LocaleString }
+  carYear?: string
+}
 
 interface WAOrderButtonProps {
-  product: Product
+  product: WhatsAppOrderProduct
   lang: 'en' | 'ar'
   className?: string
   label?: string
