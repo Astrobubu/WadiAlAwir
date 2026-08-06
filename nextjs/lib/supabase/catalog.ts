@@ -293,7 +293,7 @@ async function loadSupabaseCatalogue(): Promise<{
 
 const getCachedSupabaseCatalogue = unstable_cache(
   loadSupabaseCatalogue,
-  ['wadi-public-catalogue-v4'],
+  ['wadi-public-catalogue-v5'],
   { revalidate: 300, tags: ['wadi-catalogue'] }
 )
 

@@ -1120,6 +1120,29 @@ const PRODUCTS = [
   {
     id: "rox-01-grill-protector",
     name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
+    carModel: "jetour-rox-01",
+    carYear: "2024-2025",
+    price: 550,
+    currency: "AED",
+    warranty: null,
+    category: "exterior",
+    description: {
+      en: "Honeycomb mesh front grill protector for Jetour ROX 01. Shields the radiator and grille from stone chips, insects, and road debris while keeping the factory look.",
+      ar: "واقي شبك أمامي بنمط خلية نحل لجيتور روكس 01. يحمي الشبك والرديتر من الحصى والحشرات والمخلفات مع الحفاظ على المظهر الأصلي"
+    },
+    features: {
+      en: ["Honeycomb mesh design", "Protects from stone chips and debris", "Custom fit for ROX 01", "Easy bolt-on installation", "Preserves factory look"],
+      ar: ["تصميم شبكي بنمط خلية نحل", "يحمي من الحصى والمخلفات", "مقاس مخصص لروكس 01", "تركيب سهل بالمسامير", "يحافظ على المظهر الأصلي"]
+    },
+    images: [
+      "Grill Protector Jetour ROX 01/jetour-rox-adamas-grill-protector-parts.png"
+    ],
+    thumbnail: "Grill Protector Jetour ROX 01/jetour-rox-adamas-grill-protector-parts.png",
+    badge: null
+  },
+  {
+    id: "rox-adamas-grill-protector",
+    name: { en: "Front Grill Protector", ar: "واقي شبك أمامي" },
     carModel: "jetour-rox-adamas",
     carYear: "2024-2025",
     price: 650,
