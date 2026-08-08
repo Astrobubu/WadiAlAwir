@@ -35,6 +35,7 @@ export default function FabWhatsApp({ lang }: FabWhatsAppProps) {
         onClose={() => setOpen(false)}
         encodedMessage={message}
         lang={lang}
+        eventLabel="fab"
       />
     </>
   )

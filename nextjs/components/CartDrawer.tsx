@@ -191,6 +191,7 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
         onClose={() => setWaOpen(false)}
         encodedMessage={cartWhatsAppMessage}
         lang={lang}
+        eventLabel="cart"
       />
     </>
   )

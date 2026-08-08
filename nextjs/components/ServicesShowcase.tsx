@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import type { ReactNode } from 'react'
 import { WA_NUMBERS } from '@/lib/whatsapp'
+import WATrackedLink from './WATrackedLink'
 import { absoluteUrl, safeJsonLd } from '@/lib/seo'
 
 type ServiceLang = 'en' | 'ar'
@@ -208,9 +209,9 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
               <strong className="tint-offer__proof">{t.offerProof}</strong>
               <PriceTiles lang={lang} />
               <div className="tint-offer__action">
-                <a className="service-cta service-cta--gold" href={whatsappHref(t.offerLabel, lang)} target="_blank" rel="noopener noreferrer">
+                <WATrackedLink className="service-cta service-cta--gold" href={whatsappHref(t.offerLabel, lang)} eventLabel="service:tint_offer">
                   <span>{t.offerCta}</span><span aria-hidden="true">{arrow}</span>
-                </a>
+                </WATrackedLink>
                 <small>{t.offerNote}</small>
               </div>
             </div>
@@ -260,9 +261,9 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
                 <span>{t.roxService}</span>
                 <span>{t.roxWarranty}</span>
               </div>
-              <a className="rox-offer__cta" href={whatsappHref(t.roxLabel, lang)} target="_blank" rel="noopener noreferrer">
+              <WATrackedLink className="rox-offer__cta" href={whatsappHref(t.roxLabel, lang)} eventLabel="service:rox_offer">
                 <span>{t.roxCta}</span><span aria-hidden="true">{arrow}</span>
-              </a>
+              </WATrackedLink>
             </div>
           </article>
         </div>
@@ -297,9 +298,9 @@ export default function ServicesShowcase({ lang }: { lang: ServiceLang }) {
                       <strong>{service.price.toLocaleString(lang === 'ar' ? 'ar-AE' : 'en-AE')}</strong>
                       <small>{t.currency}</small>
                     </div>
-                    <a className="service-cta" href={whatsappHref(service.title[lang], lang)} target="_blank" rel="noopener noreferrer">
+                    <WATrackedLink className="service-cta" href={whatsappHref(service.title[lang], lang)} eventLabel={`service:${service.title.en}`}>
                       <span>{service.cta[lang]}</span><span aria-hidden="true">{arrow}</span>
-                    </a>
+                    </WATrackedLink>
                   </div>
                 </div>
               </article>

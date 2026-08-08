@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isLocale, localizedAlternates } from '@/lib/seo'
+import WATrackedLink from '@/components/WATrackedLink'
 
 interface ReturnsPageProps {
   params: Promise<{ locale: string }>
@@ -65,14 +66,13 @@ export default async function ReturnsPage({ params }: ReturnsPageProps) {
             ? 'أرسل رقم الفاتورة وتفاصيل المنتج وصوراً توضح الحالة عند الحاجة.'
             : 'Send the receipt number, product details and photos showing the condition when relevant.'}
         </p>
-        <a
+        <WATrackedLink
           className="btn btn--whatsapp"
           href={`https://wa.me/971553573156?text=${message}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          eventLabel="returns_page"
         >
           {isArabic ? 'تواصل عبر واتساب' : 'Contact us on WhatsApp'}
-        </a>
+        </WATrackedLink>
       </article>
     </main>
   )

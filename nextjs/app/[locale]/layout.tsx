@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import FabWhatsApp from '@/components/FabWhatsApp'
 import Footer from '@/components/Footer'
 import ScrollAnimations from '@/components/ScrollAnimations'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const LOCALES = ['en', 'ar'] as const
 type Locale = (typeof LOCALES)[number]
@@ -35,6 +36,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <Footer lang={lang} />
       <FabWhatsApp lang={lang} />
       <ScrollAnimations />
+      <GoogleAnalytics />
     </NextIntlClientProvider>
   )
 }

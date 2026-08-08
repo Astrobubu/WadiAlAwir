@@ -71,6 +71,7 @@ export default function WAOrderButton({
         onClose={() => setOpen(false)}
         encodedMessage={encodedMessage}
         lang={lang}
+        eventLabel={`product:${product._id}`}
       />
     </>
   )
