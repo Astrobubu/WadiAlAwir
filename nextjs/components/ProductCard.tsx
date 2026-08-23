@@ -58,6 +58,8 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
               id: product._id,
               slug: product.slug.current,
               name: product.name,
+              vehicle: product.carModel?.name,
+              carYear: product.carYear,
               price: product.price,
               thumbnailUrl: product.thumbnailUrl,
             }}

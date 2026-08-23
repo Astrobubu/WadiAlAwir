@@ -71,7 +71,15 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
 
   const cartWhatsAppMessage = items.length > 0
     ? getCartWhatsAppMessage(
-        items.map((i) => ({ id: i.id, name: i.name, price: i.price, qty: i.qty, variant: i.variant })),
+        items.map((i) => ({
+          id: i.id,
+          name: i.name,
+          vehicle: i.vehicle,
+          carYear: i.carYear,
+          price: i.price,
+          qty: i.qty,
+          variant: i.variant,
+        })),
         lang
       )
     : ''

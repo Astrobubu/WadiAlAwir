@@ -19,6 +19,8 @@ export interface CartItem {
   id: string
   slug: string
   name: LocaleString
+  vehicle?: LocaleString
+  carYear?: string
   price: number
   qty: number
   thumbnailUrl: string | null
@@ -96,7 +98,8 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 
 const CartContext = createContext<CartContextValue | null>(null)
 
-const STORAGE_KEY = 'wadi-cart-v2'
+// v3 adds vehicle details required by the WhatsApp order message.
+const STORAGE_KEY = 'wadi-cart-v3'
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [] })

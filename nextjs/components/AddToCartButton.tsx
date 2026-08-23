@@ -8,6 +8,8 @@ interface CartProduct {
   id: string
   slug: string
   name: LocaleString
+  vehicle?: LocaleString
+  carYear?: string
   price: number
   thumbnailUrl: string | null
 }
@@ -29,6 +31,8 @@ export default function AddToCartButton({ product, locale }: AddToCartButtonProp
       id: product.id,
       slug: product.slug,
       name: product.name,
+      vehicle: product.vehicle,
+      carYear: product.carYear,
       price: product.price,
       thumbnailUrl: product.thumbnailUrl,
       qty: 1,

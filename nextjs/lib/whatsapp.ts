@@ -13,6 +13,8 @@ export interface LocalizedString {
 export interface CartItem {
   id: string;
   name: LocalizedString;
+  vehicle?: LocalizedString;
+  carYear?: string;
   price: number;
   qty: number;
   variant?: LocalizedString;
@@ -78,6 +80,11 @@ export function getCartWhatsAppMessage(
           ' درهم × ' +
           item.qty
       );
+      if (item.vehicle) {
+        const vehicle = item.vehicle.ar || item.vehicle.en;
+        const year = item.carYear ? ' (' + item.carYear + ')' : '';
+        lines.push('   السيارة: ' + vehicle + year);
+      }
       total += item.price * item.qty;
     });
     lines.push('');
@@ -100,6 +107,11 @@ export function getCartWhatsAppMessage(
           ' AED × ' +
           item.qty
       );
+      if (item.vehicle) {
+        const vehicle = item.vehicle.en || item.vehicle.ar;
+        const year = item.carYear ? ' (' + item.carYear + ')' : '';
+        lines.push('   Vehicle: ' + vehicle + year);
+      }
       total += item.price * item.qty;
     });
     lines.push('');

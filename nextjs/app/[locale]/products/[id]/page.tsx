@@ -250,6 +250,8 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
                     id: product._id,
                     slug: product.slug.current,
                     name: product.name,
+                    vehicle: product.carModel?.name,
+                    carYear: product.carYear,
                     price: product.price,
                     thumbnailUrl: product.thumbnail
                       ? urlFor(product.thumbnail).width(480).height(360).format('webp').quality(80).url()
