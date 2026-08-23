@@ -10,15 +10,6 @@ export interface LocalizedString {
   ar: string;
 }
 
-export interface Product {
-  id: string;
-  name: LocalizedString;
-  price: number;
-  carModel?: string;
-  carYear?: string;
-  [key: string]: unknown;
-}
-
 export interface CartItem {
   id: string;
   name: LocalizedString;
@@ -39,36 +30,6 @@ export const WA_NUMBERS: WANumber[] = [
   { id: '971553573156', label: { en: 'Line 1', ar: 'الخط 1' } },
   { id: '971581796614', label: { en: 'Line 2', ar: 'الخط 2' } },
 ];
-
-/* ----------------------------------------------------------
-   getProductWhatsAppMessage
-   Returns a URL-encoded WhatsApp message for a product inquiry.
-   ---------------------------------------------------------- */
-export function getProductWhatsAppMessage(
-  product: Product,
-  carModelName: string,
-  lang: Lang
-): string {
-  let message: string;
-
-  if (lang === 'ar') {
-    message =
-      'السلام عليكم، أود الاستفسار عن:\n\n' +
-      'المنتج: ' + product.name.ar + '\n' +
-      'السيارة: ' + carModelName + '\n' +
-      'السعر: ' + product.price + ' درهم\n\n' +
-      'هل المنتج متوفر؟';
-  } else {
-    message =
-      "Hello, I'm interested in:\n\n" +
-      'Product: ' + product.name.en + '\n' +
-      'Vehicle: ' + carModelName + '\n' +
-      'Price: ' + product.price + ' AED\n\n' +
-      'Is this available?';
-  }
-
-  return encodeURIComponent(message);
-}
 
 /* ----------------------------------------------------------
    getServiceWhatsAppMessage

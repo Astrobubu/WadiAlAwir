@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ProductGallery from '@/components/ProductGallery'
-import ProductWhatsAppButton from '@/components/ProductWhatsAppButton'
+import AddToCartButton from '@/components/AddToCartButton'
 import ProductCard from '@/components/ProductCard'
 import { getCategoryContent } from '@/lib/catalog'
 import {
@@ -245,7 +245,18 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
               )}
 
               <div className="product-page__actions">
-                <ProductWhatsAppButton product={product} locale={lang} />
+                <AddToCartButton
+                  product={{
+                    id: product._id,
+                    slug: product.slug.current,
+                    name: product.name,
+                    price: product.price,
+                    thumbnailUrl: product.thumbnail
+                      ? urlFor(product.thumbnail).width(480).height(360).format('webp').quality(80).url()
+                      : null,
+                  }}
+                  locale={lang}
+                />
               </div>
             </div>
           </div>
