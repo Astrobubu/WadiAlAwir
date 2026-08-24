@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import '../globals.css'
 
 export const metadata: Metadata = {
   title: 'Admin',
@@ -6,5 +7,11 @@ export const metadata: Metadata = {
 }
 
 export default function AdminRootLayout({ children }: { children: React.ReactNode }) {
-  return <div className="admin-root">{children}</div>
+  return (
+    <html lang="en" dir="ltr">
+      <body>
+        <div className="admin-root">{children}</div>
+      </body>
+    </html>
+  )
 }

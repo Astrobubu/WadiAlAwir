@@ -1,4 +1,4 @@
-import type { LocaleString } from './sanity'
+import type { LocaleString } from './catalogue'
 
 export const CATEGORIES = ['exterior', 'interior', 'lighting', 'utility'] as const
 export type ProductCategory = (typeof CATEGORIES)[number]

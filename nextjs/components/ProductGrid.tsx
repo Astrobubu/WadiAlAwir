@@ -1,14 +1,13 @@
 'use client'
 
 import { useState, useMemo, useRef, useEffect } from 'react'
-import type { ProductCardProduct } from '../lib/sanity'
+import { useSearchParams } from 'next/navigation'
+import type { ProductCardProduct } from '../lib/catalogue'
 import ProductCard from './ProductCard'
 
 interface ProductGridProps {
   products: ProductCardProduct[]
   lang: 'en' | 'ar'
-  initialCarModel?: string
-  initialCategory?: string
 }
 
 type CategoryFilter = 'all' | 'exterior' | 'interior' | 'lighting' | 'utility'
@@ -38,9 +37,16 @@ function useDropdown() {
 export default function ProductGrid({
   products,
   lang,
-  initialCarModel = 'all',
-  initialCategory = 'all',
 }: ProductGridProps) {
+  const searchParams = useSearchParams()
+  const requestedCarModel = searchParams.get('carModel')
+  const requestedCategory = searchParams.get('category')
+  const initialCarModel = requestedCarModel && products.some(
+    (product) => product.carModel?.slug === requestedCarModel
+  ) ? requestedCarModel : 'all'
+  const initialCategory = requestedCategory && CATEGORY_OPTIONS.some(
+    (option) => option.id === requestedCategory
+  ) ? requestedCategory : 'all'
   const [carModel, setCarModel] = useState(initialCarModel)
   const [category, setCategory] = useState<CategoryFilter>(initialCategory as CategoryFilter)
 
@@ -52,7 +58,7 @@ export default function ProductGrid({
   const carModelOptions = useMemo(() => {
     const uniqueModels = new Map<string, { en: string; ar: string }>()
     for (const product of products) {
-      const slug = product.carModel?.slug?.current
+      const slug = product.carModel?.slug
       const name = product.carModel?.name
       if (slug && name && !uniqueModels.has(slug)) uniqueModels.set(slug, name)
     }
@@ -68,7 +74,7 @@ export default function ProductGrid({
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
-      const matchesCar = carModel === 'all' || p.carModel?.slug?.current === carModel
+      const matchesCar = carModel === 'all' || p.carModel?.slug === carModel
       const matchesCat = category === 'all' || p.category === category
       return matchesCar && matchesCat
     })
@@ -170,7 +176,7 @@ export default function ProductGrid({
       ) : (
         <div className="product-grid">
           {filtered.map((product) => (
-            <ProductCard key={product._id} product={product} lang={lang} />
+            <ProductCard key={product.id} product={product} lang={lang} />
           ))}
         </div>
       )}

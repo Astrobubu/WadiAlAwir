@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { ProductCardProduct } from '../lib/sanity'
+import type { ProductCardProduct } from '../lib/catalogue'
 import AddToCartButton from './AddToCartButton'
 
 interface ProductCardProps {
@@ -14,7 +14,7 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
 
   const thumbSrc = product.thumbnailUrl
 
-  const detailHref = `/${lang}/products/${product.slug.current}`
+  const detailHref = `/${lang}/products/${product.slug}`
 
   return (
     <article className="product-card">
@@ -55,8 +55,8 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
         <div className="product-card__actions">
           <AddToCartButton
             product={{
-              id: product._id,
-              slug: product.slug.current,
+              id: product.id,
+              slug: product.slug,
               name: product.name,
               vehicle: product.carModel?.name,
               carYear: product.carYear,

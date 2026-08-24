@@ -7,7 +7,7 @@ import {
   getCarModelBySlug,
   getProductsByCarModel,
   toProductCardProduct,
-} from '@/lib/sanity'
+} from '@/lib/catalogue'
 import {
   absoluteUrl,
   isLocale,
@@ -23,7 +23,7 @@ interface VehiclePageProps {
 export async function generateStaticParams() {
   const vehicles = await getAllCarModels()
   return ['en', 'ar'].flatMap((locale) =>
-    vehicles.map((vehicle) => ({ locale, vehicle: vehicle.slug.current }))
+    vehicles.map((vehicle) => ({ locale, vehicle: vehicle.slug }))
   )
 }
 
@@ -97,7 +97,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
             '@type': 'ListItem',
             position: index + 1,
             name: product.name[lang],
-            url: absoluteUrl(lang, `/products/${product.slug.current}`),
+            url: absoluteUrl(lang, `/products/${product.slug}`),
           })),
         },
       },
@@ -151,10 +151,10 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
           <nav className="catalog-hubs" aria-label={lang === 'ar' ? 'موديلات السيارات' : 'Vehicle models'}>
             {allModels.map((item) => (
               <Link
-                key={item._id}
-                href={`/${lang}/products/vehicle/${item.slug.current}`}
-                className={`catalog-hub-link${item.slug.current === vehicle ? ' catalog-hub-link--active' : ''}`}
-                aria-current={item.slug.current === vehicle ? 'page' : undefined}
+                key={item.id}
+                href={`/${lang}/products/vehicle/${item.slug}`}
+                className={`catalog-hub-link${item.slug === vehicle ? ' catalog-hub-link--active' : ''}`}
+                aria-current={item.slug === vehicle ? 'page' : undefined}
               >
                 {item.name[lang]}
               </Link>
@@ -177,7 +177,7 @@ export default async function VehiclePage({ params }: VehiclePageProps) {
 
           <div className="product-grid">
             {products.map((product) => (
-              <ProductCard key={product._id} product={toProductCardProduct(product)} lang={lang} />
+              <ProductCard key={product.id} product={toProductCardProduct(product)} lang={lang} />
             ))}
           </div>
         </div>

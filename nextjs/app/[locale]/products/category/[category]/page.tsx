@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ProductCard from '@/components/ProductCard'
 import { CATEGORIES, categoryContent, getCategoryContent } from '@/lib/catalog'
-import { getProductsByCategory, toProductCardProduct } from '@/lib/sanity'
+import { getProductsByCategory, toProductCardProduct } from '@/lib/catalogue'
 import {
   absoluteUrl,
   isLocale,
@@ -75,7 +75,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             '@type': 'ListItem',
             position: index + 1,
             name: product.name[lang],
-            url: absoluteUrl(lang, `/products/${product.slug.current}`),
+            url: absoluteUrl(lang, `/products/${product.slug}`),
           })),
         },
       },
@@ -169,7 +169,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           {products.length > 0 ? (
             <div className="product-grid">
               {products.map((product) => (
-                <ProductCard key={product._id} product={toProductCardProduct(product)} lang={lang} />
+                <ProductCard key={product.id} product={toProductCardProduct(product)} lang={lang} />
               ))}
             </div>
           ) : (

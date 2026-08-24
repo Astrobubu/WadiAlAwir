@@ -8,14 +8,10 @@ import type {
   ProductVariant,
   Service,
   ServicePackage,
-} from '@/lib/sanity'
-import { getSupabaseConfig, isSupabaseConfigured } from './config'
+} from '@/lib/catalogue'
+import { getSupabaseConfig } from './config'
 
 type JsonObject = Record<string, unknown>
-
-const VEHICLE_HERO_OVERRIDES: Record<string, string> = {
-  'jetour-rox-adamas': '/assets/vehicles/rox-adamas-card-v3.png',
-}
 
 interface VehicleRow {
   id: string
@@ -80,14 +76,6 @@ function publicClient() {
   })
 }
 
-let catalogWarningShown = false
-
-function warnOnce(message: string) {
-  if (catalogWarningShown) return
-  catalogWarningShown = true
-  console.warn(`[Supabase catalogue] ${message} Falling back to Sanity.`)
-}
-
 function externalImage(
   url: string,
   alt?: string | null
@@ -100,18 +88,17 @@ function externalImage(
 }
 
 function mapVehicle(row: VehicleRow, productCount: number): CarModel {
-  const heroUrl = VEHICLE_HERO_OVERRIDES[row.slug] ?? row.hero_url
+  if (!row.hero_url) {
+    throw new Error(`Supabase vehicle "${row.slug}" has no hero_url.`)
+  }
 
   return {
-    _id: `supabase.vehicle.${row.id}`,
-    _type: 'carModel',
-    _updatedAt: row.updated_at,
-    slug: { current: row.slug },
+    id: row.id,
+    updatedAt: row.updated_at,
+    slug: row.slug,
     name: { en: row.name_en, ar: row.name_ar },
     years: row.years,
-    heroImage: heroUrl
-      ? externalImage(heroUrl, row.name_en)
-      : externalImage('/assets/hero-wallpaper-4.jpg', row.name_en),
+    heroImage: externalImage(row.hero_url, row.name_en),
     productCount,
   }
 }
@@ -150,12 +137,14 @@ function mapProduct(row: ProductRow, vehicle: CarModel): Product {
   )
   const thumbnailRow =
     sortedImages.find((image) => image.is_thumbnail) ?? sortedImages[0]
+  if (!thumbnailRow) {
+    throw new Error(`Supabase product "${row.slug}" has no catalogue image.`)
+  }
 
   return {
-    _id: `supabase.product.${row.id}`,
-    _type: 'product',
-    _updatedAt: row.updated_at,
-    slug: { current: row.slug },
+    id: row.id,
+    updatedAt: row.updated_at,
+    slug: row.slug,
     name: { en: row.name_en, ar: row.name_ar },
     carModel: vehicle,
     carYear: row.car_year,
@@ -168,9 +157,7 @@ function mapProduct(row: ProductRow, vehicle: CarModel): Product {
       ar: row.features_ar ?? [],
     },
     images,
-    thumbnail: thumbnailRow
-      ? externalImage(thumbnailRow.public_url, thumbnailRow.alt_en ?? row.name_en)
-      : images[0] ?? externalImage('/assets/hero-wallpaper-4.jpg', row.name_en),
+    thumbnail: externalImage(thumbnailRow.public_url, thumbnailRow.alt_en ?? row.name_en),
     badge: row.badge,
     warranty: row.warranty,
     variants: (row.variants ?? [])
@@ -206,8 +193,7 @@ async function loadSupabaseCatalogue(): Promise<{
   products: Product[]
   vehicles: CarModel[]
   services: Service[]
-} | null> {
-  if (!isSupabaseConfigured) return null
+}> {
 
   const supabase = publicClient()
   const [productsResult, vehiclesResult, servicesResult] = await Promise.all([
@@ -242,14 +228,12 @@ async function loadSupabaseCatalogue(): Promise<{
   const firstError =
     productsResult.error ?? vehiclesResult.error ?? servicesResult.error
   if (firstError) {
-    warnOnce(firstError.message)
-    return null
+    throw new Error(`Supabase catalogue query failed: ${firstError.message}`)
   }
 
   const productRows = (productsResult.data ?? []) as unknown as ProductRow[]
   if (productRows.length === 0) {
-    warnOnce('No published products were returned.')
-    return null
+    throw new Error('Supabase catalogue has no published products.')
   }
 
   const vehicleRows = (vehiclesResult.data ?? []) as unknown as VehicleRow[]
@@ -262,7 +246,7 @@ async function loadSupabaseCatalogue(): Promise<{
     mapVehicle(vehicle, counts.get(vehicle.id) ?? 0)
   )
   const vehicleById = new Map(
-    vehicles.map((vehicle) => [vehicle._id.replace('supabase.vehicle.', ''), vehicle])
+    vehicles.map((vehicle) => [vehicle.id, vehicle])
   )
   const products = productRows.map((product) => {
     const vehicle =
@@ -273,9 +257,8 @@ async function loadSupabaseCatalogue(): Promise<{
 
   const services = ((servicesResult.data ?? []) as unknown as ServiceRow[]).map(
     (service): Service => ({
-      _id: `supabase.service.${service.id}`,
-      _type: 'service',
-      slug: { current: service.slug },
+      id: service.id,
+      slug: service.slug,
       name: { en: service.name_en, ar: service.name_ar },
       description: {
         en: service.description_en,
@@ -298,6 +281,5 @@ const getCachedSupabaseCatalogue = unstable_cache(
 )
 
 export const getSupabaseCatalogue = cache(async () => {
-  if (!isSupabaseConfigured) return null
   return getCachedSupabaseCatalogue()
 })

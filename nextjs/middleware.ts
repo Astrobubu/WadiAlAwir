@@ -1,7 +1,7 @@
 // Import NextResponse directly to avoid next/server.js eagerly loading ua-parser-js
 // (ua-parser-js uses __dirname which doesn't exist in Vercel Edge Runtime)
-import { NextResponse } from 'next/dist/server/web/spec-extension/response'
-import type { NextRequest } from 'next/dist/server/web/spec-extension/request'
+import { NextResponse } from 'next/dist/server/web/spec-extension/response.js'
+import type { NextRequest } from 'next/dist/server/web/spec-extension/request.js'
 import { createServerClient } from '@supabase/ssr'
 
 const locales = ['en', 'ar'] as const
@@ -91,8 +91,10 @@ export async function middleware(req: NextRequest) {
   if (pathLocale) {
     const res = NextResponse.next()
     res.headers.set(localeHeader, pathLocale)
-    res.cookies.set(cookieName, pathLocale, { sameSite: 'lax', path: '/' })
-    return refreshSupabaseSession(req, res)
+    if (localeFromCookie(req) !== pathLocale) {
+      res.cookies.set(cookieName, pathLocale, { sameSite: 'lax', path: '/' })
+    }
+    return res
   }
 
   // No locale prefix — redirect to cookie preference or default

@@ -1,10 +1,11 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllCarModels, getAllProducts, toProductCardProduct } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts, toProductCardProduct } from '@/lib/catalogue'
 import ProductGrid from '@/components/ProductGrid'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { CATEGORIES, categoryContent, isProductCategory } from '@/lib/catalog'
+import { Suspense } from 'react'
+import { CATEGORIES, categoryContent } from '@/lib/catalog'
 import {
   absoluteUrl,
   isLocale,
@@ -15,16 +16,14 @@ import {
 
 interface ProductsPageProps {
   params: Promise<{ locale: string }>
-  searchParams: Promise<{ carModel?: string; category?: string }>
 }
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ar' }]
 }
 
-export async function generateMetadata({ params, searchParams }: ProductsPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProductsPageProps): Promise<Metadata> {
   const { locale } = await params
-  const filters = await searchParams
   if (!isLocale(locale)) return {}
 
   const title =
@@ -40,10 +39,7 @@ export async function generateMetadata({ params, searchParams }: ProductsPagePro
     title,
     description,
     alternates: localizedAlternates(locale, '/products'),
-    robots:
-      filters.carModel || filters.category
-        ? { index: false, follow: true }
-        : { index: true, follow: true },
+    robots: { index: true, follow: true },
     openGraph: {
       type: 'website',
       locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
@@ -55,21 +51,14 @@ export async function generateMetadata({ params, searchParams }: ProductsPagePro
   }
 }
 
-export default async function ProductsPage({ params, searchParams }: ProductsPageProps) {
+export default async function ProductsPage({ params }: ProductsPageProps) {
   const { locale } = await params
-  const { carModel: initialCarModel, category: initialCategory } = await searchParams
   if (!isLocale(locale)) notFound()
   const lang = locale
 
   const t = await getTranslations()
   const [products, carModels] = await Promise.all([getAllProducts(), getAllCarModels()])
   const gridProducts = products.map(toProductCardProduct)
-  const selectedCarModel = carModels.some((model) => model.slug.current === initialCarModel)
-    ? initialCarModel
-    : undefined
-  const selectedCategory = initialCategory && isProductCategory(initialCategory)
-    ? initialCategory
-    : undefined
 
   const schema = {
     '@context': 'https://schema.org',
@@ -90,7 +79,7 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
             '@type': 'ListItem',
             position: index + 1,
             name: product.name[lang],
-            url: absoluteUrl(lang, `/products/${product.slug.current}`),
+            url: absoluteUrl(lang, `/products/${product.slug}`),
           })),
         },
       },
@@ -150,8 +139,8 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
               <nav className="catalog-hubs" aria-label={lang === 'ar' ? 'موديلات السيارات' : 'Vehicle models'}>
                 {carModels.map((model) => (
                   <Link
-                    key={model._id}
-                    href={`/${lang}/products/vehicle/${model.slug.current}`}
+                    key={model.id}
+                    href={`/${lang}/products/vehicle/${model.slug}`}
                     className="catalog-hub-link"
                   >
                     <span>{model.name[lang]}</span>
@@ -180,12 +169,9 @@ export default async function ProductsPage({ params, searchParams }: ProductsPag
             </section>
           </div>
 
-          <ProductGrid
-            products={gridProducts}
-            lang={lang}
-            initialCarModel={selectedCarModel}
-            initialCategory={selectedCategory}
-          />
+          <Suspense fallback={<div className="product-grid-wrapper" aria-hidden="true" />}>
+            <ProductGrid products={gridProducts} lang={lang} />
+          </Suspense>
         </div>
       </section>
     </>

@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import type { LocaleString } from '../lib/sanity'
+import type { LocaleString } from '../lib/catalogue'
 
 // ---------------------------------------------------------------------------
 // Types

@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllProducts, getProductById, getRelatedProducts, toProductCardProduct, urlFor } from '@/lib/sanity'
+import { getAllProducts, getProductById, getRelatedProducts, toProductCardProduct, urlFor } from '@/lib/catalogue'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -23,8 +23,8 @@ export async function generateStaticParams() {
   const products = await getAllProducts()
   const params: { locale: string; id: string }[] = []
   for (const product of products) {
-    params.push({ locale: 'en', id: product.slug.current })
-    params.push({ locale: 'ar', id: product.slug.current })
+    params.push({ locale: 'en', id: product.slug })
+    params.push({ locale: 'ar', id: product.slug })
   }
   return params
 }
@@ -78,7 +78,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
   ])
 
   const relatedProducts = product
-    ? await getRelatedProducts(id, product.category, product.carModel?.slug?.current ?? '')
+    ? await getRelatedProducts(id, product.category, product.carModel?.slug ?? '')
     : []
 
   if (!product) notFound()
@@ -87,7 +87,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
   const description = product.description[lang]
   const features = product.features?.[lang] ?? []
   const carModelName = product.carModel?.name?.[lang] ?? ''
-  const carModelSlug = product.carModel?.slug?.current ?? ''
+  const carModelSlug = product.carModel?.slug ?? ''
   const category = getCategoryContent(product.category)
 
   const galleryImages = (product.images ?? []).map((img) => ({
@@ -109,7 +109,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
         '@type': 'Product',
         '@id': absoluteUrl(lang, `/products/${id}`),
         url: absoluteUrl(lang, `/products/${id}`),
-        sku: product.slug.current,
+        sku: product.slug,
         name,
         description,
         category: category?.name[lang],
@@ -247,8 +247,8 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
               <div className="product-page__actions">
                 <AddToCartButton
                   product={{
-                    id: product._id,
-                    slug: product.slug.current,
+                    id: product.id,
+                    slug: product.slug,
                     name: product.name,
                     vehicle: product.carModel?.name,
                     carYear: product.carYear,
@@ -273,7 +273,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
             </h2>
             <div className="related-grid">
               {relatedProducts.map((rp) => (
-                <ProductCard key={rp._id} product={toProductCardProduct(rp)} lang={lang} />
+                <ProductCard key={rp.id} product={toProductCardProduct(rp)} lang={lang} />
               ))}
             </div>
           </div>

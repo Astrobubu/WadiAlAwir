@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 import { cache } from 'react'
 import { unstable_cache } from 'next/cache'
 import type { Article, ArticleSection } from '@/lib/articles'
-import { getSupabaseConfig, isSupabaseConfigured } from './config'
+import { getSupabaseConfig } from './config'
 
 interface ArticleRow {
   slug: string
@@ -100,10 +100,7 @@ function mapArticle(row: ArticleRow): Article {
   }
 }
 
-let warningShown = false
-
-async function loadSupabaseArticles(): Promise<Article[] | null> {
-  if (!isSupabaseConfigured) return null
+async function loadSupabaseArticles(): Promise<Article[]> {
   const { url, publishableKey } = getSupabaseConfig()
   const supabase = createClient(url, publishableKey, {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
@@ -114,15 +111,11 @@ async function loadSupabaseArticles(): Promise<Article[] | null> {
     .eq('is_published', true)
     .order('published_at', { ascending: false })
 
-  if (error || !data?.length) {
-    if (error && !warningShown) {
-      warningShown = true
-      console.warn(`[Supabase articles] ${error.message} Falling back to static articles.`)
-    }
-    return null
+  if (error) {
+    throw new Error(`Supabase articles query failed: ${error.message}`)
   }
 
-  return (data as ArticleRow[]).map(mapArticle)
+  return ((data ?? []) as ArticleRow[]).map(mapArticle)
 }
 
 const getCachedSupabaseArticles = unstable_cache(

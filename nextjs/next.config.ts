@@ -6,12 +6,6 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 const remotePatterns: NonNullable<NextConfig['images']>['remotePatterns'] = [
   {
     protocol: 'https',
-    hostname: 'cdn.sanity.io',
-    port: '',
-    pathname: '/images/**',
-  },
-  {
-    protocol: 'https',
     hostname: 'wadialawir.com',
     port: '',
     pathname: '/**',

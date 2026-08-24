@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useCart } from './CartContext'
-import type { LocaleString } from '../lib/sanity'
+import type { LocaleString } from '../lib/catalogue'
 
 interface CartProduct {
   id: string

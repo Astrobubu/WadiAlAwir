@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import { urlFor } from '../lib/sanity'
+import { urlFor } from '../lib/catalogue'
 
 interface GalleryProps {
   images: any[]

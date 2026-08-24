@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllArticles } from '@/lib/articles'
 import { CATEGORIES } from '@/lib/catalog'
-import { getAllCarModels, getAllProducts } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts } from '@/lib/catalogue'
 import { absoluteUrl } from '@/lib/seo'
 
 const CONTENT_UPDATED = new Date('2026-08-04T00:00:00+04:00')
@@ -48,8 +48,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const model of carModels) {
     entries.push(
       ...localizedEntries(
-        `/products/vehicle/${model.slug.current}`,
-        validDate(model._updatedAt, CONTENT_UPDATED)
+        `/products/vehicle/${model.slug}`,
+        validDate(model.updatedAt, CONTENT_UPDATED)
       )
     )
   }
@@ -57,8 +57,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const product of products) {
     entries.push(
       ...localizedEntries(
-        `/products/${product.slug.current}`,
-        validDate(product._updatedAt, CONTENT_UPDATED)
+        `/products/${product.slug}`,
+        validDate(product.updatedAt, CONTENT_UPDATED)
       )
     )
   }

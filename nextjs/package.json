@@ -7,26 +7,18 @@
     "build": "next build",
     "start": "next start",
     "postinstall": "node scripts/patch-next-server.cjs",
-    "typecheck": "tsc --noEmit --incremental false",
-    "catalog:dry-run": "node scripts/migrate-to-supabase.mjs",
-    "catalog:import": "node scripts/migrate-to-supabase.mjs --apply",
-    "catalog:import:r2": "node scripts/migrate-to-supabase.mjs --apply --upload-r2"
+    "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1102.0",
     "@aws-sdk/s3-request-presigner": "^3.1102.0",
-    "@sanity/client": "^6.28.0",
-    "@sanity/image-url": "^1.1.0",
     "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.112.0",
     "next": "^15.3.1",
     "next-intl": "^4.1.0",
-    "next-sanity": "^9.8.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-is": "^19.2.5",
-    "sanity": "^3.78.0",
-    "styled-components": "^6.4.1"
+    "react-is": "^19.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",

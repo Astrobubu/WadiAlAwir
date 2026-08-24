@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
-import { getAllCarModels, getAllProducts, toProductCardProduct, urlFor } from '@/lib/sanity'
-import type { CarModel } from '@/lib/sanity'
+import { getAllCarModels, getAllProducts, toProductCardProduct, urlFor } from '@/lib/catalogue'
+import type { CarModel } from '@/lib/catalogue'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -153,8 +153,8 @@ export default async function HomePage({ params }: HomePageProps) {
           <div className="car-models-grid">
             {carModels.map((car: CarModel) => (
               <Link
-                key={car._id}
-                href={`/${locale}/products/vehicle/${car.slug.current}`}
+                key={car.id}
+                href={`/${locale}/products/vehicle/${car.slug}`}
                 className="car-card"
               >
                 <div className="car-card__image-wrap">
@@ -198,7 +198,7 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
           <div className="product-grid">
             {featuredProducts.map((product) => (
-              <ProductCard key={product._id} product={toProductCardProduct(product)} lang={lang} />
+              <ProductCard key={product.id} product={toProductCardProduct(product)} lang={lang} />
             ))}
           </div>
           <div className="section-cta">
