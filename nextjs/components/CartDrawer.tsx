@@ -144,7 +144,9 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
                           onClick={() => updateQty(item.id, item.qty - 1)}
                           aria-label={isRTL ? 'تقليل' : 'Decrease'}
                         >
-                          −
+                          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M6 12h12" />
+                          </svg>
                         </button>
                         <span className="cart-item__qty">{item.qty}</span>
                         <button
@@ -153,7 +155,9 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
                           onClick={() => updateQty(item.id, item.qty + 1)}
                           aria-label={isRTL ? 'زيادة' : 'Increase'}
                         >
-                          +
+                          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 6v12M6 12h12" />
+                          </svg>
                         </button>
                         <button
                           type="button"
@@ -161,7 +165,9 @@ export default function CartDrawer({ lang, isOpen, onClose }: CartDrawerProps) {
                           onClick={() => removeItem(item.id)}
                           aria-label={`${t.remove} ${itemName}`}
                         >
-                          ×
+                          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M7 7l10 10M17 7L7 17" />
+                          </svg>
                         </button>
                       </div>
                     </div>
